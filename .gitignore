@@ -1,0 +1,12 @@
+/vendor/*
+/config/app.php
+/tmp/*
+/logs/*
+/files/*
+/downloads/*
+/uploads/*
+
+/nbproject/*
+/webroot/files/*
+/webroot/js/webview/googleanalytics.js
+/nbproject/private/
