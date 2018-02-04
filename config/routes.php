@@ -43,8 +43,9 @@ use Cake\Routing\Route\DashedRoute;
  */
 Router::defaultRouteClass(DashedRoute::class);
 
-Router::prefix('cp', function ($routes) {
-    $routes->connect('/', ['prefix'=>'Admin','controller' => 'Admin', 'action' => 'index']);
+Router::prefix('cpanel', function ($routes) {
+    $routes->connect('/', ['prefix'=>'Admin','controller' => 'Home', 'action' => 'index']);
+    $routes->connect('/confirm', ['prefix'=>'Admin','controller' => 'Admin', 'action' => 'confirmAdmin']);
     $routes->fallbacks(DashedRoute::class);
 });
 
@@ -55,6 +56,9 @@ Router::scope('/', function (RouteBuilder $routes) {
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
     $routes->connect('/', ['controller' => 'Dashboard', 'action' => 'index']);
+    $routes->connect('/login', ['controller' => 'Users', 'action' => 'login']);
+    $routes->connect('/logout', ['controller' => 'Users', 'action' => 'logout']);
+    $routes->connect('/fblogin', ['controller' => 'Users', 'action' => 'facebookLogin']);
     
     /**
      * ...and connect the rest of 'Pages' controller's URLs.

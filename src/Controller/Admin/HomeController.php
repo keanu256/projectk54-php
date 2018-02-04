@@ -1,0 +1,25 @@
+<?php
+namespace App\Controller\Admin;
+
+use App\Controller\AppController;
+use Cake\Event\Event;
+
+class HomeController extends AppController
+{
+    public function beforeFilter(Event $event) {
+        parent::beforeFilter($event);
+        $session = $this->request->session();
+
+        if($session->read('Auth.User.isAdmin') == null OR $session->read('Auth.User.isAdmin') == false){
+            return $this->redirect(['prefix'=>'Admin','controller'=>'Admin','action'=>'confirmAdmin']);       
+        }
+    }
+
+    public function index(){
+        $this->autoRender = false;
+    }
+
+    public function login(){
+        $this->viewBuilder()->layout(false);
+    }
+}
