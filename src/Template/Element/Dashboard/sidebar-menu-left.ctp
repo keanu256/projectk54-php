@@ -41,11 +41,8 @@
             if($(this).attr('menu-t') == 1){
                 $(this).closest('ul').prev('.pa-link').addClass('active');
             }
-
-            
-
             //$('.br-mainpanel').empty();
-            //$('.br-mainpanel').append('<?= $this->Element('Dashboard\footer') ?>');
+            //$('.br-mainpanel').append('<?= $this->Element('Dashboard/footer') ?>');
         });    
     });
 

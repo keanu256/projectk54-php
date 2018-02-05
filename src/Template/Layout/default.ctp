@@ -9,31 +9,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
-    <!-- Twitter -->
-    <meta name="twitter:site" content="@themepixels">
-    <meta name="twitter:creator" content="@themepixels">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Bracket">
-    <meta name="twitter:description" content="Premium Quality and Responsive UI for Dashboard.">
-    <meta name="twitter:image" content="http://themepixels.me/bracket/img/bracket-social.png">
-
-    <!-- Facebook -->
-    <meta property="og:url" content="http://themepixels.me/bracket">
-    <meta property="og:title" content="Bracket">
-    <meta property="og:description" content="Premium Quality and Responsive UI for Dashboard.">
-
-    <meta property="og:image" content="http://themepixels.me/bracket/img/bracket-social.png">
-    <meta property="og:image:secure_url" content="http://themepixels.me/bracket/img/bracket-social.png">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="600">
-
     <!-- Meta -->
-    <meta name="description" content="Premium Quality and Responsive UI for Dashboard.">
+    <meta name="description" content="Polygon Portal">
     <meta name="author" content="ThemePixels">
 
-    <title>Bracket Responsive Bootstrap 4 Admin Template</title>
+    <title>Polygon Việt Nam</title>
 
     <!-- vendor css -->
     <?= $this->Html->css('/lib/font-awesome/css/font-awesome.css'); ?>
@@ -50,7 +30,7 @@
 <body>  
     <style>
         #pre-loading{
-            background:#191918;
+            background:#ECEFF1;
             z-index: 1050;
             width: 100%;
             height: 100%;
@@ -60,8 +40,8 @@
         }
 
         #pre-loading img{
-            width: 60vh;
-            height: 60vh;
+            width: 30vh;
+            height: 30vh;
             top:50%;
             left:50%;
             transform: translate(-50%,-50%);
@@ -85,7 +65,7 @@
         }
     </style>
     <div id="pre-loading" style="">
-        <img src="https://media.giphy.com/media/dNWUv5XMJTFkI/giphy.gif">   
+        <img src="https://loading.io/spinners/azure/lg.azure-round-loader.gif">   
     </div>
     <?= $this->Element('Dashboard/sidebar-menu-left'); ?>
 
@@ -761,12 +741,12 @@
             width: 100%;
             height: 100%;
             position: fixed;
-            background: white;
+            background: #ECEFF1;
         }
         .cont-loading img{
-            width: 100;
+            width: 100px;
             height: 100px;
-            margin-left:40%;
+            margin-left:38%;
         }
     </style>                                    
     <!-- ########## START: MAIN PANEL ########## -->
