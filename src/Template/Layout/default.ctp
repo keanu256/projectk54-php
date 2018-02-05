@@ -256,7 +256,15 @@
                 <div class="dropdown">
                     <a href="" class="nav-link nav-link-profile" data-toggle="dropdown">
                         <span class="logged-name hidden-md-down"><?= $session->read('Auth.User.fullname') ?></span>
-                        <img src="http://via.placeholder.com/64x64" class="wd-32 rounded-circle" alt="">
+                        <?php if(!empty($session->read('Auth.User.avatar'))): ?>
+                            <?= $this->Html->image($session->read('Auth.User.avatar'),[
+                                'class'=>'wd-32 rounded-circle'
+                            ]) ?>
+                        <?php else: ?>
+                            <?= $this->Html->image('img11.jpg',[
+                                'class'=>'wd-32 rounded-circle'
+                            ]) ?>    
+                        <?php endif; ?>
                         <span class="square-10 bg-success"></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-header wd-200">
@@ -747,25 +755,29 @@
         <!-- tab-content -->
     </div>
     <!-- br-sideright -->
-    <!-- ########## END: RIGHT PANEL ########## --->
-
+    <!-- ########## END: RIGHT PANEL ########## -->
+    <style>
+        .cont-loading{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            background: white;
+        }
+        .cont-loading img{
+            width: 100;
+            height: 100px;
+            margin-left:40%;
+        }
+    </style>                                    
     <!-- ########## START: MAIN PANEL ########## -->
     <div class="br-mainpanel">
+        <div class="br-pageheader cont-loading">         
+            <?= $this->Html->image('cont-load.gif') ?>
+        </div>                                
         <?= $this->fetch('content'); ?>
-
-        <!-- br-pagebody -->
-        <footer class="br-footer">
-            <div class="footer-left">
-                <div class="mg-b-2">Copyright &copy; 2017. Bracket. All Rights Reserved.</div>
-                <div>Attentively and carefully made by ThemePixels.</div>
-            </div>
-            <div class="footer-right d-flex align-items-center">
-                <span class="tx-uppercase mg-r-10">Share:</span>
-                <a target="_blank" class="pd-x-5" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//themepixels.me/bracket/intro"><i class="fa fa-facebook tx-20"></i></a>
-                <a target="_blank" class="pd-x-5" href="https://twitter.com/home?status=Bracket,%20your%20best%20choice%20for%20premium%20quality%20admin%20template%20from%20Bootstrap.%20Get%20it%20now%20at%20http%3A//themepixels.me/bracket/intro"><i class="fa fa-twitter tx-20"></i></a>
-            </div>
-        </footer>
+        <!-- br-pagebody -->                                    
     </div>
+    
     <!-- br-mainpanel -->
     <!-- ########## END: MAIN PANEL ########## -->
 

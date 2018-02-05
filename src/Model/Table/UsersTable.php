@@ -38,7 +38,7 @@ class UsersTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->hasOne('Isadmin',[
+        $this->hasOne('AdminGroup',[
             'foreignKey' => 'userid',
             'propertyName' => 'adminCheck'
         ]);

@@ -8,7 +8,7 @@ use Cake\ORM\Entity;
  *
  * @property int $userid
  */
-class Isadmin extends Entity
+class AdminGroup extends Entity
 {
 
     /**

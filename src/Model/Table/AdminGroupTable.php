@@ -17,7 +17,7 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Isadmin[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Isadmin findOrCreate($search, callable $callback = null, $options = [])
  */
-class IsadminTable extends Table
+class AdminGroupTable extends Table
 {
 
     /**
@@ -30,7 +30,7 @@ class IsadminTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('isadmin');
+        $this->setTable('admin_group');
         $this->setDisplayField('userid');
         $this->setPrimaryKey('userid');
 

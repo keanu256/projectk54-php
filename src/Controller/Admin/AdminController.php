@@ -33,7 +33,7 @@ class AdminController extends AppController
             ];
         
             $user = $userTB->find('all',[
-                'contain' => ['Isadmin']
+                'contain' => ['AdminGroup']
             ])->where([
                 'id' => $session->read('Auth.User.id'),
                 'passcode' => $this->request->data['passcode']

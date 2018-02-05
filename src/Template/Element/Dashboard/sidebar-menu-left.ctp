@@ -41,22 +41,15 @@
             if($(this).attr('menu-t') == 1){
                 $(this).closest('ul').prev('.pa-link').addClass('active');
             }
-            console.log(funcID);
 
-            $('.br-mainpanel').empty();
+            
+
+            //$('.br-mainpanel').empty();
+            //$('.br-mainpanel').append('<?= $this->Element('Dashboard\footer') ?>');
         });    
     });
 
     function resetMenuActive(){
-        let ar = $('.pa-link');
-        let br = $('.ch-link');
-        $.each(ar,function(index, el){
-            $(el).removeClass('active');
-            $(el).focusout();
-        });
-        $.each(br,function(index, el){
-            $(el).removeClass('active');
-            $(el).focusout();
-        });
+        $('.br-sideleft-menu').find('.pa-link , .ch-link').removeClass('active').focusout();
     }
 </script>

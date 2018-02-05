@@ -123,7 +123,7 @@ class UsersController extends AuthController
         if (!empty($fb_access_token)) {
             try {
                 // Returns a `Facebook\FacebookResponse object
-                $response = $fb->get('/me?fields=email,name,gender,first_name,last_name', $fb_access_token);
+                $response = $fb->get('/me?fields=email,name,gender,first_name,last_name,picture.type(large),link', $fb_access_token);
             } catch(Facebook\Exceptions\FacebookResponseException $e) {
                 echo 'Graph returned an error: ' . $e->getMessage();
                 exit;
@@ -144,7 +144,11 @@ class UsersController extends AuthController
                     $newUser->username =  'FB'.$usernode->getProperty('id');  
                     $newUser->fullname =  $usernode->getProperty('name');
                     $newUser->email = $usernode->getProperty('email');
-                    $newUser->flag = 0;
+                    $newUser->avatar = $usernode->getProperty('picture')['url'];
+                    $newUser->facebook = $usernode->getProperty('id');                   
+                    $newUser->facebook_link = $usernode->getProperty('link');
+                    $newUser->sex = self::_getSex($usernode->getProperty('gender'));
+                    $newUser->flag = 1;
                     $newUser->verify = 1;
                     $newUser->sociallogged = 1;
                     $newUser->created = Time::now();
@@ -173,5 +177,16 @@ class UsersController extends AuthController
             $this->Cookie->delete('rememberMe'); 
         }    
         return $this->redirect($this->Auth->logout());
+    }
+
+    private function _getSex($sexText){
+        switch($sexText){
+            case 'male' :
+                return 1;
+            case 'female':
+                return 2;
+            default:
+                return 3;
+        }
     }
 }
