@@ -34,6 +34,7 @@
         </div><!-- form-group -->
         <button type="button" class="btn btn-info btn-block" onClick='javascipt:window.location.href="fblogin"'>Đăng nhập qua Facebook</button>        
         <button type="submit" class="btn btn-info btn-block">Mã truy cập nhanh</button>
+        <button type="button" class="btn btn-info btn-block" onClick='javascipt:window.location.href="demotest"'>TEST</button> 
       </div><!-- login-wrapper -->
     </div><!-- d-flex -->
 

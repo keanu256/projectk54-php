@@ -26,7 +26,6 @@ class UsersController extends AuthController
         parent::beforeFilter($event);
 
         $this->Auth->allow([
-            'add', 
             'logout', 
             'facebooklogin', 
             'facebookLoginCallback'

@@ -55,11 +55,11 @@ Router::scope('/', function (RouteBuilder $routes) {
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
-    $routes->connect('/', ['controller' => 'Dashboard', 'action' => 'index']);
+    $routes->connect('/', ['controller' => 'Pages', 'action' => 'index','home']);
     $routes->connect('/login', ['controller' => 'Users', 'action' => 'login']);
     $routes->connect('/logout', ['controller' => 'Users', 'action' => 'logout']);
     $routes->connect('/fblogin', ['controller' => 'Users', 'action' => 'facebookLogin']);
-    
+
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */
