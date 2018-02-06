@@ -70,5 +70,7 @@ class PagesController extends AppController
 
     public function index(){
         $this->viewBuilder()->layout('corporate');
+
+        echo "WELCOME TO TAIPHAN'S WEBSITE";
     }
 }
