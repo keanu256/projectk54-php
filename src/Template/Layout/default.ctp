@@ -100,7 +100,7 @@
                             <!-- loop starts here -->
                             <a href="" class="media-list-link">
                                 <div class="media pd-x-20 pd-y-15">
-                                    <img src="http://via.placeholder.com/280x280" class="wd-40 rounded-circle" alt="">
+                                    <img src="https://projectk54.com/img/280x280.png" class="wd-40 rounded-circle" alt="">
                                     <div class="media-body">
                                         <div class="d-flex align-items-center justify-content-between mg-b-5">
                                             <p class="mg-b-0 tx-medium tx-gray-800 tx-14">Donna Seay</p>
@@ -115,7 +115,7 @@
                             <!-- loop ends here -->
                             <a href="" class="media-list-link read">
                                 <div class="media pd-x-20 pd-y-15">
-                                    <img src="http://via.placeholder.com/280x280" class="wd-40 rounded-circle" alt="">
+                                    <img src="https://projectk54.com/img/280x280.png" class="wd-40 rounded-circle" alt="">
                                     <div class="media-body">
                                         <div class="d-flex align-items-center justify-content-between mg-b-5">
                                             <p class="mg-b-0 tx-medium tx-gray-800 tx-14">Samantha Francis</p>
@@ -129,7 +129,7 @@
                             </a>
                             <a href="" class="media-list-link read">
                                 <div class="media pd-x-20 pd-y-15">
-                                    <img src="http://via.placeholder.com/280x280" class="wd-40 rounded-circle" alt="">
+                                    <img src="https://projectk54.com/img/280x280.png" class="wd-40 rounded-circle" alt="">
                                     <div class="media-body">
                                         <div class="d-flex align-items-center justify-content-between mg-b-5">
                                             <p class="mg-b-0 tx-medium tx-gray-800 tx-14">Robert Walker</p>
@@ -143,7 +143,7 @@
                             </a>
                             <a href="" class="media-list-link read">
                                 <div class="media pd-x-20 pd-y-15">
-                                    <img src="http://via.placeholder.com/280x280" class="wd-40 rounded-circle" alt="">
+                                    <img src="https://projectk54.com/img/280x280.png" class="wd-40 rounded-circle" alt="">
                                     <div class="media-body">
                                         <div class="d-flex align-items-center justify-content-between mg-b-5">
                                             <p class="mg-b-0 tx-medium tx-gray-800 tx-14">Larry Smith</p>
@@ -182,7 +182,7 @@
                             <!-- loop starts here -->
                             <a href="" class="media-list-link read">
                                 <div class="media pd-x-20 pd-y-15">
-                                    <img src="http://via.placeholder.com/280x280" class="wd-40 rounded-circle" alt="">
+                                    <img src="https://projectk54.com/img/280x280.png" class="wd-40 rounded-circle" alt="">
                                     <div class="media-body">
                                         <p class="tx-13 mg-b-0 tx-gray-700"><strong class="tx-medium tx-gray-800">Suzzeth Bungaos</strong> tagged you and 18 others in a post.</p>
                                         <span class="tx-12">October 03, 2017 8:45am</span>
@@ -193,7 +193,7 @@
                             <!-- loop ends here -->
                             <a href="" class="media-list-link read">
                                 <div class="media pd-x-20 pd-y-15">
-                                    <img src="http://via.placeholder.com/280x280" class="wd-40 rounded-circle" alt="">
+                                    <img src="https://projectk54.com/img/280x280.png" class="wd-40 rounded-circle" alt="">
                                     <div class="media-body">
                                         <p class="tx-13 mg-b-0 tx-gray-700"><strong class="tx-medium tx-gray-800">Mellisa Brown</strong> appreciated your work <strong class="tx-medium tx-gray-800">The Social Network</strong></p>
                                         <span class="tx-12">October 02, 2017 12:44am</span>
@@ -203,7 +203,7 @@
                             </a>
                             <a href="" class="media-list-link read">
                                 <div class="media pd-x-20 pd-y-15">
-                                    <img src="http://via.placeholder.com/280x280" class="wd-40 rounded-circle" alt="">
+                                    <img src="https://projectk54.com/img/280x280.png" class="wd-40 rounded-circle" alt="">
                                     <div class="media-body">
                                         <p class="tx-13 mg-b-0 tx-gray-700">20+ new items added are for sale in your <strong class="tx-medium tx-gray-800">Sale Group</strong></p>
                                         <span class="tx-12">October 01, 2017 10:20pm</span>
@@ -213,7 +213,7 @@
                             </a>
                             <a href="" class="media-list-link read">
                                 <div class="media pd-x-20 pd-y-15">
-                                    <img src="http://via.placeholder.com/280x280" class="wd-40 rounded-circle" alt="">
+                                    <img src="https://projectk54.com/img/280x280.png" class="wd-40 rounded-circle" alt="">
                                     <div class="media-body">
                                         <p class="tx-13 mg-b-0 tx-gray-700"><strong class="tx-medium tx-gray-800">Julius Erving</strong> wants to connect with you on your conversation with <strong class="tx-medium tx-gray-800">Ronnie Mara</strong></p>
                                         <span class="tx-12">October 01, 2017 6:08pm</span>
@@ -307,7 +307,7 @@
                     <a href="" class="contact-list-link new">
                         <div class="d-flex">
                             <div class="pos-relative">
-                                <img src="http://via.placeholder.com/280x280" class="wd-40 rounded-circle" alt="">
+                                <img src="https://projectk54.com/img/280x280.png" class="wd-40 rounded-circle" alt="">
                                 <div class="contact-status-indicator bg-success"></div>
                             </div>
                             <div class="contact-person">
@@ -322,7 +322,7 @@
                     <a href="" class="contact-list-link">
                         <div class="d-flex">
                             <div class="pos-relative">
-                                <img src="http://via.placeholder.com/280x280" class="wd-40 rounded-circle" alt="">
+                                <img src="https://projectk54.com/img/280x280.png" class="wd-40 rounded-circle" alt="">
                                 <div class="contact-status-indicator bg-success"></div>
                             </div>
                             <div class="contact-person">
@@ -336,7 +336,7 @@
                     <a href="" class="contact-list-link new">
                         <div class="d-flex">
                             <div class="pos-relative">
-                                <img src="http://via.placeholder.com/280x280" class="wd-40 rounded-circle" alt="">
+                                <img src="https://projectk54.com/img/280x280.png" class="wd-40 rounded-circle" alt="">
                                 <div class="contact-status-indicator bg-success"></div>
                             </div>
                             <div class="contact-person">
@@ -351,7 +351,7 @@
                     <a href="" class="contact-list-link new">
                         <div class="d-flex">
                             <div class="pos-relative">
-                                <img src="http://via.placeholder.com/280x280" class="wd-40 rounded-circle" alt="">
+                                <img src="https://projectk54.com/img/280x280.png" class="wd-40 rounded-circle" alt="">
                                 <div class="contact-status-indicator bg-success"></div>
                             </div>
                             <div class="contact-person">
@@ -366,7 +366,7 @@
                     <a href="" class="contact-list-link">
                         <div class="d-flex">
                             <div class="pos-relative">
-                                <img src="http://via.placeholder.com/280x280" class="wd-40 rounded-circle" alt="">
+                                <img src="https://projectk54.com/img/280x280.png" class="wd-40 rounded-circle" alt="">
                                 <div class="contact-status-indicator bg-success"></div>
                             </div>
                             <div class="contact-person">
@@ -380,7 +380,7 @@
                     <a href="" class="contact-list-link">
                         <div class="d-flex">
                             <div class="pos-relative">
-                                <img src="http://via.placeholder.com/280x280" class="wd-40 rounded-circle" alt="">
+                                <img src="https://projectk54.com/img/280x280.png" class="wd-40 rounded-circle" alt="">
                                 <div class="contact-status-indicator bg-success"></div>
                             </div>
                             <div class="contact-person">
@@ -394,7 +394,7 @@
                     <a href="" class="contact-list-link">
                         <div class="d-flex">
                             <div class="pos-relative">
-                                <img src="http://via.placeholder.com/280x280" class="wd-40 rounded-circle" alt="">
+                                <img src="https://projectk54.com/img/280x280.png" class="wd-40 rounded-circle" alt="">
                                 <div class="contact-status-indicator bg-success"></div>
                             </div>
                             <div class="contact-person">
@@ -414,7 +414,7 @@
                     <a href="" class="contact-list-link">
                         <div class="d-flex">
                             <div class="pos-relative">
-                                <img src="http://via.placeholder.com/280x280" class="wd-40 rounded-circle" alt="">
+                                <img src="https://projectk54.com/img/280x280.png" class="wd-40 rounded-circle" alt="">
                                 <div class="contact-status-indicator bg-gray-500"></div>
                             </div>
                             <div class="contact-person">
@@ -428,7 +428,7 @@
                     <a href="" class="contact-list-link">
                         <div class="d-flex">
                             <div class="pos-relative">
-                                <img src="http://via.placeholder.com/280x280" class="wd-40 rounded-circle" alt="">
+                                <img src="https://projectk54.com/img/280x280.png" class="wd-40 rounded-circle" alt="">
                                 <div class="contact-status-indicator bg-gray-500"></div>
                             </div>
                             <div class="mg-l-10">
@@ -442,7 +442,7 @@
                     <a href="" class="contact-list-link">
                         <div class="d-flex">
                             <div class="pos-relative">
-                                <img src="http://via.placeholder.com/280x280" class="wd-40 rounded-circle" alt="">
+                                <img src="https://projectk54.com/img/280x280.png" class="wd-40 rounded-circle" alt="">
                                 <div class="contact-status-indicator bg-gray-500"></div>
                             </div>
                             <div class="contact-person">
@@ -456,7 +456,7 @@
                     <a href="" class="contact-list-link">
                         <div class="d-flex">
                             <div class="pos-relative">
-                                <img src="http://via.placeholder.com/280x280" class="wd-40 rounded-circle" alt="">
+                                <img src="https://projectk54.com/img/280x280.png" class="wd-40 rounded-circle" alt="">
                                 <div class="contact-status-indicator bg-gray-500"></div>
                             </div>
                             <div class="contact-person">
@@ -470,7 +470,7 @@
                     <a href="" class="contact-list-link">
                         <div class="d-flex">
                             <div class="pos-relative">
-                                <img src="http://via.placeholder.com/280x280" class="wd-40 rounded-circle" alt="">
+                                <img src="https://projectk54.com/img/280x280.png" class="wd-40 rounded-circle" alt="">
                                 <div class="contact-status-indicator bg-gray-500"></div>
                             </div>
                             <div class="contact-person">
@@ -484,7 +484,7 @@
                     <a href="" class="contact-list-link">
                         <div class="d-flex">
                             <div class="pos-relative">
-                                <img src="http://via.placeholder.com/280x280" class="wd-40 rounded-circle" alt="">
+                                <img src="https://projectk54.com/img/280x280.png" class="wd-40 rounded-circle" alt="">
                                 <div class="contact-status-indicator bg-gray-500"></div>
                             </div>
                             <div class="contact-person">
@@ -498,7 +498,7 @@
                     <a href="" class="contact-list-link">
                         <div class="d-flex">
                             <div class="pos-relative">
-                                <img src="http://via.placeholder.com/280x280" class="wd-40 rounded-circle" alt="">
+                                <img src="https://projectk54.com/img/280x280.png" class="wd-40 rounded-circle" alt="">
                                 <div class="contact-status-indicator bg-gray-500"></div>
                             </div>
                             <div class="contact-person">
