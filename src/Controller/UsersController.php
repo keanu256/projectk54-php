@@ -133,7 +133,9 @@ class UsersController extends AuthController
             $usernode = $response->getGraphUser();
   
             if (!empty($usernode)) {
-                $query = $this->Users->findByEmail($usernode->getProperty('email'))->where(['Users.flag !=' => 9])->toArray();
+                $query = $this->Users->findByEmail($usernode->getProperty('email'))
+                        ->where(['Users.flag !=' => 9])
+                        ->toArray();
                 if (empty($query)) {      
                     
                     $hasher = new DefaultPasswordHasher();

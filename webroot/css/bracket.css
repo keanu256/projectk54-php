@@ -14739,7 +14739,7 @@ textarea.parsley-success:focus {
  */
 
 .br-header {
-    height: 60px;
+    height: 45px;
     position: fixed;
     top: 0;
     right: 0;
@@ -14758,7 +14758,7 @@ textarea.parsley-success:focus {
     position: absolute;
     top: 0;
     bottom: 0;
-    left: -4px;
+    /* left: -4px; */
     width: 3px;
     background-color: #fff;
     z-index: 1040;
@@ -14883,7 +14883,7 @@ textarea.parsley-success:focus {
     border-top-right-radius: 0;
     left: auto !important;
     right: -1px !important;
-    top: 55px !important;
+    top: 47px !important;
     transform: none !important;
     will-change: unset !important;
 }
@@ -14957,11 +14957,12 @@ textarea.parsley-success:focus {
 
 .navicon-left {
     width: 90px;
-    height: 60px;
+    height: 45px;
     /* border-right: 1px solid rgba(0, 0, 0, 0.15); */
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: 10px;
 }
 
 .navicon-left a {
@@ -14978,7 +14979,7 @@ textarea.parsley-success:focus {
 .navicon-right {
     display: flex;
     width: 60px;
-    height: 60px;
+    height: 45px;
     border-left: 1px solid rgba(0, 0, 0, 0.15);
     align-items: center;
     justify-content: center;
@@ -14996,18 +14997,18 @@ textarea.parsley-success:focus {
 
 .br-sideleft {
     position: fixed;
-    top: 60px;
-    left: -230px;
+    top: 45px;
+    left: -260px;
     bottom: 0;
     z-index: 100;
     width: 260px;
     padding-left: 10px;
     padding-right: 10px;
     transition: all 0.2s ease-in-out;
-    box-shadow: 6px 0 30px -5px #333;
-    background: #141E30;
+    background: #363638;
+    /* background: #141E30;
     background: -webkit-linear-gradient(to bottom, #243B55, #141E30);
-    background: linear-gradient(to bottom, #243B55, #141E30);
+    background: linear-gradient(to bottom, #243B55, #141E30); */
 }
 
 @media (min-width: 992px) {
@@ -15025,8 +15026,8 @@ textarea.parsley-success:focus {
     top: 0;
     left: -260px;
     width: 260px;
-    height: 60px;
-    background-color: #fff;
+    height: 45px;
+    background-color: #D33C44;
     border-right: 1px solid rgba(0, 0, 0, 0.15);
     font-size: 24px;
     font-weight: 700;
@@ -15045,8 +15046,9 @@ textarea.parsley-success:focus {
 }
 
 .br-logo>a {
-    color: #212529;
+    color: #fff;
     letter-spacing: -0.5px;
+    margin-left: 20px;
 }
 
 .br-logo>a i {
@@ -15326,7 +15328,7 @@ textarea.parsley-success:focus {
 }
 
 .sidebar-tabs {
-    height: 60px;
+    height: 45px;
     background-color: #18222f;
     border-bottom: 0;
 }
@@ -15509,7 +15511,7 @@ textarea.parsley-success:focus {
 
 .br-mainpanel {
     margin-left: 0;
-    margin-top: 60px;
+    margin-top: 45px;
     transition: all 0.2s ease-in-out;
 }
 

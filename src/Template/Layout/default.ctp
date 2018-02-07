@@ -75,10 +75,7 @@
             <div class="navicon-left hidden-md-down"><a id="btnLeftMenu" href=""><i class="icon ion-navicon-round"></i></a></div>
             <div class="navicon-left hidden-lg-up"><a id="btnLeftMenuMobile" href=""><i class="icon ion-navicon-round"></i></a></div>
             <div class="input-group hidden-xs-down transition">
-                <input id="searchbox" type="text" class="form-control" placeholder="Nhập nội dung tìm kiếm...">
-                <span class="input-group-btn">
-                    <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
-                </span>
+
             </div>
             <!-- input-group -->
         </div>
@@ -234,8 +231,8 @@
                 </div>
                 <!-- dropdown -->
                 <div class="dropdown">
-                    <a href="" class="nav-link nav-link-profile" data-toggle="dropdown">
-                        <span class="logged-name hidden-md-down"><?= $session->read('Auth.User.fullname') ?></span>
+                    <a href="" class="nav-link nav-link-profile" data-toggle="dropdown" style="color:green;">
+                        <span class="logged-name hidden-md-down"> <?= $session->read('Auth.User.fullname') ?></span>
                         <?php if(!empty($session->read('Auth.User.avatar'))): ?>
                             <?= $this->Html->image($session->read('Auth.User.avatar'),[
                                 'class'=>'wd-32 rounded-circle'
@@ -249,13 +246,12 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-header wd-200">
                         <ul class="list-unstyled user-profile-nav">
-                            <li><a href=""><i class="icon ion-ios-person"></i> Edit Profile</a></li>
-                            <li><a href=""><i class="icon ion-ios-gear"></i> Settings</a></li>
-                            <li><a href=""><i class="icon ion-ios-download"></i> Downloads</a></li>
-                            <li><a href=""><i class="icon ion-ios-star"></i> Favorites</a></li>
-                            <li><a href=""><i class="icon ion-ios-folder"></i> Collections</a></li>
+                            <li><a href=""><i class="icon ion-ios-person"></i> Thông tin cá nhân</a></li>
+                            <li><a href=""><i class="icon ion-cube"></i> Điểm Polycoin</a></li>
+                            <li><a href=""><i class="icon ion-social-usd"></i> AAA</a></li>
+                            <hr style="margin-top:3px; margin-bottom: 3px;">
                             <li>
-                                <?= $this->Html->link('<i class="icon ion-power"></i> Sign Out',
+                                <?= $this->Html->link('<i class="icon ion-power"></i> Đăng Xuất',
                                     [
                                         'controller'=>'Users',
                                         'action'=>'logout'
@@ -306,7 +302,7 @@
         <!-- Tab panes -->
         <div class="tab-content">
             <div class="tab-pane pos-absolute a-0 mg-t-60 overflow-y-auto active" id="contacts" role="tabpanel">
-                <label class="sidebar-label pd-x-25 mg-t-25">Online Contacts</label>
+                <label class="sidebar-label pd-x-25">Online Contacts</label>
                 <div class="contact-list pd-x-10">
                     <a href="" class="contact-list-link new">
                         <div class="d-flex">
@@ -521,7 +517,7 @@
 
 
             <div class="tab-pane pos-absolute a-0 mg-t-60 overflow-y-auto" id="attachments" role="tabpanel">
-                <label class="sidebar-label pd-x-25 mg-t-25">Recent Attachments</label>
+                <label class="sidebar-label pd-x-25">Recent Attachments</label>
                 <div class="media-file-list">
                     <div class="media">
                         <div class="pd-10 bg-primary wd-50 ht-60 tx-center d-flex align-items-center justify-content-center">
@@ -645,7 +641,7 @@
             </div>
             <!-- #history -->
             <div class="tab-pane pos-absolute a-0 mg-t-60 overflow-y-auto" id="calendar" role="tabpanel">
-                <label class="sidebar-label pd-x-25 mg-t-25">Time &amp; Date</label>
+                <label class="sidebar-label pd-x-25 ">Time &amp; Date</label>
                 <div class="pd-x-25">
                     <h2 id="brTime" class="tx-white tx-lato mg-b-5"></h2>
                     <h6 id="brDate" class="tx-white tx-light op-3"></h6>
@@ -683,7 +679,7 @@
 
             </div>
             <div class="tab-pane pos-absolute a-0 mg-t-60 overflow-y-auto" id="settings" role="tabpanel">
-                <label class="sidebar-label pd-x-25 mg-t-25">Quick Settings</label>
+                <label class="sidebar-label pd-x-25">Quick Settings</label>
 
                 <div class="pd-y-20 pd-x-25 tx-white">
                     <h6 class="tx-13 tx-normal">Sound Notification</h6>
@@ -736,24 +732,9 @@
     </div>
     <!-- br-sideright -->
     <!-- ########## END: RIGHT PANEL ########## -->
-    <style>
-        .cont-loading{
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            background: #ECEFF1;
-        }
-        .cont-loading img{
-            width: 100px;
-            height: 100px;
-            margin-left:38%;
-        }
-    </style>                                    
+
     <!-- ########## START: MAIN PANEL ########## -->
-    <div class="br-mainpanel">
-        <div class="br-pageheader cont-loading">         
-            <?= $this->Html->image('cont-load.gif') ?>
-        </div>                                
+    <div class="br-mainpanel">                              
         <?= $this->fetch('content'); ?>
         <!-- br-pagebody -->                                    
     </div>
