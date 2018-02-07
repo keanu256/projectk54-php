@@ -12,6 +12,8 @@ use Cake\Mailer\Email;
 use Cake\I18n\Time;
 use Cake\Utility\Security;
 use Cake\Auth\DefaultPasswordHasher;
+use Cake\ORM\TableRegistry; 
+use Cake\Network\Http\Client;
 
 define('FB_APPID', '444948715901841');
 define('FB_APPSECRET', '2fd2d3fa45df4540d99e43dc15e5fdfd');
@@ -33,7 +35,7 @@ class UsersController extends AuthController
     }
 
     public function login(){
-        $this->viewBuilder()->layout(false);        
+        $this->viewBuilder()->layout(false);     
     }   
 
     public function facebooklogin() {
@@ -60,6 +62,9 @@ class UsersController extends AuthController
         $session = $this->request->session();
         $this->autoRender = false;
         $this->request->session()->start();
+
+        $loginHistoryTB = TableRegistry::get('LoginHistories');
+        $locationTB = TableRegistry::get('Location');
 
         $fb = new \Facebook\Facebook([
           'app_id' => FB_APPID,
@@ -136,34 +141,58 @@ class UsersController extends AuthController
                 $query = $this->Users->findByEmail($usernode->getProperty('email'))
                         ->where(['Users.flag !=' => 9])
                         ->toArray();
-                if (empty($query)) {      
-                    
-                    $hasher = new DefaultPasswordHasher();
-                    $randPassword = AuthController::randomPassword();
-                    
-                    $newUser = $this->Users->newEntity();               
-                    $newUser->username =  'FB'.$usernode->getProperty('id');  
-                    $newUser->fullname =  $usernode->getProperty('name');
-                    $newUser->email = $usernode->getProperty('email');
-                    $newUser->avatar = $usernode->getProperty('picture')['url'];
-                    $newUser->facebook = $usernode->getProperty('id');                   
-                    $newUser->facebook_link = $usernode->getProperty('link');
-                    $newUser->sex = self::_getSex($usernode->getProperty('gender'));
-                    $newUser->flag = 1;
-                    $newUser->verify = 1;
-                    $newUser->sociallogged = 1;
-                    $newUser->created = Time::now();
-                    $newUser->updated = Time::now();
-                    $newUser->password = $hasher->hash($randPassword);
 
-                    if ($this->Users->save($newUser)) {
-                        // $this->Flash->success(__('New user has been created.'));
-                    } else {
-                        // $this->Flash->error(__('The user could not be saved. Please, try again.'));
+                $ip = $this->request->clientIp();
+                $http = new Client();
+                $api_url = 'http://ip-api.io/api/json/'.$ip;
+                $responseGET = @file_get_contents($api_url);
+                $geoAPI = json_decode($responseGET);
+                
+                $new_user_id = isset($query[0]['id']) ? isset($query[0]['id']) : 0;
+
+                if (empty($query)) {     
+                    
+                    
+                    $locationResgiter = $locationTB->newEntity();
+                    $locationResgiter = $this->_patchLocationEntity($locationResgiter,$geoAPI);
+
+                    if($locationIDCallback = $locationTB->save($locationResgiter)){
+                        $hasher = new DefaultPasswordHasher();
+                        $randPassword = AuthController::randomPassword();
+                        
+                        $newUser = $this->Users->newEntity();               
+                        $newUser->username =  'FB'.$usernode->getProperty('id');  
+                        $newUser->fullname =  $usernode->getProperty('name');
+                        $newUser->email = $usernode->getProperty('email');
+                        $newUser->avatar = $usernode->getProperty('picture')['url'];
+                        $newUser->facebook = $usernode->getProperty('id');                   
+                        $newUser->facebook_link = $usernode->getProperty('link');
+                        $newUser->sex = self::_getSex($usernode->getProperty('gender'));
+                        $newUser->location = $locationIDCallback->location_id;
+                        $newUser->flag = 1;
+                        $newUser->verify = 1;
+                        $newUser->sociallogged = 1;
+                        $newUser->created = Time::now();
+                        $newUser->updated = Time::now();
+                        $newUser->password = $hasher->hash($randPassword);
+
+                        $new_user_id = $this->Users->save($newUser);
+                        $new_user_id = $new_user_id->id;
+    
+                        $this->Auth->setUser($newUser->toArray());
                     }
-                    $this->Auth->setUser($newUser->toArray());
+                    
                 } else {
                     $this->Auth->setUser($query[0]->toArray());
+                }
+                
+                if($ip != 'localhost' && $ip != '::1'){ 
+                    $login_history = $loginHistoryTB->newEntity();
+                    $login_history->ip_address = $ip;
+                    $login_history->user_id = $new_user_id;
+                    $login_history->created = Time::now();               
+                    $login_history = $this->_patchLocationEntity($login_history,$geoAPI);
+                    $loginHistoryTB->save($login_history);
                 }
                 return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
             } else {
@@ -189,5 +218,23 @@ class UsersController extends AuthController
             default:
                 return 3;
         }
+    }
+
+    private function _patchLocationEntity($entity, $data){
+        $entity->country_code = $data->country_code;
+        $entity->country_name = $data->country_name;
+        $entity->region_code = $data->region_code;
+        $entity->region_name = $data->region_name;
+        $entity->city = $data->city;
+        $entity->zip_code = $data->zip_code;
+        $entity->time_zone = $data->time_zone;
+        $entity->latitude = $data->latitude;
+        $entity->longitude = $data->longitude;
+        $entity->metro_code = $data->metro_code;
+        $entity->is_proxy = $data->suspicious_factors->is_proxy;
+        $entity->is_tor_node = $data->suspicious_factors->is_tor_node;
+        $entity->is_spam = $data->suspicious_factors->is_spam;
+        $entity->is_suspicious = $data->suspicious_factors->is_suspicious;
+        return $entity;
     }
 }

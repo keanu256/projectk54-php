@@ -32,14 +32,27 @@
         <div class="form-group">
           <input type="password" class="form-control" placeholder="Enter your password">
         </div><!-- form-group -->
-        <button type="button" class="btn btn-info btn-block" onClick='javascipt:window.location.href="fblogin"'>Đăng nhập qua Facebook</button>        
+        <button id="fblogin" type="button" class="btn btn-info btn-block" >Đăng nhập qua Facebook</button>        
         <button type="submit" class="btn btn-info btn-block">Mã truy cập nhanh</button>
-        <button type="button" class="btn btn-info btn-block" onClick='javascipt:window.location.href="demotest"'>TEST</button> 
       </div><!-- login-wrapper -->
     </div><!-- d-flex -->
 
     <?= $this->Html->script('/lib/jquery/jquery.js'); ?>
     <?= $this->Html->script('/lib/popper.js/popper.js'); ?>
     <?= $this->Html->script('/lib/bootstrap/bootstrap.js'); ?>
+    <script>
+        $(function(){
+            $(document).on('click','#fblogin',function(){
+                var btn = $(this);
+                btn.html('<i class="fa fa-refresh fa-spin" aria-hidden="true"></i> Vui lòng đợi');
+                btn.attr("disabled", true);
+                window.location.href="fblogin";
+                setTimeout(function(){
+                    btn.html('Nhấn để thử lại!');
+                    btn.attr("disabled", false);
+                },60000);
+            });
+        });
+    </script>
   </body>
 </html>
