@@ -139,8 +139,15 @@ class UsersController extends AuthController
   
             if (!empty($usernode)) {
                 $query = $this->Users->findByEmail($usernode->getProperty('email'))
-                        ->where(['Users.flag !=' => 9])
                         ->toArray();
+
+                if(!empty($query) && $query[0]['flag'] == 9){
+                    return $this->redirect([
+                        'prefix' => false,
+                        'controller'=>'Pages',
+                        'action' => 'index'
+                    ]);
+                }
 
                 $ip = $this->request->clientIp();
                 $http = new Client();
