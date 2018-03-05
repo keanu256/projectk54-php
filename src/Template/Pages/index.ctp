@@ -125,7 +125,7 @@
 
             $('#btnPost').on('click', function(){
 				$.ajax({
-                    url: 'http://localhost/api/1.0/demo/json?id=10&key=20',
+                    url: 'http://localhost/api/1.0/users/json?id=10&key=20',
                     data: {key:'2000',id:'5000'},
                     type: 'post',
                     success: function(res){

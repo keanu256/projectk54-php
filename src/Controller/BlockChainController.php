@@ -20,6 +20,7 @@ use Cake\Event\Event;
 use Cake\ORM\TableRegistry; 
 use Cake\Datasource\ConnectionManager;
 use Cake\Utility\Xml;
+use Cake\Core\Exception\Exception;
 
 class BlockChainController extends Controller
 {
@@ -72,7 +73,7 @@ class BlockChainController extends Controller
 
         $response = [
             'code' => 500,
-            'msg' => $data
+            'msg' => 'METHOD_NOT_ALLOW'
         ];
 
         if($this->request->is(['get'])){
@@ -95,19 +96,26 @@ class BlockChainController extends Controller
 
         }
 
-        if($result['code'] == 200){
-            $response = [
-                'code' => 200,
-                'msg' => 'Thành công',
-                'data' => $result['data']
-            ];
-        }
-
-        if($result['code'] == 404){
-            $response = [
-                'code' => 404,
-                'msg' => 'Không tìm thấy',
-            ];
+        switch($result['code']){
+            case 200: 
+                $response = [
+                    'code' => 200,
+                    'msg' => 'Thành công',
+                    'data' => $result['data']
+                ];
+                break;
+            case 404: 
+                $response = [
+                    'code' => 404,
+                    'msg' => 'Không tìm thấy',
+                ];
+                break;
+            case 500:
+                $response = [
+                    'code' => 500,
+                    'msg' => $result['msg'],
+                ];
+                break;
         }
         
         return $response;
@@ -121,7 +129,7 @@ class BlockChainController extends Controller
 
         switch($table){
             case 'users':
-                $result = self::_insertUser($data);
+                $result = ['code'=>'500','msg'=>'METHOD_NOT_ALLOW'];
                 break;
             case 'posts':
                 $result = self::_insertPost($data);
@@ -165,11 +173,16 @@ class BlockChainController extends Controller
 
     private function _getUser($data){
         $connectionDB = ConnectionManager::get('default');
+        $usersTB = TableRegistry::get('users');
         $page = isset($data['page']) ? $data['page'] : 1;
         $page = $page < 1 ? 1 : $page;
         $limit = isset($data['limit']) ? $data['limit'] : 0;
         $limit = $limit > 1000 ? 1000 : $limit;
         $limit = $limit <= 0 ? 20 : $limit;
+
+        $condition = isset($data['where']) ? $data['where'] : null;
+
+        $result = null;
 
         $offset = ($page - 1);
 
@@ -177,10 +190,26 @@ class BlockChainController extends Controller
             $offset = ($page - 1) * $limit;
         }
 
-        $result = $connectionDB->execute(
-            'CALL GetUsers(?, ?)', 
-            [$offset, $limit]
-        )->fetchAll('assoc');
+        if($condition != null AND !empty($condition)){
+            try{
+                
+                $result = $usersTB->find()
+                    ->select(['id','fullname','avatar'])
+                    ->limit($limit)
+                    ->page($offset + 1)
+                    ->where($condition)
+                    ->toArray();
+
+            }catch(\Exception $e){
+                        
+            }
+            
+        }else{
+            $result = $connectionDB->execute(
+                'CALL GetUsers(?, ?)', 
+                [$offset, $limit]
+            )->fetchAll('assoc');
+        }   
 
         return $result;
     }
