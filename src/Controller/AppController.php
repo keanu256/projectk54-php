@@ -15,7 +15,9 @@
 namespace App\Controller;
 
 use Cake\Controller\Controller;
+use Cake\Core\Configure;
 use Cake\Event\Event;
+use Cake\ORM\TableRegistry; 
 
 /**
  * Application Controller
@@ -43,6 +45,12 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+
+        if(Configure::read('Maintain')){
+            return $this->redirect(['controller'=>'Maintenance','action'=>'maintenance']);
+        }
+
+        //debug('hellpo');
 
         /*
          * Enable the following components for recommended CakePHP security settings.

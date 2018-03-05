@@ -1,10 +1,11 @@
 <?php
 namespace App\Controller\Admin;
 
-use App\Controller\AppController;
+use Cake\Controller\Controller;
 use Cake\Event\Event;
 
-class HomeController extends AppController
+
+class HomeController extends Controller
 {
     public function beforeFilter(Event $event) {
         parent::beforeFilter($event);

@@ -1,19 +1,20 @@
 <?php
 namespace App\Controller\Admin;
 
-use App\Controller\AppController;
+use Cake\Controller\Controller;
+use Cake\Core\Configure;
 use Cake\Event\Event;
 use Cake\ORM\TableRegistry; 
 
-class AdminController extends AppController
+class AdminController extends Controller
 {
-    public function beforeFilter(Event $event) {
-        parent::beforeFilter($event);     
-    }
-
     public function confirmAdmin(){
         $this->viewBuilder()->layout(false);
         $session = $this->request->session();
+
+        if(Configure::read('Maintain')){
+            return $this->redirect(['prefix'=> 'Admin','controller'=>'Admin','action'=>'maintenance']);
+        }
 
         if($session->read('Auth.User.id') == null){
             return $this->redirect(['prefix'=> false,'controller'=>'Dashboard','action'=>'index']);
@@ -51,5 +52,10 @@ class AdminController extends AppController
 
             $this->response->body(json_encode($reponse));
         }
+    }
+
+    public function maintenance()
+    {
+        $this->viewBuilder()->layout(false);
     }
 }

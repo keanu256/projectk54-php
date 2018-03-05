@@ -49,6 +49,11 @@
         <b>End: </b>
         <input type="text" id="inputend" value="145 điện biên phủ Quận 1 tp HCM">
         <button id="btnGo" type="button">GO </button>
+        <button id="btnPost" type="button">POST </button>
+        <button id="btnGet" type="button">GET </button>
+        <button id="btnPut" type="button">PUT </button>
+        <button id="btnPatch" type="button">PATCH </button>
+        <button id="btnDelete" type="button">DELETE </button>
     </div>
     <div id="map"></div>
     &nbsp;
@@ -116,6 +121,76 @@
             //document.getElementById('inputend').addEventListener('change', onChangeHandler);
             $('#btnGo').on('click', function(){
 				calculateAndDisplayRoute(directionsDisplay, directionsService, markerArray, stepDisplay, map);		
+			});
+
+            $('#btnPost').on('click', function(){
+				$.ajax({
+                    url: 'http://localhost/api/1.0/demo/json?id=10&key=20',
+                    data: {key:'2000',id:'5000'},
+                    type: 'post',
+                    success: function(res){
+                        console.log(res);
+                    },
+                    error: function(){
+
+                    }
+                });	
+			});
+
+            $('#btnGet').on('click', function(){
+				$.ajax({
+                    url: 'http://localhost/api/1.0/demo/json?id=10&key=20',
+                    //data: {key:'2000',id:'5000'},
+                    type: 'get',
+                    success: function(res){
+                        console.log(res);
+                    },
+                    error: function(){
+
+                    }
+                });	
+			});
+
+            $('#btnPut').on('click', function(){
+				$.ajax({
+                    url: 'http://localhost/api/1.0/demo/json?id=10&key=20',
+                    data: {key:'2000',id:'5000'},
+                    type: 'post',
+                    success: function(res){
+                        console.log(res);
+                    },
+                    error: function(){
+
+                    }
+                });	
+			});
+
+            $('#btnPatch').on('click', function(){
+				$.ajax({
+                    url: 'http://localhost/api/1.0/demo/json?id=10&key=20',
+                    data: {key:'2000',id:'5000'},
+                    type: 'post',
+                    success: function(res){
+                        console.log(res);
+                    },
+                    error: function(){
+
+                    }
+                });	
+			});
+
+            $('#btnDelete').on('click', function(){
+				$.ajax({
+                    url: 'http://localhost/api/1.0/demo/json?id=10&key=20',
+                    data: {key:'2000',id:'5000'},
+                    type: 'post',
+                    success: function(res){
+                        console.log(res);
+                    },
+                    error: function(){
+
+                    }
+                });	
 			});
 
             directionsDisplay.addListener('directions_changed', function() {

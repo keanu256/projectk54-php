@@ -46,6 +46,8 @@ Router::defaultRouteClass(DashedRoute::class);
 Router::prefix('cpanel', function ($routes) {
     $routes->connect('/', ['prefix'=>'Admin','controller' => 'Home', 'action' => 'index']);
     $routes->connect('/confirm', ['prefix'=>'Admin','controller' => 'Admin', 'action' => 'confirmAdmin']);
+    $routes->connect('/maintenance', ['prefix'=>'Admin','controller' => 'Admin', 'action' => 'maintenance']);
+
     $routes->fallbacks(DashedRoute::class);
 });
 
@@ -59,6 +61,10 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/login', ['controller' => 'Users', 'action' => 'login']);
     $routes->connect('/logout', ['controller' => 'Users', 'action' => 'logout']);
     $routes->connect('/fblogin', ['controller' => 'Users', 'action' => 'facebookLogin']);
+    $routes->connect('/maintenance', ['controller' => 'Maintenance', 'action' => 'maintenance',]);
+    $routes->connect('/api/:version/:table/*', 
+        ['controller' => 'BlockChain', 'action' => 'dispatcher'])
+    ->setPass(['version','table']);
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.

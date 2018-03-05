@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use Cake\Controller\Controller;
+use Cake\Core\Configure;
 use Cake\Event\Event;
 use Cake\ORM\TableRegistry; 
 
@@ -49,6 +50,10 @@ class AuthController extends Controller
 
     public function beforeFilter(Event $event)
     {
+        if(Configure::read('Maintain')){
+            return $this->redirect(['controller'=>'Maintenance','action'=>'maintenance']);
+        }
+        
         $this->Auth->allow(['forgetpassword', 'resetpassword']);    
 
         if(!$this->Auth->user()){
