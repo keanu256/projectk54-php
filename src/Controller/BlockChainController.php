@@ -51,7 +51,8 @@ class BlockChainController extends Controller
         }
 
         $bodyContent = self::_formatContent($format, $response);
-
+        
+        $this->response->type($format);
         $this->response->body($bodyContent);      
     }
 
@@ -218,7 +219,7 @@ class BlockChainController extends Controller
         $bodyContent;
 
         if($format == 'json'){
-            $bodyContent = json_encode($content);
+            $bodyContent = json_encode($content,JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         }else{
             
             $bodyContent = Xml::fromArray($content);
@@ -233,8 +234,15 @@ class BlockChainController extends Controller
             return ['code'=> 500, 'msg' => 'Key không hợp lệ'];
         }
     }
-
+    
     private function _checkAvailable($v,$table){
+        if($this->request->is('ssl') && Configure::read('Debug') == false){
+            $response = [
+                'code' => 405,
+                'msg' => 'Kết nối không an toàn'
+            ];
+            return $response;
+        }
 
         if(Configure::read('Maintain')){      
             $response = [
