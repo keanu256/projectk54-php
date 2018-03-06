@@ -22,6 +22,7 @@ use Cake\ORM\TableRegistry;
 class MaintenanceController extends Controller
 {
     public function maintenance(){
+        Configure::load('appsettings');
         if(!Configure::read('Maintain')){
             return $this->redirect(['controller'=>'Pages','action'=>'index']);
         }

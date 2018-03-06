@@ -49,7 +49,8 @@ class AuthController extends Controller
     }
 
     public function beforeFilter(Event $event)
-    {
+    {   
+        Configure::load('appsettings');
         if(Configure::read('Maintain')){
             return $this->redirect(['controller'=>'Maintenance','action'=>'maintenance']);
         }

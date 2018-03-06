@@ -46,6 +46,7 @@ class AppController extends Controller
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
 
+        Configure::load('appsettings');
         if(Configure::read('Maintain')){
             return $this->redirect(['controller'=>'Maintenance','action'=>'maintenance']);
         }

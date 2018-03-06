@@ -47,7 +47,7 @@ Router::prefix('cpanel', function ($routes) {
     $routes->connect('/', ['prefix'=>'Admin','controller' => 'Home', 'action' => 'index']);
     $routes->connect('/confirm', ['prefix'=>'Admin','controller' => 'Admin', 'action' => 'confirmAdmin']);
     $routes->connect('/maintenance', ['prefix'=>'Admin','controller' => 'Admin', 'action' => 'maintenance']);
-
+    $routes->connect('/onoff', ['prefix'=>'Admin','controller' => 'Admin', 'action' => 'onoff']);
     $routes->fallbacks(DashedRoute::class);
 });
 

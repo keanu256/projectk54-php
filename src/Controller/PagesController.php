@@ -78,6 +78,10 @@ class PagesController extends AppController
         // $html = self::_curlPost($url,'GET');
         // $html = self::_curlPost($url_reg,'POST');
         // echo $html;
+        //Configure::load('parameters');
+        //Configure::load('messages');
+        //$ddd = Configure::read();     
+        //debug($ddd);
     }
 
     private function _curlPost($url, $method, $postinfo = '', $cookie_file_path = WWW_ROOT.'cookie/cookie.txt'){

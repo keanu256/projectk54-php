@@ -236,6 +236,7 @@ class BlockChainController extends Controller
     }
     
     private function _checkAvailable($v,$table){
+        Configure::load('appsettings');
         if($this->request->is('ssl') && Configure::read('Debug') == false){
             $response = [
                 'code' => 405,

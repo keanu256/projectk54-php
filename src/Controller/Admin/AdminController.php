@@ -11,7 +11,7 @@ class AdminController extends Controller
     public function confirmAdmin(){
         $this->viewBuilder()->layout(false);
         $session = $this->request->session();
-
+        Configure::load('appsettings');
         if(Configure::read('Maintain')){
             return $this->redirect(['prefix'=> 'Admin','controller'=>'Admin','action'=>'maintenance']);
         }
@@ -45,9 +45,14 @@ class AdminController extends Controller
                     $session->write('Auth.User.isAdmin',true);
                     $reponse = [
                         'code' => 200,
-                        'msg' => 'success'
+                        'msg' => 'Đang chuyển hướng vui lòng đợi.'
                     ];
                 }          
+            }else{
+                $reponse = [
+                    'code' => 500,
+                    'msg' => 'Tài khoản không xác thực!'
+                ];
             }
 
             $this->response->body(json_encode($reponse));
@@ -57,5 +62,32 @@ class AdminController extends Controller
     public function maintenance()
     {
         $this->viewBuilder()->layout(false);
+    }
+
+    public function onoff(){
+        $this->autoRender = false;
+        $data = $this->request->data();
+
+        $response = [
+            'code' => '500',
+            'msg' => 'Thao tác thất bại!',
+        ];
+
+        Configure::load('appsettings');
+        if($data['status'] == 1){
+            Configure::write($data['target'],true);
+        }else{
+            Configure::write($data['target'],false);
+        }
+        $response = [
+            'code' => '200',
+            'msg' => 'Thao tác thành công!',
+            'status' => $data['status']
+        ];
+
+        Configure::dump('appsettings','default',['Maintain','Register','Payment','Api']);
+
+        $this->response->type('json');
+        $this->response->body(json_encode($response,JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     }
 }

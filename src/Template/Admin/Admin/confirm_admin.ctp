@@ -1,64 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<html>
 
-    <!-- Meta -->
-    <meta name="description" content="Polygon Portal">
-    <meta name="author" content="ThemePixels">
+<head>
 
-    <title>Polygon Việt Nam</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <?= $this->Html->css('/cpanelpage/assets/css/fullcalendar.css') ?>
+<?= $this->Html->css('/cpanelpage/assets/css/datatables/datatables.css') ?>
+<?= $this->Html->css('/cpanelpage/assets/css/datatables/bootstrap.datatables.css') ?>
+<?= $this->Html->css('/cpanelpage/assets/scss/chosen.css') ?>
+<?= $this->Html->css('/cpanelpage/assets/scss/font-awesome/font-awesome.css') ?>
+<?= $this->Html->css('/cpanelpage/assets/css/app.css') ?>
 
-    <!-- vendor css -->
-    <?= $this->Html->css('/lib/font-awesome/css/font-awesome.css'); ?>
-    <?= $this->Html->css('/lib/Ionicons/css/ionicons.css'); ?>
-    
-    <!-- Bracket CSS -->
-    <?= $this->Html->css('/css/bracket.css'); ?>
-  </head>
+<?= $this->Html->css('/cpanelpage/gg-fonts.css') ?>
+  
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    @javascript html5shiv respond.min
+  <![endif]-->
 
-  <body>
-    <style>
-        .passcode{
-            position: relative;
-            text-align: center;
-            font-size: 18px;
-        }
-    </style>
+  <title>Cpanel Confirm</title>
 
-    <div class="d-flex align-items-center justify-content-center bg-br-primary ht-100v">
-      <div class="login-wrapper wd-300 wd-xs-350 pd-25 pd-xs-40 bg-white rounded shadow-base">
-        <div class="form-group">
-            <input id="pcode" type="password" class="form-control passcode" maxlength='6'>             
-        </div><!-- form-group -->
-        <button type="button" class="btn btn-info btn-block">Xác nhận</button>
-      </div><!-- login-wrapper -->
-    </div><!-- d-flex -->
+</head>
 
-    <?= $this->Html->script('/lib/jquery/jquery.js'); ?>
-    <?= $this->Html->script('/lib/popper.js/popper.js'); ?>
-    <?= $this->Html->script('/lib/bootstrap/bootstrap.js'); ?>
+<body>
+<div class="all-wrapper no-menu-wrapper">
+  <div class="login-logo-w">
+    <a href="index.html" class="logo">
+      <i class="icon-lemon"></i>
+      <span>Polygon Cpanel</span>
+    </a>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+
+      <div class="content-wrapper bold-shadow">
+        <div class="content-inner">
+          <div class="main-content main-content-grey-gradient no-page-header">
+            <div class="main-content-inner">
+            <form action="" role="form">
+                <center>
+              <h3 class="form-title form-title-first">Xác minh người dùng</h3></center>
+              <div class="form-group">
+                <div id="error-div">
+                </div>
+                <input type="password" class="form-control" placeholder="Mật khẩu cấp 2" id="pcode" style="text-align:center;">
+              </div>
+              <button type="button" id='pcodeBtn' class='btn btn-primary btn-lg col-sm-12'>Truy cập</button>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<?= $this->Html->script('/cpanelpage/jquery.min.js') ?>
+<?= $this->Html->script('/cpanelpage/jquery-ui.min.js') ?>
+<?= $this->Html->script('/cpanelpage/assets/js/jquery.sparkline.min.js') ?>
+<?= $this->Html->script('/cpanelpage/assets/js/bootstrap/tab.js') ?>
+<?= $this->Html->script('/cpanelpage/assets/js/bootstrap/dropdown.js') ?>
+<?= $this->Html->script('/cpanelpage/assets/js/bootstrap/collapse.js') ?>
+<?= $this->Html->script('/cpanelpage/assets/js/bootstrap/transition.js') ?>
+<?= $this->Html->script('/cpanelpage/assets/js/bootstrap/tooltip.js') ?>
+<?= $this->Html->script('/cpanelpage/assets/js/jquery.knob.js') ?>
+<?= $this->Html->script('/cpanelpage/assets/js/fullcalendar.min.js') ?>
+<?= $this->Html->script('/cpanelpage/assets/js/datatables/datatables.min.js') ?>
+<?= $this->Html->script('/cpanelpage/assets/js/chosen.jquery.min.js') ?>
+<?= $this->Html->script('/cpanelpage/assets/js/datatables/bootstrap.datatables.js') ?>
+<?= $this->Html->script('/cpanelpage/assets/js/raphael-min.js') ?>
+<?= $this->Html->script('/cpanelpage/assets/js/morris-0.4.3.min.js') ?>
+<?= $this->Html->script('/cpanelpage/assets/js/for_pages/color_settings.js') ?>
+<?= $this->Html->script('/cpanelpage/assets/js/application.js') ?>
+<?= $this->Html->script('/cpanelpage/main.js') ?>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115093251-1"></script>
     <script>
-        $(document).on('click','.btn.btn-info.btn-block', function(){
-            $.ajax({
-                url: '/cpanel/confirm',
-                method: 'post',
-                data: {passcode: $('#pcode').val()},
-                success: function(res){
-                    let data = JSON.parse(res);
-                    if(data.code == 200){
-                        window.location.href="";
-                    }else{
-                        console.log('error');
-                    }
-                },
-                error: function(){
-
-                }
-            })
-        });
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-115093251-1');
     </script>
-  </body>
+</body>
+
 </html>

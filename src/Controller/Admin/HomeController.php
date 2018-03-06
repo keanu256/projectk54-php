@@ -17,7 +17,14 @@ class HomeController extends Controller
     }
 
     public function index(){
-        $this->autoRender = false;
+        $this->viewBuilder()->layout('admin');
+
+
+
+
+
+
+        $this->set('title', 'Admin Panel|HOME'); 
     }
 
     public function login(){
