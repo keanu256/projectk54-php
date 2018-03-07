@@ -15,7 +15,7 @@ $(function() {
 
     $('.toggle-color-settings').on('click', function() {
         if ($('.color_settings_box').hasClass('active')) {
-            $('.color_settings_box').animate({ 'right': '-200px' }, 'slow').removeClass('active');
+            $('.color_settings_box').animate({ 'right': '-250px' }, 'slow').removeClass('active');
             $('.toggle-color-settings span').text('Hiện');
         } else {
             $('.color_settings_box').animate({ 'right': '0px' }, 'slow').addClass('active');
