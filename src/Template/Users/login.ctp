@@ -85,6 +85,15 @@ $polyHelper = new PolygonHelper();
                                   <button type="button" id='qrlogin-cancel' class='btn btn-danger btn-lg col-sm-4 nbrl'>Hủy</button> 
                                   </div>
                                 </div> 
+                                <div id="login-custom-fb" style="display:none;">
+                                  <textarea class="col-md-12 text-login-privacy" readonly>
+                                    <font color="red">sadasd</font>
+                                  </textarea>
+                                  <div class="row" style="padding: 20px 15px 0px 15px">
+                                  <button type="button" id='fblogin-confirm' class='btn btn-info btn-lg col-sm-8 nbrr'>Đồng ý</button>
+                                  <button type="button" id='fblogin-cancel' class='btn btn-danger btn-lg col-sm-4 nbrl'>Hủy</button> 
+                                  </div>
+                                </div> 
                                 <div id="login-custom-gg" style="display:none;">
                                   <textarea class="col-md-12 text-login-privacy" readonly>
                                     <font color="red">sadasd</font>
@@ -156,67 +165,85 @@ $polyHelper = new PolygonHelper();
               width: '100%'
           });
 
-            $(document).on('click','#fblogin',function(){
-                var btn = $(this);
-                btn.html('<i class="fa fa-refresh fa-spin fa-3x" aria-hidden="true"></i>');
-                btn.attr("disabled", true);
-                window.location.href="fblogin";
-                setTimeout(function(){
-                    btn.html('<i class="fa fa-undo fa-3x" aria-hidden="true"></i>');
-                    btn.attr("disabled", false);
-                },60000);
-            });
-            $(document).on('click','#gglogin',function(){
-              $('#login-custom-bar').hide('blind',{},100);
-              $('#login-custom-gg').show('blind',{},300);        
-            });
-            $(document).on('click','#pllogin',function(){
-              $('#login-custom-bar').hide('blind',{},100);
-              $('#login-custom-pl').show('blind',{},300);
-            }); 
-            $(document).on('click','#pllogin-confirm',function(){
-              resetAll();
-              $('#login-custom-bar').show('blind',{},300);
-            });           
-                    
-            $(document).on('click','#qrlogin',function(){
-              $('#login-custom-bar').hide('blind',{},100);
-              $('#login-custom-qr').show('blind',{},300);
-                var qr = new QRious({
-                    element: document.getElementById('qr-image'),
-                    value: 'hello',
-                    size: 180,
-                    foreground: '#2196F3',
-                    background: '#f7f7f7'
-                });
-            });
-            
-            $(document).on('click','#qrlogin-refresh',function(){
-              let ar = ['haha','hihi','hoho'];
-              let index = Math.floor((Math.random() * ar.length));
-              console.log(index);
+          $(document).on('click','#fblogin',function(){
+            $('#login-custom-bar').hide('blind',{},100);
+            $('#login-custom-fb').show('blind',{},300);  
+          });
+          $(document).on('click','#gglogin',function(){
+            $('#login-custom-bar').hide('blind',{},100);
+            $('#login-custom-gg').show('blind',{},300);    
+          });
+          $(document).on('click','#pllogin',function(){
+            $('#login-custom-bar').hide('blind',{},100);
+            $('#login-custom-pl').show('blind',{},300);
+          }); 
+          $(document).on('click','#pllogin-confirm',function(){
+            resetAll();
+            $('#login-custom-bar').show('blind',{},300);
+          });           
+                  
+          $(document).on('click','#qrlogin',function(){
+            $('#login-custom-bar').hide('blind',{},100);
+            $('#login-custom-qr').show('blind',{},300);
               var qr = new QRious({
                   element: document.getElementById('qr-image'),
-                  value: ar[index],
+                  value: 'hello',
                   size: 180,
                   foreground: '#2196F3',
                   background: '#f7f7f7'
               });
+          });
+          
+          $(document).on('click','#qrlogin-refresh',function(){
+            let ar = ['haha','hihi','hoho'];
+            let index = Math.floor((Math.random() * ar.length));
+            console.log(index);
+            var qr = new QRious({
+                element: document.getElementById('qr-image'),
+                value: ar[index],
+                size: 180,
+                foreground: '#2196F3',
+                background: '#f7f7f7'
             });
-            
+          });
+          
+          $(document).on('click','#fblogin-confirm',function(){
+            var btn = $(this);
+            btn.html('<i class="fa fa-refresh fa-spin" aria-hidden="true"></i> Vui lòng đợi');
+            btn.attr("disabled", true);
+            window.location.href="fblogin";
+            setTimeout(function(){
+                btn.html('<i class="fa fa-undo" aria-hidden="true"></i> Thử lại');
+                btn.attr("disabled", false);
+            },60000);
+          });
 
-            $(document).on('click','#pllogin-cancel,#qrlogin-cancel',function(){
-              resetAll();
-              $('#login-custom-bar').show('blind',{},300);
-            });  
+          $(document).on('click','#gglogin-confirm',function(){
+            // var btn = $(this);
+            // btn.html('<i class="fa fa-refresh fa-spin" aria-hidden="true"></i> Vui lòng đợi');
+            // btn.attr("disabled", true);
+            // window.location.href="gglogin";
+            // setTimeout(function(){
+            //     btn.html('<i class="fa fa-undo" aria-hidden="true"></i> Thử lại');
+            //     btn.attr("disabled", false);
+            // },60000);
+            alert('OK');
+          });
 
+          $(document).on('click','#pllogin-cancel,#qrlogin-cancel,#fblogin-cancel,#gglogin-cancel',function(){
+            resetAll();
+            $('#login-custom-bar').show('blind',{},300);
+          });  
 
-        });
+          
+      });
 
-        function resetAll(){
-          $('#login-custom-pl').hide('clip',{},100);
-          $('#login-custom-qr').hide('clip',{},100);
-        }
-    </script>
+      function resetAll(){
+        $('#login-custom-pl').hide('clip',{},100);
+        $('#login-custom-qr').hide('clip',{},100);
+        $('#login-custom-fb').hide('clip',{},100);
+        $('#login-custom-gg').hide('clip',{},100);
+      }
+  </script>
 </body>
 </html> 
