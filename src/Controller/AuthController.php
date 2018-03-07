@@ -51,7 +51,8 @@ class AuthController extends Controller
     public function beforeFilter(Event $event)
     {   
         Configure::load('appsettings');
-        if(Configure::read('Maintain')){
+        $session = $this->request->session();
+        if(Configure::read('Maintain') && empty($session->read('Auth.User.isSuperAdmin'))){
             return $this->redirect(['controller'=>'Maintenance','action'=>'maintenance']);
         }
         

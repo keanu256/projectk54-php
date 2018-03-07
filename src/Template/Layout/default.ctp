@@ -250,6 +250,19 @@
                             <li><a href=""><i class="icon ion-cube"></i> Điểm Polycoin</a></li>
                             <li><a href=""><i class="icon ion-social-usd"></i> AAA</a></li>
                             <hr style="margin-top:3px; margin-bottom: 3px;">
+                            <?php if($session->read('Auth.User.isadmin')): ?>
+                            <li>
+                                <?= $this->Html->link('<i class="icon ion-ios-analytics"></i> Polygon Panel',
+                                    [   
+                                        'prefix' => 'Admin',
+                                        'controller'=>'Home',
+                                        'action'=>'index'
+                                    ],[
+                                        'escape' => false
+                                    ]
+                                ) ?>
+                            </li>
+                            <?php endif; ?>
                             <li>
                                 <?= $this->Html->link('<i class="icon ion-power"></i> Đăng Xuất',
                                     [

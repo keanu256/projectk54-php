@@ -2,16 +2,16 @@ $(document).on('click', '#pcodeBtn', function() {
 
 
     $.ajax({
-        url: '/cpanel/confirm',
+        url: '/cpanel/loginmaintain',
         method: 'post',
-        data: { passcode: $('#pcode').val() },
+        data: { passcode: $('#pcode').val(), username: $('#puser').val() },
         success: function(res) {
-            let data = JSON.parse(res);
+            let data = res;
             if (data.code == 200) {
                 $('#div-a').hide();
                 $('#div-b').show();
                 setTimeout(function() {
-                    window.location.href = "";
+                    window.location.href = "/cpanel";
                 }, 3000);
             } else {
                 var html = '<div class="alert alert-danger alert-dismissable">';

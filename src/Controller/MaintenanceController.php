@@ -23,9 +23,16 @@ class MaintenanceController extends Controller
 {
     public function maintenance(){
         Configure::load('appsettings');
-        if(!Configure::read('Maintain')){
+        $session = $this->request->session();
+        if(!Configure::read('Maintain') OR !empty($session->read('Auth.User.isSuperAdmin'))){
             return $this->redirect(['controller'=>'Pages','action'=>'index']);
         }
         $this->viewBuilder()->layout(false);
+    }
+
+    public function serviceNotReady($type = 0){
+        $this->viewBuilder()->layout(false);
+        Configure::load('appsettings');
+        
     }
 }

@@ -158,15 +158,21 @@ class UsersController extends AuthController
                 $new_user_id = isset($query[0]['id']) ? isset($query[0]['id']) : 0;
 
                 if (empty($query)) {     
-                    
-                    
+                                   
                     $locationResgiter = $locationTB->newEntity();
                     $locationResgiter = $this->_patchLocationEntity($locationResgiter,$geoAPI);
 
                     if($locationIDCallback = $locationTB->save($locationResgiter)){
+
+                        //Kiểm tra chức năng đăng ký mới có cho phép hay không
+                        Configure::load('appsettings');
+                        if(!Configure::read('Register')){
+                            return $this->redirect(['controller'=>'Maintenance','action'=>'serviceNotReady']);
+                        }
+                        //Kết thúc kiểm tra
+
                         $hasher = new DefaultPasswordHasher();
-                        $randPassword = AuthController::randomPassword();
-                        
+                        $randPassword = AuthController::randomPassword();                      
                         $newUser = $this->Users->newEntity();               
                         $newUser->username =  'FB'.$usernode->getProperty('id');  
                         $newUser->fullname =  $usernode->getProperty('name');

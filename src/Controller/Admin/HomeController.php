@@ -11,16 +11,13 @@ class HomeController extends Controller
         parent::beforeFilter($event);
         $session = $this->request->session();
 
-        if($session->read('Auth.User.isAdmin') == null OR $session->read('Auth.User.isAdmin') == false){
+        if($session->read('Auth.User.isSuperAdmin') == null OR $session->read('Auth.User.isSuperAdmin') == false){
             return $this->redirect(['prefix'=>'Admin','controller'=>'Admin','action'=>'confirmAdmin']);       
         }
     }
 
     public function index(){
         $this->viewBuilder()->layout('admin');
-
-
-
 
 
 

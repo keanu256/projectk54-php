@@ -1,6 +1,6 @@
 <?php
 return array (
-  'Maintain' => true,
+  'Maintain' => false,
   'Register' => false,
   'Payment' => false,
   'Api' => 

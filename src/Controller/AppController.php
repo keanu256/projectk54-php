@@ -47,7 +47,8 @@ class AppController extends Controller
         $this->loadComponent('Flash');
 
         Configure::load('appsettings');
-        if(Configure::read('Maintain')){
+        $session = $this->request->session();
+        if(Configure::read('Maintain') && empty($session->read('Auth.User.isSuperAdmin'))){
             return $this->redirect(['controller'=>'Maintenance','action'=>'maintenance']);
         }
 
