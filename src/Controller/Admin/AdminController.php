@@ -39,10 +39,6 @@ class AdminController extends Controller
             return $this->redirect(['prefix'=> false,'controller'=>'Dashboard','action'=>'index']);
         }
 
-        if($session->read('Auth.User.isAdmin') != null && $session->read('Auth.User.isAdmin') == true){
-            return $this->redirect(['prefix'=> 'Admin','controller'=>'Home','action'=>'index']);
-        }
-
         if($session->read('Auth.User.isSuperAdmin') != null){
             return $this->redirect(['prefix'=> 'Admin','controller'=>'Home','action'=>'index']);
         }
@@ -59,18 +55,26 @@ class AdminController extends Controller
             $user = $userTB->find('all',[
                 'contain' => ['AdminGroup']
             ])->where([
-                'id' => $session->read('Auth.User.id'),
-                'passcode' => $this->request->data['passcode']
+                'id' => $session->read('Auth.User.id')
             ])->first();
             
             if(!empty($user)){
-                if(isset($user->adminCheck) && !empty($user->adminCheck)){
-                    $session->write('Auth.User.isSuperAdmin',true);
+                $hasher = new DefaultPasswordHasher();
+                if($hasher->check($this->request->data['passcode'],$user['passcode'])){
+                    if(isset($user->adminCheck) && !empty($user->adminCheck)){
+                        $user['isSuperAdmin'] = true;
+                        $this->Auth->setUser($user);
+                        $reponse = [
+                            'code' => 200,
+                            'msg' => 'Đang chuyển hướng vui lòng đợi.'
+                        ];
+                    }
+                }else{
                     $reponse = [
-                        'code' => 200,
-                        'msg' => 'Đang chuyển hướng vui lòng đợi.'
+                        'code' => 403,
+                        'msg' => 'Mật khẩu cấp 2 không chính xác!'
                     ];
-                }          
+                }                 
             }else{
                 $reponse = [
                     'code' => 500,
@@ -91,6 +95,15 @@ class AdminController extends Controller
 
         $this->Auth->logout();      
         $this->viewBuilder()->layout(false);
+    }
+
+    public function logout(){
+        $this->autoRender = false;
+        $session = $this->request->session();
+        $user = $session->read('Auth.User');
+        unset($user['isSuperAdmin']);
+        $this->Auth->setUser($user);
+        $this->redirect(['prefix'=> false, 'controller'=>'Dashboard', 'action' => 'index']);
     }
 
     public function onoff(){

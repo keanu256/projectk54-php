@@ -30,7 +30,8 @@ class UsersController extends AuthController
         $this->Auth->allow([
             'logout', 
             'facebooklogin', 
-            'facebookLoginCallback'
+            'facebookLoginCallback',
+            'polygonLogin'
         ]);
     }
 
@@ -222,6 +223,39 @@ class UsersController extends AuthController
         return $this->redirect($this->Auth->logout());
     }
 
+    public function polygonLogin(){
+        $this->autoRender = false;
+        $data = $this->request->data();
+
+        $hasher = new DefaultPasswordHasher();
+
+        $response = [
+            'code' => 500,
+            'msg' => 'Thao tác thất bại'
+        ];
+
+        
+        $userTB = TableRegistry::get('users');
+        $user = $userTB->find()->where([
+            'username' => $data['username'],
+            'flag' => 1
+        ])->first();
+
+        if(!empty($user)){
+            if($hasher->check($data['pwd'],$user['password'])){
+                $this->Auth->setUser($user);
+                self::_logLoginHistory($user['id'],self::_getGeoLocation());
+                $response = [
+                    'code' => 200,
+                    'msg' => 'Thành công',
+                ];
+            }         
+        }
+
+        $this->response->type('json');
+        $this->response->body(json_encode($response,JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    }
+
     private function _getSex($sexText){
         switch($sexText){
             case 'male' :
@@ -230,6 +264,28 @@ class UsersController extends AuthController
                 return 2;
             default:
                 return 3;
+        }
+    }
+
+    private function _getGeoLocation(){
+        $ip = $this->request->clientIp();
+        $http = new Client();
+        $api_url = 'http://ip-api.io/api/json/'.$ip;
+        $responseGET = @file_get_contents($api_url);
+        $geoAPI = json_decode($responseGET);
+        return $geoAPI;
+    }
+
+    private function _logLoginHistory($userid,$geoAPI){
+        $ip = $this->request->clientIp();
+        $loginHistoryTB = TableRegistry::get('LoginHistories');
+        if($ip != 'localhost' && $ip != '::1'){ 
+            $login_history = $loginHistoryTB->newEntity();
+            $login_history->ip_address = $ip;
+            $login_history->user_id = $userid;
+            $login_history->created = Time::now();               
+            $login_history = $this->_patchLocationEntity($login_history,$geoAPI);
+            $loginHistoryTB->save($login_history);
         }
     }
 

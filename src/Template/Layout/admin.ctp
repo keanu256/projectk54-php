@@ -214,7 +214,7 @@ Configure::load('appsettings');
     <?= $this->Html->script('/cpanelpage/assets/js/for_pages/color_settings.js') ?>
     <?= $this->Html->script('/cpanelpage/assets/js/application.js') ?>
 
-    <?= $this->Html->script('/cpanelpage/assets/js/for_pages/dashboard.js') ?>
+   
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115093251-1"></script>
     <script>

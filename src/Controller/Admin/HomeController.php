@@ -21,7 +21,21 @@ class HomeController extends Controller
 
 
 
-        $this->set('title', 'Admin Panel|HOME'); 
+        $this->set([
+            'title' => 'Admin Panel | Trang chủ',
+            'panelName' => 'Bảng điều khiển'
+        ]); 
+    }
+
+    public function settings(){
+        $this->viewBuilder()->layout('admin');
+
+
+
+        $this->set([
+            'title' => 'Admin Panel | Trang chủ',
+            'panelName' => 'Cấu hình hệ thống'
+        ]);
     }
 
     public function login(){

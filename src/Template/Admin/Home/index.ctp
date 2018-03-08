@@ -1,11 +1,19 @@
 <div class="content-inner">
     <div class="page-header page-header-green-sea">
         <div class="header-links hidden-xs">
-            <a href="notifications.html"><i class="icon-comments"></i> User Alerts</a>
-            <a href="#"><i class="icon-cog"></i> Settings</a>
-            <a href="#"><i class="icon-signout"></i> Logout</a>
+            <a href="notifications.html"><i class="icon-comments"></i> Tin nhắn</a>
+            <?= $this->Html->link('<i class="icon-cog"></i> Cấu hình',[
+                'prefix' => 'Admin',
+                'controller' => 'Home',
+                'action' => 'settings'
+            ],['escape' => false]) ?>
+            <?= $this->Html->link('<i class="icon-signout"></i> Đăng xuất',[
+                'prefix' => 'Admin',
+                'controller' => 'Admin',
+                'action' => 'logout'
+            ],['escape' => false]) ?>
         </div>
-        <h1><i class="icon-bar-chart"></i> Dashboard</h1>
+        <h1><i class="icon-bar-chart"></i> <?= $panelName ?></h1>
     </div>
     <ol class="breadcrumb">
         <li><a href="#">Home</a></li>

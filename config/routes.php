@@ -49,6 +49,8 @@ Router::prefix('cpanel', function ($routes) {
     $routes->connect('/maintenance', ['prefix'=>'Admin','controller' => 'Admin', 'action' => 'maintenance']);
     $routes->connect('/loginmaintain', ['prefix'=>'Admin','controller' => 'Admin', 'action' => 'loginmaintain']);
     $routes->connect('/onoff', ['prefix'=>'Admin','controller' => 'Admin', 'action' => 'onoff']);
+    $routes->connect('/logout', ['prefix'=>'Admin','controller' => 'Admin', 'action' => 'logout']);
+    $routes->connect('/settings', ['prefix'=>'Admin','controller' => 'Home', 'action' => 'settings']);
     $routes->fallbacks(DashedRoute::class);
 });
 

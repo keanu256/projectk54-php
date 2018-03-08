@@ -1,7 +1,7 @@
 <?php
 return array (
   'FacebookLogin' => true,
-  'GoogleLogin' => true,
+  'GoogleLogin' => false,
   'MainLogin' => true,
-  'QRLogin' => true,
+  'QRLogin' => false,
 );

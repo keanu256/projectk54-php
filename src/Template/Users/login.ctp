@@ -129,6 +129,10 @@ $polyHelper = new PolygonHelper();
     </div>
 </div>
 
+<?php 
+    $plLoginURL = $this->Url->build(['controller'=>'Users','action'=>'polygonLogin']);
+?>
+
 <?= $this->Html->script('/cpanelpage/jquery.min.js') ?>
 <?= $this->Html->script('/cpanelpage/jquery-ui.min.js') ?>
 <?= $this->Html->script('/cpanelpage/assets/js/jquery.sparkline.min.js') ?>
@@ -160,90 +164,109 @@ $polyHelper = new PolygonHelper();
     <script>
         $(function(){
 
-          $('.text-login-privacy').slimScroll({
-              height: '250px',
-              width: '100%'
-          });
-
-          $(document).on('click','#fblogin',function(){
-            $('#login-custom-bar').hide('blind',{},100);
-            $('#login-custom-fb').show('blind',{},300);  
-          });
-          $(document).on('click','#gglogin',function(){
-            $('#login-custom-bar').hide('blind',{},100);
-            $('#login-custom-gg').show('blind',{},300);    
-          });
-          $(document).on('click','#pllogin',function(){
-            $('#login-custom-bar').hide('blind',{},100);
-            $('#login-custom-pl').show('blind',{},300);
-          }); 
-          $(document).on('click','#pllogin-confirm',function(){
-            resetAll();
-            $('#login-custom-bar').show('blind',{},300);
-          });           
-                  
-          $(document).on('click','#qrlogin',function(){
-            $('#login-custom-bar').hide('blind',{},100);
-            $('#login-custom-qr').show('blind',{},300);
-              var qr = new QRious({
-                  element: document.getElementById('qr-image'),
-                  value: 'hello',
-                  size: 180,
-                  foreground: '#2196F3',
-                  background: '#f7f7f7'
-              });
-          });
-          
-          $(document).on('click','#qrlogin-refresh',function(){
-            let ar = ['haha','hihi','hoho'];
-            let index = Math.floor((Math.random() * ar.length));
-            console.log(index);
-            var qr = new QRious({
-                element: document.getElementById('qr-image'),
-                value: ar[index],
-                size: 180,
-                foreground: '#2196F3',
-                background: '#f7f7f7'
+            $('.text-login-privacy').slimScroll({
+                height: '250px',
+                width: '100%'
             });
-          });
+
+            $(document).on('click','#fblogin',function(){
+                $('#login-custom-bar').hide('blind',{},100);
+                $('#login-custom-fb').show('blind',{},300);  
+            });
+            $(document).on('click','#gglogin',function(){
+                $('#login-custom-bar').hide('blind',{},100);
+                $('#login-custom-gg').show('blind',{},300);    
+            });
+            $(document).on('click','#pllogin',function(){
+                $('#login-custom-bar').hide('blind',{},100);
+                $('#login-custom-pl').show('blind',{},300);
+            }); 
+            $(document).on('click','#pllogin-confirm',function(){
+                var btn = $(this);
+                btn.html('<i class="fa fa-refresh fa-spin" aria-hidden="true"></i> Vui lòng đợi');
+                btn.attr("disabled", true);
+                
+                $.ajax({
+                    url: '<?= $plLoginURL ?>',
+                    data: {username: $('#puser').val(),pwd: $('#pcode').val()},
+                    type: 'post',
+                    success: function(res){
+                        if(res.code == 200){
+                            window.location.href="dashboard";
+                        }else{
+                            btn.html('<i class="fa fa-undo" aria-hidden="true"></i> Thử lại');
+                            btn.attr("disabled", false);
+                        }
+                    },
+                    error: function(){
+                        btn.html('<i class="fa fa-undo" aria-hidden="true"></i> Thử lại');
+                        btn.attr("disabled", false);
+                    }
+                });
+            });           
+                  
+            $(document).on('click','#qrlogin',function(){
+                $('#login-custom-bar').hide('blind',{},100);
+                $('#login-custom-qr').show('blind',{},300);
+                var qr = new QRious({
+                    element: document.getElementById('qr-image'),
+                    value: 'hello',
+                    size: 180,
+                    foreground: '#2196F3',
+                    background: '#f7f7f7'
+                });
+            });
           
-          $(document).on('click','#fblogin-confirm',function(){
-            var btn = $(this);
-            btn.html('<i class="fa fa-refresh fa-spin" aria-hidden="true"></i> Vui lòng đợi');
-            btn.attr("disabled", true);
-            window.location.href="fblogin";
-            setTimeout(function(){
-                btn.html('<i class="fa fa-undo" aria-hidden="true"></i> Thử lại');
-                btn.attr("disabled", false);
-            },60000);
-          });
-
-          $(document).on('click','#gglogin-confirm',function(){
-            // var btn = $(this);
-            // btn.html('<i class="fa fa-refresh fa-spin" aria-hidden="true"></i> Vui lòng đợi');
-            // btn.attr("disabled", true);
-            // window.location.href="gglogin";
-            // setTimeout(function(){
-            //     btn.html('<i class="fa fa-undo" aria-hidden="true"></i> Thử lại');
-            //     btn.attr("disabled", false);
-            // },60000);
-            alert('OK');
-          });
-
-          $(document).on('click','#pllogin-cancel,#qrlogin-cancel,#fblogin-cancel,#gglogin-cancel',function(){
-            resetAll();
-            $('#login-custom-bar').show('blind',{},300);
-          });  
-
+            $(document).on('click','#qrlogin-refresh',function(){
+                let ar = ['haha','hihi','hoho'];
+                let index = Math.floor((Math.random() * ar.length));
+                console.log(index);
+                var qr = new QRious({
+                    element: document.getElementById('qr-image'),
+                    value: ar[index],
+                    size: 180,
+                    foreground: '#2196F3',
+                    background: '#f7f7f7'
+                });
+            });
           
-      });
+            $(document).on('click','#fblogin-confirm',function(){
+                var btn = $(this);
+                btn.html('<i class="fa fa-refresh fa-spin" aria-hidden="true"></i> Vui lòng đợi');
+                btn.attr("disabled", true);
+                window.location.href="fblogin";
+                setTimeout(function(){
+                    btn.html('<i class="fa fa-undo" aria-hidden="true"></i> Thử lại');
+                    btn.attr("disabled", false);
+                },60000);
+            });
 
-      function resetAll(){
-        $('#login-custom-pl').hide('clip',{},100);
-        $('#login-custom-qr').hide('clip',{},100);
-        $('#login-custom-fb').hide('clip',{},100);
-        $('#login-custom-gg').hide('clip',{},100);
-      }
-  </script>
+            $(document).on('click','#gglogin-confirm',function(){
+                // var btn = $(this);
+                // btn.html('<i class="fa fa-refresh fa-spin" aria-hidden="true"></i> Vui lòng đợi');
+                // btn.attr("disabled", true);
+                // window.location.href="gglogin";
+                // setTimeout(function(){
+                //     btn.html('<i class="fa fa-undo" aria-hidden="true"></i> Thử lại');
+                //     btn.attr("disabled", false);
+                // },60000);
+                alert('OK');
+            });
+
+            $(document).on('click','#pllogin-cancel,#qrlogin-cancel,#fblogin-cancel,#gglogin-cancel',function(){
+                resetAll();
+                $('#login-custom-bar').show('blind',{},300);
+            });  
+
+            
+        });
+
+        function resetAll(){
+            $('#login-custom-pl').hide('clip',{},100);
+            $('#login-custom-qr').hide('clip',{},100);
+            $('#login-custom-fb').hide('clip',{},100);
+            $('#login-custom-gg').hide('clip',{},100);
+        }
+    </script>
 </body>
 </html> 
