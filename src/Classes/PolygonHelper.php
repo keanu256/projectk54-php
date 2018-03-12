@@ -16,8 +16,13 @@ class PolygonHelper{
 
     public function checkLogin($type){
         Configure::load('loginconfig');
-        if(Configure::read($type)) return true;
+        if(Configure::read($type)['Activation']) return true;
         return false;
+    }
+
+    public function readConfig($key,$file){
+        Configure::load($file);  
+        return Configure::read($key);
     }
 
 }

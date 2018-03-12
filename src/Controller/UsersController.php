@@ -14,11 +14,14 @@ use Cake\Utility\Security;
 use Cake\Auth\DefaultPasswordHasher;
 use Cake\ORM\TableRegistry; 
 use Cake\Network\Http\Client;
+use App\Classes\PolygonHelper;
 
-define('FB_APPID', '444948715901841');
-define('FB_APPSECRET', '2fd2d3fa45df4540d99e43dc15e5fdfd');
-define('GG_CLIENTID', '318633984068-44d67ej9venieo85pccgdv05vte7rbjf.apps.googleusercontent.com');
-define('GG_CLIENTSECRET', '9AN71b4oqHlEb0W5HzpzOEZt');
+$polyHelper = new PolygonHelper();
+
+define('FB_APPID', $polyHelper->readConfig('FacebookLogin','loginconfig')['PublicKey']);
+define('FB_APPSECRET', $polyHelper->readConfig('FacebookLogin','loginconfig')['SecretKey']);
+define('GG_CLIENTID', $polyHelper->readConfig('GoogleLogin','loginconfig')['PublicKey']);
+define('GG_CLIENTSECRET', $polyHelper->readConfig('GoogleLogin','loginconfig')['SecretKey']);
 define('ALPHABET', 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890');
 define('KEY', 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890');
 

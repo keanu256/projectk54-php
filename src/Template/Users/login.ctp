@@ -107,7 +107,7 @@ $polyHelper = new PolygonHelper();
                                 <?php if($polyHelper->checkLogin('MainLogin')): ?>
                                   <button type="button" id='pllogin' class='btn btn-info btn-lg col-sm-12' style="border-radius:50%;width:100px;height:100px;"><i class="icon-lemon fa-3x" aria-hidden="true"></i></button> 
                                 <?php endif; ?> 
-
+    
                                 <?php if($polyHelper->checkLogin('FacebookLogin')): ?>
                                   <button type="button" id='fblogin' class='btn btn-primary btn-lg col-sm-12' style="margin-left:10px;border-radius:50%;width:100px;height:100px;"><i class="fa fa-facebook-official fa-3x" aria-hidden="true"></i></button>
                                 <?php endif; ?> 

@@ -17,8 +17,11 @@ Configure::load('appsettings');
     <?= $this->Html->css('/cpanelpage/assets/scss/chosen.css') ?>
     <?= $this->Html->css('/cpanelpage/assets/scss/font-awesome/font-awesome.css') ?>
     <?= $this->Html->css('/cpanelpage/assets/css/app.css') ?>
+    <?= $this->Html->css('/cpanelpage/pretty-checkbox.min.css') ?>
 
     <?= $this->Html->css('/cpanelpage/gg-fonts.css') ?>
+    
+    <?= $this->Html->script('/cpanelpage/jquery.min.js') ?>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     @javascript html5shiv respond.min
@@ -196,7 +199,7 @@ Configure::load('appsettings');
         </style>
     </div>
 
-    <?= $this->Html->script('/cpanelpage/jquery.min.js') ?>
+    
     <?= $this->Html->script('/cpanelpage/jquery-ui.min.js') ?>
     <?= $this->Html->script('/cpanelpage/assets/js/jquery.sparkline.min.js') ?>
     <?= $this->Html->script('/cpanelpage/assets/js/bootstrap/tab.js') ?>
