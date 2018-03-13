@@ -63,13 +63,13 @@ Configure::load('appsettings');
                     </ul>
                     <div class="relative-w">
                         <ul class="side-menu side-menu-green-sea">
-                            <li class='current'>
+                            <li class='' pr-node>
                                 <a class='current' href="index.html">
                                     <span class="badge pull-right">17</span>
                                     <i class="icon-dashboard"></i> Dashboard
                                 </a>
                             </li>
-                            <li>
+                            <li pr-node>
                                 <a href="charts.html" class="is-dropdown-menu">
                                     <span class="badge pull-right"></span>
                                     <i class="icon-bar-chart"></i> Charts
@@ -96,59 +96,29 @@ Configure::load('appsettings');
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
-                            <li>
-                                <a href="forms.html">
-                                    <span class="badge pull-right">12</span>
-                                    <i class="icon-terminal"></i> Forms
+                            </li>  
+                            <li class='' pr-node>
+                                <a class='current' href="index.html">
+                                    <span class="badge pull-right">17</span>
+                                    <i class="icon-dashboard"></i> Dashboard
                                 </a>
                             </li>
-                            <li>
-                                <a href="elements.html" class="is-dropdown-menu">
-                                    <span class="badge pull-right"></span>
-                                    <i class="icon-code-fork"></i> UI Elements
-                                </a>
-                                <ul>
-                                    <li>
-                                        <a href="elements.html">
-                                            <i class="icon-beaker"></i> Elements
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="icons.html">
-                                            <i class="icon-picture"></i> Icons
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="datatable.html" class="is-dropdown-menu">
-                                    <span class="badge pull-right">24</span>
-                                    <i class="icon-th"></i> Tables
-                                </a>
-                                <ul>
-                                    <li>
-                                        <a href="datatable.html">
-                                            <i class="icon-list-alt"></i> Data Tables
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="table.html">
-                                            <i class="icon-table"></i> Regular Tables
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="calendar.html">
-                                    <span class="badge pull-right">11</span>
-                                    <i class="icon-calendar"></i> Calendar
+                            <li class='' pr-node>
+                                <a class='current' href="index.html">
+                                    <span class="badge pull-right">17</span>
+                                    <i class="icon-dashboard"></i> Dashboard
                                 </a>
                             </li>
-                            <li>
-                                <a href="login.html">
-                                    <span class="badge pull-right"></span>
-                                    <i class="icon-signin"></i> Login Page
+                            <li class='' pr-node>
+                                <a class='current' href="index.html">
+                                    <span class="badge pull-right">17</span>
+                                    <i class="icon-dashboard"></i> Dashboard
+                                </a>
+                            </li>
+                            <li class='' pr-node>
+                                <a class='current' href="index.html">
+                                    <span class="badge pull-right">17</span>
+                                    <i class="icon-dashboard"></i> Dashboard
                                 </a>
                             </li>
                         </ul>
@@ -221,6 +191,30 @@ Configure::load('appsettings');
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115093251-1"></script>
     <script>
+
+        let parent_menu_side_bar = [];
+
+        $(document).ready(function() {  
+            initSideMenu();
+            selectSideMenu(<?= $menu_side_position ?>);
+        }); 
+
+        function initSideMenu(){
+            $(document).find('.relative-w li.active').removeClass('active');
+            let el = $(document).find('.relative-w li');
+            let parr = [];
+
+            $.each(el, function(index, element){
+                if(typeof($(element).attr('pr-node')) != 'undefined'){
+                    parent_menu_side_bar.push(element);
+                }          
+            });
+        }
+
+        function selectSideMenu(position){
+            $(parent_menu_side_bar[position-1]).addClass('active');
+        }
+
         window.dataLayer = window.dataLayer || [];
 
         function gtag() {

@@ -53,6 +53,7 @@ Router::prefix('cpanel', function ($routes) {
     $routes->connect('/settings', ['prefix'=>'Admin','controller' => 'Home', 'action' => 'settings']);
     $routes->connect('/setconfig', ['prefix'=>'Admin','controller' => 'Home', 'action' => 'setconfig']);
     $routes->connect('/setconfigLogin', ['prefix'=>'Admin','controller' => 'Home', 'action' => 'setconfiglogin']);
+    $routes->connect('/templateElement', ['prefix'=>'Admin','controller'=>'Webview','action'=>'templateElement']);
     
     $routes->fallbacks(DashedRoute::class);
 });

@@ -1,17 +1,16 @@
 <?php 
 use App\Classes\PolygonHelper;
     $polyHelper = new PolygonHelper();
-    $linkSetConfig = $this->Url->build(['prefix'=>'Admin','controller'=>'Home','action'=> 'setconfig'])
 ?>
 <?= $this->Html->css('/lib/font-awesome/css/font-awesome.css'); ?>
 <div class="shadowed-bottom">   
     <div class="social-div-custom">
         <h3 class="form-title form-title-first"><i class="icon-terminal"></i> Đăng nhập qua MXH Facebook</h3> 
-        <div class="form-group">
+        <!-- <div class="form-group">
             <div class="alert alert-info alert-dismissable">
                 <i class="icon-lightbulb"></i> <strong>Mẹo!</strong> Bạn có thể lựa chọn một hay nhiều hình thức đăng nhập.
             </div>
-        </div>
+        </div> -->
         <div class="row">
             <?= $this->Form->create(false); ?>
             <div class="col-md-6">
@@ -30,24 +29,19 @@ use App\Classes\PolygonHelper;
         </div>
         <div class="row">
             <div class="col-md-6">
-                <button type="submit" class="btn btn-default" btnSave><i class="icon-save"></i> Lưu cài đặt</button>
-                <button type="submit" class="btn btn-default pull-right" btnSave><i class="icon-link"></i> Console</button>
+                <button type="button" class="btn btn-default" btnSave><i class="icon-save"></i> Lưu cài đặt</button>
+                <button type="button" class="btn btn-default pull-right" btnSave><i class="icon-link"></i> Console</button>
                 <input type="text" value="FacebookLogin" hidden>
             </div>
             <div class="col-md-6">
-                <button type="submit" class="btn btn-default" btnShow><i class="icon-eye-open"></i> Hiện</button>
-                <button type="submit" class="btn btn-default" btnCopy><i class="icon-copy"></i> Sao chép</button>
+                <button type="button" class="btn btn-default" btnShow><i class="icon-eye-open"></i> Hiện</button>
+                <button type="button" class="btn btn-default" btnCopy><i class="icon-copy"></i> Sao chép</button>
             </div>
         </div>
     </div>
     <br/>
     <div class="social-div-custom">
         <h3 class="form-title form-title-first"><i class="icon-terminal"></i> Đăng nhập qua MXH Google+</h3>
-        <div class="form-group">
-            <div class="alert alert-info alert-dismissable">
-                <i class="icon-lightbulb"></i> <strong>Mẹo!</strong> Bạn có thể lựa chọn một hay nhiều hình thức đăng nhập.
-            </div>
-        </div>
         <div class="row">
             <?= $this->Form->create(false); ?>
             <div class="col-md-6">
@@ -66,23 +60,23 @@ use App\Classes\PolygonHelper;
         </div>
         <div class="row">
             <div class="col-md-6">
-                <button type="submit" class="btn btn-default" btnSave><i class="icon-save"></i> Lưu cài đặt</button>
-                <button type="submit" class="btn btn-default pull-right" btnSave><i class="icon-link"></i> Console</button>
+                <button type="button" class="btn btn-default" btnSave><i class="icon-save"></i> Lưu cài đặt</button>
+                <button type="button" class="btn btn-default pull-right" btnSave><i class="icon-link"></i> Console</button>
                 <input type="text" value="GoogleLogin" hidden>
             </div>
             <div class="col-md-6">
-                <button type="submit" class="btn btn-default" btnShow><i class="icon-eye-open"></i> Hiện</button>
-                <button type="submit" class="btn btn-default" btnCopy><i class="icon-copy"></i> Sao chép</button>
+                <button type="button" class="btn btn-default" btnShow><i class="icon-eye-open"></i> Hiện</button>
+                <button type="button" class="btn btn-default" btnCopy><i class="icon-copy"></i> Sao chép</button>
             </div>
         </div>
-    </div>
+    </div><br/>
 </div>   
 <?php  
-    $setConfigLogin = $this->Url->build(['prefix'=>'Admin','controller'=>'Home','action'=>'setconfiglogin']);
+    $setConfigLogin = $this->Url->build(['prefix'=>'Admin','controller'=>'Home','action'=>'setconfiglogin']);  
 ?>
 <script>
 
-    $( document ).ready(function() {  
+    $(document).ready(function() {  
 
         $('button[btnSave]').on('click',function(){
             let data = getInit(this);
@@ -106,11 +100,14 @@ use App\Classes\PolygonHelper;
 
         $('button[btnShow]').on('click',function(){
             let data = getInit(this);
+            let curButton = $(this);
             
             if(data.secretKey.attr('type') == 'password'){
                 data.secretKey.attr('type','text');
+                curButton.html('<i class="icon-eye-close"></i> Ẩn');
             }else{
                 data.secretKey.attr('type','password');
+                curButton.html('<i class="icon-eye-open"></i> Hiện');
             }
         });
 

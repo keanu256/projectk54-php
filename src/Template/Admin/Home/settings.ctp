@@ -33,75 +33,23 @@ use App\Classes\PolygonHelper;
         <li class="active">Example</li>
     </ol>
     <div class="main-content">
-        <div class="widget">
-            <div class="alert alert-warning alert-dismissable">
-                <i class="icon-exclamation-sign"></i> <strong>Welcome!</strong> This is a dashboard of the powerful admin template.
-            </div>
-        </div>
         <div class="row">
             <div class="col-md-12">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#tab_pie_chart" data-toggle="tab"><i class="icon-table"></i> API</a></li>
+                    <li class="active"><a href="#tab_1" data-toggle="tab"><i class="icon-table"></i> API</a></li>
                     <li><a href="#tab_2" data-toggle="tab"><i class="icon-check"></i> Cài đặt đăng nhập</a></li>
-                    <li><a href="#tab_table" data-toggle="tab"><i class="icon-bullseye"></i> Socket.IO</a></li>
+                    <li><a href="#tab_3" data-toggle="tab"><i class="icon-bullseye"></i> Socket.IO</a></li>
                     <li><a href="#tab_4" data-toggle="tab"><i class="icon-cogs"></i> Đăng nhập bằng MXH</a></li>
                 </ul>
                 <div class="tab-content bottom-margin">
-                    <div class="tab-pane active" id="tab_pie_chart">
-                        <div class="shadowed-bottom">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-4 col-sm-3 bordered">
-                                    <div class="value-block padded-left text-center">
-                                        <div class="value-self">520</div>
-                                        <div class="value-sub">Total Sales</div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-sm-3 bordered hidden-md">
-                                    <div class="value-block text-center">
-                                        <div class="value-self">1,120</div>
-                                        <div class="value-sub">Total Visitors</div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-8 col-sm-6">
-                                   
-                                </div>
-                            </div>
-                        </div>
-                        <div class="padded">
-                            <?= $this->Element('Admin/tab_page_one'); ?>
-                        </div>
+                    <div class="tab-pane active" id="tab_1">
+                        <?= $this->Element('Admin/tab_page_one'); ?>
                     </div>
                     <div class="tab-pane" id="tab_2">
                         <?= $this->Element('Admin/tab_page_two'); ?>      
                     </div>
-                    <div class="tab-pane" id="tab_table">
-                        <div class="shadowed-bottom">
-                            <div class="row">
-                                <div class="col-md-3 bordered">
-                                    <div class="value-block padded-left text-center">
-                                        <div class="value-self">112</div>
-                                        <div class="value-sub">Total Sales</div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 bordered hidden-md">
-                                    <div class="value-block text-center">
-                                        <div class="value-self">2,340</div>
-                                        <div class="value-sub">Total Visitors</div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-9">
-                                    <form class="form-inline form-period-selector">
-                                        <label class="control-label">Time Period:</label>
-                                        <br>
-                                        <input type="text" placeholder="01/12/2011" class="form-control input-sm">
-                                        <input type="text" placeholder="01/12/2011" class="form-control input-sm">
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="padded">
-                            {{ content_3 }} 
-                        </div>
+                    <div class="tab-pane" id="tab_3">
+                        <?= $this->Element('Admin/tab_page_three'); ?>
                     </div>
                     <div class="tab-pane" id="tab_4">
                         <?= $this->Element('Admin/tab_page_four'); ?>
@@ -111,5 +59,4 @@ use App\Classes\PolygonHelper;
         </div>
     </div>
 </div>
-
 

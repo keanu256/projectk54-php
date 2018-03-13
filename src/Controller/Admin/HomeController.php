@@ -20,22 +20,20 @@ class HomeController extends Controller
     public function index(){
         $this->viewBuilder()->layout('admin');
 
-
-
-        $this->set([
-            'title' => 'Admin Panel | Trang chủ',
-            'panelName' => 'Bảng điều khiển'
-        ]); 
+        self::_setVariables('Bảng điều khiển',null,1);
     }
 
     public function settings(){
         $this->viewBuilder()->layout('admin');
 
+        self::_setVariables('Cấu hình hệ thống');
+    }
 
-
+    private function _setVariables($panelName, $title = null, $posSideMenu = null){
         $this->set([
-            'title' => 'Admin Panel | Trang chủ',
-            'panelName' => 'Cấu hình hệ thống'
+            'title' => ($title == null) ? 'Admin Panel | Trang chủ': $title,
+            'panelName' => $panelName,
+            'menu_side_position' => $posSideMenu == null ? -1 : $posSideMenu
         ]);
     }
 
