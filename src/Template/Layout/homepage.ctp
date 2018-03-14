@@ -15,9 +15,9 @@
 </head>
 <body>   
     <?php if($session->read('Auth.User.username') != null): ?> 
-        <?= $this->Element('homepage/header/header_logged_in') ?>	
+        <?= $this->Element('Homepage/Header/header_logged_in') ?>	
     <?php else: ?>
-        <?= $this->Element('homepage/header/header_non_login') ?>	
+        <?= $this->Element('Homepage/Header/header_non_login') ?>	
     <?php endif; ?>
 
 	<!-- MAIN MENU -->
@@ -48,8 +48,8 @@
     
 <?= $this->fetch('content'); ?> 
 
-<?= $this->Element('homepage/footer') ?>	
-<?= $this->Element('homepage/svg_icon') ?>
+<?= $this->Element('Homepage/footer') ?>	
+<?= $this->Element('Homepage/svg_icon') ?>
 <!-- jQuery -->
 <?= $this->Html->script('/homepage/js/vendor/jquery-1.11.1.min.js') ?>
 <!-- XM Accordion -->

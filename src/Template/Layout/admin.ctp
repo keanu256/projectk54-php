@@ -1,6 +1,9 @@
 <?php
 use Cake\Core\Configure;
-Configure::load('appsettings');
+
+
+    Configure::load('appsettings');
+    $adminOnOff = $this->Url->build(['prefix'=>'Admin','controller'=>'Admin','action'=>'onoff']);
 ?>
 
 <!DOCTYPE html>
@@ -169,7 +172,9 @@ Configure::load('appsettings');
         </style>
     </div>
 
-    
+    <script>
+        let adminOnOff = '<?= $adminOnOff ?>';
+    </script>
     <?= $this->Html->script('/cpanelpage/jquery-ui.min.js') ?>
     <?= $this->Html->script('/cpanelpage/assets/js/jquery.sparkline.min.js') ?>
     <?= $this->Html->script('/cpanelpage/assets/js/bootstrap/tab.js') ?>

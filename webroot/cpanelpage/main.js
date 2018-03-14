@@ -1,8 +1,6 @@
 $(document).on('click', '#pcodeBtn', function() {
-
-
     $.ajax({
-        url: '/cpanel/confirm',
+        url: confirmAdmin,
         method: 'post',
         data: { passcode: $('#pcode').val() },
         success: function(res) {

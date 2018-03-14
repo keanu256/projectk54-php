@@ -43,7 +43,7 @@ use Cake\Routing\Route\DashedRoute;
  */
 Router::defaultRouteClass(DashedRoute::class);
 
-Router::prefix('cpanel', function ($routes) {
+Router::prefix('polygonpanel', function ($routes) {
     $routes->connect('/', ['prefix'=>'Admin','controller' => 'Home', 'action' => 'index']);
     $routes->connect('/confirm', ['prefix'=>'Admin','controller' => 'Admin', 'action' => 'confirmAdmin']);
     $routes->connect('/maintenance', ['prefix'=>'Admin','controller' => 'Admin', 'action' => 'maintenance']);

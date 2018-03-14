@@ -1,6 +1,8 @@
+<?php 
+    $confirmAdmin = $this->Url->build(['prefix'=>'Admin','controller'=>'Admin','action'=>'confirmAdmin']);  
+?>
 <!DOCTYPE html>
 <html>
-
 <head>
 
   <meta charset="utf-8">
@@ -19,7 +21,7 @@
     @javascript html5shiv respond.min
   <![endif]-->
 
-  <title>Cpanel Confirm</title>
+  <title>Polygon Panel Confirm</title>
 
 </head>
 
@@ -67,6 +69,9 @@
         </div>
     </div>
 </div>
+<script>
+    let confirmAdmin = '<?= $confirmAdmin ?>';
+</script>
 <?= $this->Html->script('/cpanelpage/jquery.min.js') ?>
 <?= $this->Html->script('/cpanelpage/jquery-ui.min.js') ?>
 <?= $this->Html->script('/cpanelpage/assets/js/jquery.sparkline.min.js') ?>
@@ -87,13 +92,12 @@
 <?= $this->Html->script('/cpanelpage/main.js') ?>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115093251-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'UA-115093251-1');
-    </script>
-    
+<script>   
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-115093251-1');
+</script>  
 </body>
 
 </html>

@@ -1,6 +1,8 @@
 $(function() {
     // $('.color_settings_box').animate({ 'right': '0px' }, 'slow').addClass('active');
 
+
+
     if ($('.content-wrapper').hasClass('wood-wrapper')) {
         $('#wood-wrapper-checkbox').prop('checked', true);
     }
@@ -57,7 +59,7 @@ $(function() {
 
 function turnOnOff(target, status, el) {
     $.ajax({
-        url: 'cpanel/onoff',
+        url: adminOnOff,
         type: 'post',
         data: { target: target, status: status },
         success: function(res) {
