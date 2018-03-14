@@ -1,125 +1,50 @@
+<?php 
+    $this->layout=false;
+?>
 <!DOCTYPE html>
-<!--[if IE 8 ]><html class="no-js oldie ie8" lang="en"> <![endif]-->
-<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
-<head>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Polygon Viet Nam</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-   <!--- basic page needs
-   ================================================== -->
-   <meta charset="utf-8">
-	<title>Website đang bảo trì</title>
-	<meta name="description" content="">  
-	<meta name="author" content="">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link href="https://fonts.googleapis.com/css?family=Saira+Condensed" rel="stylesheet">
+        <?= $this->Html->css('/dashboard/assets/css/bootstrap.min.css') ?>
+        <?= $this->Html->css('/dashboard/assets/css/icons.css') ?>
+        <?= $this->Html->css('/dashboard/assets/css/style.css') ?>
+    </head>
 
-   <!-- mobile specific metas
-   ================================================== -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <body style="font-family: 'Saira Condensed', sans-serif;">   
+        <div class="wrapper">
+            <div class="container-fluid">
+               
+                <div class="row">
+                    <div class="col-sm-6 offset-3">
+                        <div class="text-center mt-5">
+                        <svg id="Layer_1" class="svg-computer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 424.2 424.2">
+							<style>
+								.st0{fill:none;stroke:#02c0ce;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+							</style>
+							<g id="Layer_2">
+								<path class="st0" d="M339.7 289h-323c-2.8 0-5-2.2-5-5V55.5c0-2.8 2.2-5 5-5h323c2.8 0 5 2.2 5 5V284c0 2.7-2.2 5-5 5z"/>
+								<path class="st0" d="M26.1 64.9h304.6v189.6H26.1zM137.9 288.5l-3.2 33.5h92.6l-4.4-33M56.1 332.6h244.5l24.3 41.1H34.5zM340.7 373.7s-.6-29.8 35.9-30.2c36.5-.4 35.9 30.2 35.9 30.2h-71.8z"/>
+								<path class="st0" d="M114.2 82.8v153.3h147V82.8zM261.2 91.1h-147"/>
+								<path class="st0" d="M124.5 105.7h61.8v38.7h-61.8zM196.6 170.2H249v51.7h-52.4zM196.6 105.7H249M196.6 118.6H249M196.6 131.5H249M196.6 144.4H249M124.5 157.3H249M124.5 170.2h62.2M124.5 183.2h62.2M124.5 196.1h62.2M124.5 209h62.2M124.5 221.9h62.2"/>
+							</g>
+						</svg>
+ 
+						<h4 class="text-danger" style="font-family: 'Saira Condensed', sans-serif;">Hệ thống đang bảo trì</h4>
+						<p class="text-muted">Website đang bảo dưỡng định kỳ. Vui lòng quay lại sau, cảm ơn!</p>
+                        </div>
 
- 	<!-- CSS
-   ================================================== -->
-   <?= $this->Html->css('/errorpage/css/base.css')?>
-   <?= $this->Html->css('/errorpage/css/main.css')?>
-   <?= $this->Html->css('/errorpage/css/vendor.css')?>
-   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">    
+                    </div><!-- end col -->
+                </div>
+                <!-- end row -->
 
-   <!-- script
-   ================================================== -->
-   <?= $this->Html->script('/errorpage/js/modernizr.js')?>
-</head>
+            </div> <!-- end container -->
+        </div>
+        <!-- end wrapper -->
 
-<body>
-
-	<!-- header 
-   ================================================== -->
-   <header class="main-header">
-   	<div class="row">
-   		<div class="logo">
-	         <a href="index.html">bSquare</a>
-	      </div>   		
-   	</div>   
-
-   	<a class="menu-toggle" href="#"><span>Menu</span></a>	
-   </header> <!-- /header -->
-
-   <!-- navigation 
-   ================================================== -->
-   <nav id="menu-nav-wrap">
-
-   	<h5>Main Menu</h5>   	
-		<ul class="nav-list">
-			<li><a href="#" title="">Home</a></li>
-			<li><a href="#" title="">About</a></li>
-			<li><a href="#" title="">Portfolio</a></li>
-			<li><a href="#" title="">Blog</a></li>
-			<li><a href="#" title="">FAQ</a></li>					
-			<li><a href="#" title="">Contact</a></li>					
-		</ul>
-
-		<h5>About Us</h5>  
-		<p>Lorem ipsum Non non Duis adipisicing pariatur eu enim Ut in aliqua dolor esse sed est in sit exercitation eiusmod aliquip consequat.</p>
-
-	</nav>
-
-	<!-- main content
-   ================================================== -->
-   <main id="main-404-content" class="main-content-static">
-
-   	<div class="content-wrap">
-
-		   <div class="shadow-overlay"></div>
-
-		   <div class="main-content">
-		   	<div class="row">
-		   		<div class="col-twelve">
-					<h1 class="kern-this">ERROR.503</h1>
-					<p>
-					Hệ thống đang bảo trì, bạn vui lòng truy cập lại sau ^_^.
-					</p>
-			   	</div> <!-- /twelve --> 		   			
-		   	</div> <!-- /row -->    		 		
-		   </div> <!-- /main-content --> 
-
-		   <footer>
-		   	<div class="row">
-
-		   		<div class="col-seven tab-full social-links pull-right">
-			   		<ul>
-				   		<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-					      <li><a href="#"><i class="fa fa-skype"></i></a></li>
-					      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-					      <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-					      <li><a href="#"><i class="fa fa-instagram"></i></a></li>   			
-				   	</ul>
-			   	</div>
-		   			
-		  			<div class="col-five tab-full bottom-links">
-			   		<ul class="links">
-				   		<li><a href="#">Home</a></li>
-				         <li><a href="#">About</a></li>
-				         <li><a href="#">Contact</a></li>			                    
-				   	</ul>
-
-				   	<div class="credits">
-				   		<p>Designed by <a href="http://www.skyeye-themes.com/" title="Skyeye Themes">Skyeye Themes</a></p>
-				   	</div>
-			   	</div>   		   		
-
-		   	</div> <!-- /row -->    		  		
-		   </footer>
-
-		</div> <!-- /content-wrap -->
-   
-   </main> <!-- /main-404-content -->
-
-   <div id="preloader"> 
-    	<div id="loader"></div>
-   </div> 
-
-   <!-- Java Script
-   ================================================== --> 
-   <?= $this->Html->script('/errorpage/js/jquery-2.1.3.min.js')?>
-   <?= $this->Html->script('/errorpage/js/plugins.js')?>
-   <?= $this->Html->script('/errorpage/js/main.js')?>
-</body>
-
+    </body>
 </html>

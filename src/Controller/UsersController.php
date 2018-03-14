@@ -39,7 +39,8 @@ class UsersController extends AuthController
     }
 
     public function login(){
-        $this->viewBuilder()->layout(false);     
+        $this->viewBuilder()->layout(false);  
+        $this->Auth->logout();   
     }   
 
     public function facebooklogin() {
@@ -50,7 +51,7 @@ class UsersController extends AuthController
         $fb = new \Facebook\Facebook([
           'app_id' => FB_APPID,
           'app_secret' => FB_APPSECRET,
-          'default_graph_version' => 'v2.5',
+          'default_graph_version' => 'v2.10',
         ]);
         $helper = $fb->getRedirectLoginHelper();
         $permissions = ['email', 'user_likes'];
@@ -73,7 +74,7 @@ class UsersController extends AuthController
         $fb = new \Facebook\Facebook([
           'app_id' => FB_APPID,
           'app_secret' => FB_APPSECRET,
-          'default_graph_version' => 'v2.5',
+          'default_graph_version' => 'v2.10',
         ]);
         $helper = $fb->getRedirectLoginHelper();
 
@@ -188,6 +189,7 @@ class UsersController extends AuthController
                         $newUser->location = $locationIDCallback->location_id;
                         $newUser->flag = 1;
                         $newUser->verify = 1;
+                        $newUser->isadmin = 0;
                         $newUser->sociallogged = 1;
                         $newUser->created = Time::now();
                         $newUser->updated = Time::now();
@@ -211,7 +213,7 @@ class UsersController extends AuthController
                     $login_history = $this->_patchLocationEntity($login_history,$geoAPI);
                     $loginHistoryTB->save($login_history);
                 }
-                return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
+                return $this->redirect(['controller' => 'Pages', 'action' => 'index']);
             } else {
                 // $this->Flash->error(__('Facebook loi cmnr!!!'));
                 return $this->redirect(['controller' => 'Users', 'action' => 'login']);
@@ -248,9 +250,11 @@ class UsersController extends AuthController
             if($hasher->check($data['pwd'],$user['password'])){
                 $this->Auth->setUser($user);
                 self::_logLoginHistory($user['id'],self::_getGeoLocation());
+       
                 $response = [
                     'code' => 200,
                     'msg' => 'Thành công',
+                    'referer' => '/'
                 ];
             }         
         }

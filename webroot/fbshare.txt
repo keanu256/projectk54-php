@@ -1,0 +1,22 @@
+<!-- <script>
+$(document).ready(function() {
+    $.ajaxSetup({ cache: true });
+        $.getScript('https://connect.facebook.net/en_US/sdk.js', function(){
+            FB.init({
+                appId: '444948715901841',
+            version: 'v2.9' // or v2.1, v2.2, v2.3, ...
+        });     
+        
+        $(document).on('click','#fbshare',function(){
+            FB.ui({
+                method: 'feed',
+                //link: 'https://projectk54.com',
+                //source: 'http://cuudulieutot.com/thuongnhaunhenhacchuong-ducphucthuychi.mp3'
+                // picture: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/PIC16CxxxWIN.JPG/1200px-PIC16CxxxWIN.JPG'
+            }, function(response){
+                console.log(response);
+            });
+        });
+    });
+});
+</script> -->

@@ -30,16 +30,16 @@ class AuthController extends Controller
             ]
         ]);
 
-        $sidebar_left = TableRegistry::get('sidebar_menu_left')
-                ->find('all',[
-                    'contain'=> ['SidebarLeftChild']
-                ])
-                ->order(['position'=>'ASC'])
-                ->toArray();
-        $layout = [
-            'sidebar_menu_left' => $sidebar_left
-        ];
-        $this->set('layouts',$layout);
+        // $sidebar_left = TableRegistry::get('sidebar_menu_left')
+        //         ->find('all',[
+        //             'contain'=> ['SidebarLeftChild']
+        //         ])
+        //         ->order(['position'=>'ASC'])
+        //         ->toArray();
+        // $layout = [
+        //     'sidebar_menu_left' => $sidebar_left
+        // ];
+        // $this->set('layouts',$layout);
         /*
          * Enable the following components for recommended CakePHP security settings.
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html

@@ -68,11 +68,11 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/login', ['controller' => 'Users', 'action' => 'login']);
     $routes->connect('/logout', ['controller' => 'Users', 'action' => 'logout']);
     $routes->connect('/fblogin', ['controller' => 'Users', 'action' => 'facebookLogin']);
-    $routes->connect('/maintenance', ['controller' => 'Maintenance', 'action' => 'maintenance',]);
+    $routes->connect('/maintenance', ['controller' => 'Maintenance', 'action' => 'maintenance']);
+    $routes->connect('/panel', ['controller' => 'Dashboard', 'action' => 'index']);
     $routes->connect('/api/:version/:node/*', 
         ['controller' => 'BlockChain', 'action' => 'dispatcher'])
     ->setPass(['version','node']);
-
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */

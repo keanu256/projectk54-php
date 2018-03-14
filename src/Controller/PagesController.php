@@ -69,7 +69,7 @@ class PagesController extends AppController
 
 
     public function index(){
-        $this->viewBuilder()->layout('corporate');
+        $this->viewBuilder()->layout('homepage');
         set_time_limit (0);
         // //$url = 'https://ip-api.io/json/';
         // $url = "https://facebook.com/";

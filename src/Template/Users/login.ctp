@@ -192,7 +192,7 @@ $polyHelper = new PolygonHelper();
                     type: 'post',
                     success: function(res){
                         if(res.code == 200){
-                            window.location.href="dashboard";
+                            window.location.href= res.referer;                      
                         }else{
                             btn.html('<i class="fa fa-undo" aria-hidden="true"></i> Thử lại');
                             btn.attr("disabled", false);

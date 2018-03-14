@@ -5,6 +5,7 @@ use Cake\Core\Configure;
 use Cake\Network\Exception\ForbiddenException;
 use Cake\Network\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
+use Cake\Event\Event;
 
 /**
  * Static content controller
@@ -22,7 +23,17 @@ class DashboardController extends AuthController
         return false;
     }
 
+    public function beforeFilter(Event $event) {
+        parent::beforeFilter($event);
+        $session = $this->request->session();
+
+        if($session->read('Auth.User.isadmin') == false){
+            return $this->redirect(['controller'=>'Pages','action'=>'index']);       
+        }
+    }
+
     public function index(){
-        
+        $this->viewBuilder()->layout('dashboard');
+
     }
 }
