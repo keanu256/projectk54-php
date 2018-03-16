@@ -18,6 +18,8 @@ use Cake\Core\Configure;
 use Cake\Network\Exception\ForbiddenException;
 use Cake\Network\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
+use Robotusers\Excel\Registry;
+use Cake\ORM\TableRegistry; 
 
 /**
  * Static content controller
@@ -116,5 +118,59 @@ class PagesController extends AppController
         $html = curl_exec($ch);
         curl_close($ch);
         return $html;
+    }
+
+    public function excel(){
+        $this->viewBuilder()->layout(false);
+        $params = $this->request->query();
+        set_time_limit (0);
+
+        $citiesTB = TableRegistry::get('Cities');  
+        $districtsTB = TableRegistry::get('Districts');
+        $wardsTB = TableRegistry::get('Wards');
+        $registry = Registry::instance();
+
+        $table = $registry->get('records.xlsx', 'Sheet1',[
+            'startRow' => $params['start'],
+            'endRow' => $params['end'],
+            'startColumn' => 'A',
+            'endColumn' => 'G',
+            'keepOriginalRows' => false
+        ]);
+        $rows = $table->find()->toArray();
+        $error = true;
+            
+        foreach ($rows as $rows => $value) {
+   
+            if(!$citiesTB->exists(['id' => $value->B])){
+                $cityEntity = $citiesTB->newEntity();
+                $cityEntity->id = $value->B;
+                $cityEntity->name = $value->A;
+                $cityEntity->level = '';     
+                $citiesTB->save($cityEntity);
+            }
+          
+          
+            if(!$districtsTB->exists(['id' => $value->D])){
+                $districtEntity = $districtsTB->newEntity();
+                $districtEntity->id = $value->D;
+                $districtEntity->name = $value->C;
+                $districtEntity->level = '';
+                $districtEntity->city_id = $value->B; 
+                $districtsTB->save($districtEntity);
+            }
+            
+
+            if(!$wardsTB->exists(['id' => $value->F])){
+                $wardEntity = $wardsTB->newEntity();
+                $wardEntity->id = $value->F;
+                $wardEntity->name = $value->E;
+                $wardEntity->level = $value->G;
+                $wardEntity->district_id = $value->D;
+                $wardsTB->save($wardEntity);
+            }                
+        }  
+        
+        echo 'Finished!';
     }
 }

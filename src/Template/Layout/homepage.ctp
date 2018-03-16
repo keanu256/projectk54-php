@@ -20,31 +20,7 @@
         <?= $this->Element('Homepage/Header/header_non_login') ?>	
     <?php endif; ?>
 
-	<!-- MAIN MENU -->
-	<nav id="main-menu">
-		<img class="pull-nav" src="homepage/images/icons/pull-icon.png" alt="pull-icon">
-		<ul>
-			<li><a href="index.html">Home</a></li>
-			<li><a href="women-shop.html">Women</a></li>
-			<li><a href="men-shop.html">Men</a></li>		
-			<li>
-				<a href="#" class="submenu">Features</a>
-				<!-- SUBMENU SMALL -->
-				<ul class="submenu-small">
-					<li>
-						<a href="register-login.html">Register / Login</a>
-					</li>
-					<li>
-						<a href="profile.html">Profile Page</a>
-					</li>
-				</ul>
-				<!-- SUBMENU SMALL -->
-			</li>
-			<li><a href="blog.html">Blog</a></li>
-			<li><a href="contact.html">Contact</a></li>
-		</ul>
-	</nav>
-    <!-- /MAIN MENU -->
+<?= $this->Element('Homepage/main_menu') ?>	
     
 <?= $this->fetch('content'); ?> 
 
