@@ -173,4 +173,13 @@ class PagesController extends AppController
         
         echo 'Finished!';
     }
+
+    public function mce(){
+        $this->viewBuilder()->layout(false);
+    }
+
+    public function ckfinder()
+    {
+        $this->viewBuilder()->layout(false);
+    }
 }

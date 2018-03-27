@@ -73,6 +73,10 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/api/:version/:node/*', 
         ['controller' => 'BlockChain', 'action' => 'dispatcher'])
     ->setPass(['version','node']);
+    
+    $routes->connect('/mce', ['controller' => 'Pages', 'action' => 'mce']);
+    $routes->connect('/ckfinder', ['controller' => 'Pages', 'action' => 'ckfinder']);
+    
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */
