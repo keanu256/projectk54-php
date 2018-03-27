@@ -13,7 +13,7 @@
             <p class="contact">
                 Nếu bạn có bất kỳ yêu cầu nào hãy cho chúng tôi biết
                 <a href="mailto:admin@polygonvietnam.com">admin@polygonvietnam.com</a>
-            </p>>
+            </p>
     
             <p class="login">
                 Xin chào, 
