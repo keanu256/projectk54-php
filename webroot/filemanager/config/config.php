@@ -204,9 +204,9 @@ $config = array(
 
 
 	//Show or not total size in filemanager (is possible to greatly increase the calculations)
-	'show_total_size'						=> false,
+	'show_total_size'						=> true,
 	//Show or not show folder size in list view feature in filemanager (is possible, if there is a large folder, to greatly increase the calculations)
-	'show_folder_size'						=> false,
+	'show_folder_size'						=> true,
 	//Show or not show sorting feature in filemanager
 	'show_sorting_bar'						=> true,
 	//Show or not show filters button in filemanager
@@ -223,7 +223,7 @@ $config = array(
 	'lower_case'							=> false,
 
 	//Add ?484899493349 (time value) to returned images to prevent cache
-	'add_time_to_img'                       => false,
+	'add_time_to_img'                       => true,
 
 
 	//*******************************************
