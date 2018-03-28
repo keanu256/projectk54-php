@@ -36,6 +36,8 @@
 <?= $this->Html->script('/homepage/js/vendor/jquery.magnific-popup.min.js') ?>
 <!-- imgLiquid -->
 <?= $this->Html->script('/homepage/js/vendor/imgLiquid-min.js') ?>
+<!-- Socket.IO -->
+<?= $this->Html->script('socket.io.js') ?>
 <!-- Header -->
 <?= $this->Html->script('/homepage/js/header.js') ?>
 <!-- Menu -->
