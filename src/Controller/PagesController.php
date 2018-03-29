@@ -180,6 +180,94 @@ class PagesController extends AppController
 
     public function ckfinder()
     {
+        //FUNCTION MUST BE DELETE
         $this->viewBuilder()->layout(false);
+    }
+
+    public function loadEditorSave(){
+        $this->autoRender = false;
+
+        $response = [
+            'code' => 500,
+            'msg' => 'Failed'
+        ];
+
+        if($this->request->is('post')){
+            $data = $this->request->data;
+            $historiesTB = TableRegistry::get('EditorHistoriesSave');
+            $result = $historiesTB->find()->where([
+                'url' => $data['url'],
+                'user_id' => $data['user_id']
+            ])
+            ->select('content')
+            ->first();
+            
+            if($result != null){
+                $response = [          
+                    'code' => 200,
+                    'msg' => 'Success',
+                    'data' => $result
+                ];  
+            }
+              
+        }
+
+        $this->response->type('json');
+        $this->response->body(json_encode($response,JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    }
+
+    public function saveEditorContent(){
+        $this->autoRender = false;
+        $data = $this->request->data();
+
+        $response = [
+            'code' => 500,
+            'msg' => 'Failed',
+            'data' => $data
+        ];
+
+        $historiesTB = TableRegistry::get('EditorHistoriesSave');
+        $entity = $historiesTB->find()->where([
+            'url' => $data['url'],
+            'user_id' => $data['user_id']
+        ])
+        ->first();
+
+        if($entity == null){
+            $entity = $historiesTB->newEntity();  
+            //$entity->url = $data['url'];  
+        }
+
+        $entity->url = $data['url'];
+        $entity->user_id = 54;
+        $entity->content = $data['content'];  
+
+        if($historiesTB->save($entity, ['validate' => false])){
+            $response = [
+                'code' => 200
+            ];
+        }
+
+        // try{
+        //     $historiesTB->save($entity);
+        //     $response = [
+        //         'code' => 200,
+        //         'entity' => $entity
+        //     ];
+        // }catch(Exception $e){
+        //     $response = [
+        //         'code' => 300,
+        //         'error' => $e->getEntity()
+        //     ];
+        // }        
+        
+        $this->response->type('json');
+        $this->response->body(json_encode($response,JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    }
+
+    public function editorPreview(){
+        $this->viewBuilder()->layout(false);
+        $data = $this->request->query();
+        debug($data);
     }
 }

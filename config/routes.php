@@ -75,7 +75,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     ->setPass(['version','node']);
     
     $routes->connect('/mce', ['controller' => 'Pages', 'action' => 'mce']);
-    $routes->connect('/ckfinder', ['controller' => 'Pages', 'action' => 'ckfinder']);
+    $routes->connect('/editor_preview', ['controller' => 'Pages', 'action' => 'editorPreview']);
     
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
