@@ -1,8 +1,21 @@
+<style>
+    .cart-count-number{
+        color: white;
+        position: relative;
+        width: 30px;
+        top: -20px;
+        font-size: 10px;
+        text-align: center;
+        font-family: "Montserrat";
+        /* left: calc(50% - 60px); */
+        left: calc(50% - 15px) ; 
+    }
+</style>
 <nav id="main-menu">
     <img class="pull-nav" src="homepage/images/icons/pull-icon.png" alt="pull-icon">
     <ul>
         <li>
-            <?= $this->Html->link('<i class="fa fa-home" aria-hidden="true"></i> Trang chủ',[
+            <?= $this->Html->link('Trang chủ',[
                 'controller' => 'Pages',
                 'action' => 'index'
             ],[
@@ -10,7 +23,7 @@
             ]) ?>
         </li>	
         <li>
-            <a href="#" class="submenu font-menu-style"><i class="fa fa-list" aria-hidden="true"></i> Danh mục</a>
+            <a href="#" class="submenu font-menu-style">Danh mục</a>
             <ul class="submenu-small">
                 <li>
                     <a href="register-login.html">Register / Login</a>
@@ -20,10 +33,13 @@
                 </li>
             </ul>
         </li>
-        <li><a href="blog.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Gian hàng</a></li>
-        <li><a href="contact.html"><i class="fa fa-bell-o" aria-hidden="true"></i> Khuyến mãi</a></li>
-        <li><a href="contact.html"><i class="fa fa-fire" aria-hidden="true"></i> HOT</a></li>
-        <li><a href="contact.html"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Tin tức</a></li>
-        <li><a href="contact.html"><i class="fa fa-eye" aria-hidden="true"></i> S.P đã xem</a></li>
+        <li><a href="blog.html">Gian hàng</a></li>
+        <li><a href="contact.html">Khuyến mãi</a></li>
+        <li><a href="contact.html">HOT</a></li>
+        <li><a href="contact.html">Tin tức</a></li>
+        <li><a href="contact.html">đã xem</a></li>
+        <li><a href="contact.html">Giỏ hàng</a>
+            <div class="cart-count-number">123</div>
+        </li>
     </ul>
 </nav>
