@@ -4,7 +4,7 @@
 <?= $this->Element('Homepage/billboard_homepage') ?>	
 
 <?= $this->Html->script('jquery-3.2.1.js') ?>
-<script>
+<!-- <script>
     $(function() {
         try{
             var socket = io.connect('http://localhost:6789', {
@@ -23,4 +23,4 @@
             console.log(e);
         }     
     });
-</script>
+</script> -->

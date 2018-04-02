@@ -10,7 +10,7 @@
     $(function() {
         $.ajax({
             url: '<?= $this->Url->build(['controller'=>'Pages','action' => 'loadEditorSave']) ?>',
-            data: {url:current_url, user_id: 0},
+            data: {url:current_url, user_id: 1},
             type: 'post',
             success: function(res){
                 let content = (res.code == 200)? res.data.content : '';
@@ -39,12 +39,12 @@
                 "advlist anchor autolink autoresize code link image lists charmap print preview hr anchor pagebreak spellchecker",
                 "searchreplace wordcount visualblocks visualchars fullscreen insertdatetime media nonbreaking bbcode codesample",
                 "save table contextmenu directionality emoticons template paste textcolor responsivefilemanager preview",
-                "colorpicker fullpage help imagetools textcolor productpreview"
+                "colorpicker help imagetools textcolor productpreview"
             ],
             save_onsavecallback: function (e) { 
                 $.ajax({
                     url: '<?= $this->Url->build(['controller'=>'Pages','action' => 'saveEditorContent']) ?>',
-                    data: {url:current_url, user_id: 0, content: tinymce.activeEditor.getContent({format: 'raw'})},
+                    data: {url:current_url, user_id: 1, content: tinymce.activeEditor.getContent({format: 'raw'})},
                     type: 'post',
                     success: function(res){
                         console.log(res);          

@@ -355,7 +355,6 @@ select::-ms-expand {
     text-transform: uppercase;
     font-weight: 700;
     background-color: #00b0ff;
-    border-radius: 4px;
     border-bottom: 3px solid #0091ea;
     text-align: center;
     position: relative;
@@ -2240,7 +2239,7 @@ ul.blog-post-preview.list .actions {
 }
 
 header {
-    background-color: #fff
+    background-color: #fff;
 }
 
 header .westeros-separator {
@@ -2248,12 +2247,12 @@ header .westeros-separator {
 }
 
 #header-top-wrap {
-    background-color: #fafafa
+    background-color: #1976D2;
 }
 
 #header-top {
-    min-height: 40px;
-    padding: 15px 22px 0 0
+    min-height: 34px;
+    padding: 12px 22px 0 0;
 }
 
 #header-top .westeros-dropdown a {
@@ -2276,7 +2275,8 @@ header .westeros-separator {
 #header-top p {
     font-size: 0.6875em;
     line-height: 1em;
-    font-weight: 500
+    font-weight: 400;
+    color: #FFFFFF;
 }
 
 #header-top p.contact {
@@ -2357,10 +2357,7 @@ header .westeros-separator {
 }
 
 #header-bottom .westeros-form input[type="text"] {
-    width: 373px;
-    border-left: none;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    width: 400px;
     padding: 0 50px 0 12px
 }
 

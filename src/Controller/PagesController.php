@@ -20,6 +20,7 @@ use Cake\Network\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
 use Robotusers\Excel\Registry;
 use Cake\ORM\TableRegistry; 
+use Cake\I18n\Time;
 
 /**
  * Static content controller
@@ -197,7 +198,8 @@ class PagesController extends AppController
             $historiesTB = TableRegistry::get('EditorHistoriesSave');
             $result = $historiesTB->find()->where([
                 'url' => $data['url'],
-                'user_id' => $data['user_id']
+                'user_id' => $data['user_id'],
+                'updated >=' => Time::now()->modify('-15 minutes')
             ])
             ->select('content')
             ->first();
@@ -233,16 +235,13 @@ class PagesController extends AppController
         ])
         ->first();
 
-        if($entity == null){
-            $entity = $historiesTB->newEntity();  
-            //$entity->url = $data['url'];  
-        }
+        if($entity == null) $entity = $historiesTB->newEntity();  
 
         $entity->url = $data['url'];
-        $entity->user_id = 54;
-        $entity->content = $data['content'];  
+        $entity->user_id = $data['user_id'];
+        $entity->content = $data['content'];      
 
-        if($historiesTB->save($entity, ['validate' => false])){
+        if($historiesTB->save($entity)){
             $response = [
                 'code' => 200
             ];
