@@ -80,4 +80,16 @@ class WardsTable extends Table
 
         return $rules;
     }
+
+    public function getData($data){
+        $district_id = isset($data['district_id']) ? $data['district_id'] : null;
+        $result = null;
+
+        if($district_id != null){
+            $result = $this->find('list')->where(['district_id' => $district_id])
+            ->order(['name'=>'asc'])->toArray();
+        }
+
+        return $result;
+    }
 }

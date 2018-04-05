@@ -35,3 +35,35 @@ msgstr ""
 msgid "HUUTAI_{0}"
 msgstr "Phan Hữu Tài {0}"
 
+msgid "METHOD_NOT_FOUND"
+msgstr "Not Found"
+
+msgid "METHOD_SUCCESS"
+msgstr "OK"
+
+msgid "METHOD_UNAVAILABLE"
+msgstr "Service Unavailable"
+
+msgid "METHOD_UNAVAILABLE_LEGAL"
+msgstr "Unavailable For Legal Reasons"
+
+msgid "METHOD_OLD_VERSION"
+msgstr "Require Update"
+
+msgid "METHOD_BAD_REQUEST"
+msgstr "Bad Request"
+
+msgid "METHOD_FORBIDDEN"
+msgstr "Forbidden"
+
+msgid "METHOD_NOT_ALLOW"
+msgstr "Method Not Allow"
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+
+

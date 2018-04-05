@@ -73,7 +73,6 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/api/:version/:node/*', 
         ['controller' => 'BlockChain', 'action' => 'dispatcher'])
     ->setPass(['version','node']);
-    
     $routes->connect('/mce', ['controller' => 'Pages', 'action' => 'mce']);
     $routes->connect('/editor_preview', ['controller' => 'Pages', 'action' => 'editorPreview']);
     

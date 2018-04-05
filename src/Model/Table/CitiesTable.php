@@ -66,4 +66,13 @@ class CitiesTable extends Table
 
         return $validator;
     }
+
+    public function getData($data){
+        $zone = isset($data['zone']) ? $data['zone'] : null;
+
+        if($zone == null){
+            return $this->find('list')->toArray();
+        }
+        return $this->find('list')->where(['zone' => $zone])->toArray();
+    }
 }

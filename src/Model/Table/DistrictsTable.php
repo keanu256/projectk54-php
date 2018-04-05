@@ -84,4 +84,16 @@ class DistrictsTable extends Table
 
         return $rules;
     }
+
+    public function getData($data){
+        $city_id = isset($data['city_id']) ? $data['city_id'] : null;
+        $result = null;
+
+        if($city_id != null){
+            $result = $this->find('list')->where(['city_id' => $city_id])
+            ->order(['name'=>'asc'])->toArray();
+        }
+
+        return $result;
+    }
 }

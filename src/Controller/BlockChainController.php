@@ -21,13 +21,18 @@ use Cake\ORM\TableRegistry;
 use Cake\Datasource\ConnectionManager;
 use Cake\Utility\Xml;
 use Cake\Core\Exception\Exception;
+use App\Classes\PolygonHelper;
 
 class BlockChainController extends Controller
 {
+    //Tên bảng cho phép truy vấn
     public static $requestAllow = [
-        'post',
-        'users',
-        'demo'
+        '1.0' => [
+            'post',
+            'users',
+            'demo',
+            'cities','districts','wards' 
+        ]        
     ];
 
     public function dispatcher($ver,$table,$format){       
@@ -101,120 +106,22 @@ class BlockChainController extends Controller
             case 200: 
                 $response = [
                     'code' => 200,
-                    'msg' => 'Thành công',
-                    'data' => $result['data']
+                    'msg' => __('METHOD_SUCCESS'),
+                    'data' => $result['data'],
+                    'count' => count($result['data'])
                 ];
                 break;
             case 404: 
-                $response = [
-                    'code' => 404,
-                    'msg' => 'Không tìm thấy',
-                ];
+                $response = ['code' => 404, 'msg' => __('METHOD_NOT_FOUND')];
                 break;
             case 500:
-                $response = [
-                    'code' => 500,
-                    'msg' => $result['msg'],
-                ];
+                $response = ['code' => 500, 'msg' => $result['msg']];
                 break;
         }
         
         return $response;
     }
 
-    private function _insertdata($table,$data){
-        $result = [
-            'code' => 500,
-            'msg' => 'Failed',
-        ];
-
-        switch($table){
-            case 'users':
-                $result = ['code'=>'500','msg'=>'METHOD_NOT_ALLOW'];
-                break;
-            case 'posts':
-                $result = self::_insertPost($data);
-                break;
-        } 
-
-        return $result;
-    }
-
-    private function _getdata($table,$data){
-        $response = [
-            'code' => 500,
-            'msg' => 'Failed'
-        ];
-
-        $result;
-
-        switch($table){
-            case 'users':
-                $result = self::_getUser($data);
-                break;
-            case 'posts':
-                $result = self::_getPost($data);
-                break;
-        }  
-
-        if(!empty($result)){
-            $response = [
-                'code' => 200,
-                'msg' => 'Success',
-                'data' => $result
-            ];
-        }else{
-            $response = [
-                'code' => 404,
-                'msg' => 'Không có dữ liệu'
-            ];
-        }         
-        return $response;
-    }
-
-    private function _getUser($data){
-        $connectionDB = ConnectionManager::get('default');
-        $usersTB = TableRegistry::get('users');
-        $page = isset($data['page']) ? $data['page'] : 1;
-        $page = $page < 1 ? 1 : $page;
-        $limit = isset($data['limit']) ? $data['limit'] : 0;
-        $limit = $limit > 1000 ? 1000 : $limit;
-        $limit = $limit <= 0 ? 20 : $limit;
-
-        $condition = isset($data['where']) ? $data['where'] : null;
-
-        $result = null;
-
-        $offset = ($page - 1);
-
-        if($page != 1 && $page != 0){
-            $offset = ($page - 1) * $limit;
-        }
-
-        if($condition != null AND !empty($condition)){
-            try{
-                
-                $result = $usersTB->find()
-                    ->select(['id','fullname','avatar'])
-                    ->limit($limit)
-                    ->page($offset + 1)
-                    ->where($condition)
-                    ->toArray();
-
-            }catch(\Exception $e){
-                        
-            }
-            
-        }else{
-            $result = $connectionDB->execute(
-                'CALL GetUsers(?, ?)', 
-                [$offset, $limit]
-            )->fetchAll('assoc');
-        }   
-
-        return $result;
-    }
-    
     private function _formatContent($format,$content){
         $bodyContent;
 
@@ -227,11 +134,12 @@ class BlockChainController extends Controller
         }
 
         return $bodyContent;
-    }
+    } 
 
     private function _checkAccessKey($key){
-        if($key == null or empty($key)){
-            return ['code'=> 500, 'msg' => 'Key không hợp lệ'];
+        $polyHelper = new PolygonHelper();
+        if(!$polyHelper->checkAccessKey($key)){
+            return ['code'=> 403, 'msg' => __('METHOD_FORBIDDEN')];
         }
     }
     
@@ -239,8 +147,8 @@ class BlockChainController extends Controller
         Configure::load('appsettings');
         if($this->request->is('ssl') && Configure::read('Debug') == false){
             $response = [
-                'code' => 405,
-                'msg' => 'Kết nối không an toàn'
+                'code' => 451,
+                'msg' => __('METHOD_UNAVAILABLE_LEGAL')
             ];
             return $response;
         }
@@ -248,27 +156,68 @@ class BlockChainController extends Controller
         if(Configure::read('Maintain')){      
             $response = [
                 'code' => 503,
-                'msg' => 'Dịch vụ đang bảo trì'
+                'msg' => __('METHOD_UNAVAILABLE')
             ];
             return $response;
         }  
 
         if(Configure::read('Api.version') != $v){
             $response = [
-                'code' => 403,
-                'msg' => 'Phiên bản đã lỗi thời'
+                'code' => 306,
+                'msg' => __('METHOD_OLD_VERSION')
             ];
             return $response;
         }
 
-        if(!in_array(strtolower($table),self::$requestAllow)){
+        if(!in_array(strtolower($table),self::$requestAllow[$v])){
             $response = [
                 'code' => 400,
-                'msg' => 'Truy vấn lỗi'
+                'msg' => __('METHOD_BAD_REQUEST')
             ];
             return $response;
         } 
 
         return ['code' => 200];
+    }
+
+    private function _insertdata($table,$data){
+        $result = [
+            'code' => 500,
+            'msg' => 'Failed',
+        ];
+
+        switch($table){
+            case 'users':
+                $result = ['code'=>'500','msg'=> __('METHOD_NOT_ALLOW')];
+                break;
+            case 'posts':
+                $result = self::_insertPost($data);
+                break;
+        } 
+
+        return $result;
+    }
+
+    private function _getdata($table,$data){
+        $response = [
+            'code' => 500,
+            'msg' => __('METHOD_BAD_REQUEST')
+        ];
+
+        $result = TableRegistry::get(ucfirst($table))->getData($data);
+
+        if(!empty($result)){
+            $response = [
+                'code' => 200,
+                'msg' => __('METHOD_SUCCESS'),
+                'data' => $result
+            ];
+        }else{
+            $response = [
+                'code' => 404,
+                'msg' => __('METHOD_NOT_FOUND')
+            ];
+        }         
+        return $response;
     }
 }

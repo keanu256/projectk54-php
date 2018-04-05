@@ -5,6 +5,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Cake\Datasource\ConnectionManager;
 
 /**
  * Users Model
@@ -143,5 +144,59 @@ class UsersTable extends Table
         $rules->add($rules->isUnique(['email']));
 
         return $rules;
+    }
+
+    public function getData($data){
+        $connectionDB = ConnectionManager::get('default');
+        $page = isset($data['page']) ? $data['page'] : 1;
+        $page = $page < 1 ? 1 : $page;
+        $limit = isset($data['limit']) ? $data['limit'] : 0;
+        $limit = $limit > 1000 ? 1000 : $limit;
+        $limit = $limit <= 0 ? 20 : $limit;
+
+        $condition = isset($data['where']) ? $data['where'] : null;
+
+        $result = null;
+
+        $offset = ($page - 1);
+
+        if($page != 1 && $page != 0){
+            $offset = ($page - 1) * $limit;
+        }
+
+        if($condition != null AND !empty($condition)){
+            try{
+                
+                $result = $this->find()
+                    ->select(['id','fullname','avatar'])
+                    ->limit($limit)
+                    ->page($offset + 1)
+                    ->where($condition)
+                    ->toArray();
+
+            }catch(\Exception $e){
+                        
+            }
+            
+        }else{
+            $result = $connectionDB->execute(
+                'CALL GetUsers(?, ?)', 
+                [$offset, $limit]
+            )->fetchAll('assoc');
+        }   
+
+        return $result;
+    }
+
+    public function insertData($data){
+        
+    }
+
+    public function updateData($data){
+        
+    }
+
+    public function deleteData($data){
+        
     }
 }

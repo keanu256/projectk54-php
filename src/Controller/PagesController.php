@@ -21,6 +21,7 @@ use Cake\View\Exception\MissingTemplateException;
 use Robotusers\Excel\Registry;
 use Cake\ORM\TableRegistry; 
 use Cake\I18n\Time;
+use App\Classes\PolygonHelper;
 
 /**
  * Static content controller
@@ -268,5 +269,47 @@ class PagesController extends AppController
         $this->viewBuilder()->layout(false);
         $data = $this->request->query();
         debug($data);
+    }
+
+    public function demo1(){
+        $this->viewBuilder()->layout(false);
+        $polyHelper = new PolygonHelper();
+
+        $default_string = [0 => '-- Chưa chọn --'];
+
+        $khu_vuc = $default_string + [1 => 'Miền Bắc', 2 => 'Miền Trung', 3 => 'Miền Nam'];
+        $tinh_thanhpho = $default_string;
+        $quan_huyen = $default_string;
+        $phuong_xa = $default_string;
+
+        $citiesTB = TableRegistry::get('Cities');
+        $districtsTB = TableRegistry::get('Districts');
+        $wardsTB = TableRegistry::get('Wards');
+
+        $cities = $polyHelper->getCitiesName(1);
+
+        $userAddress = [
+            'street' => '350 Tân Sơn Nhì',
+            'zone' => 3,
+            'city' => 79,
+            'district' => 767,
+            'ward' => 27010
+        ];
+
+        $userAddress = null;
+
+        if($userAddress != null){
+            $tinh_thanhpho += $citiesTB->find('list')->where(['zone' => $userAddress['zone']])->toArray();
+            $quan_huyen += $districtsTB->find('list')->where(['city_id' => $userAddress['city']])->toArray();
+            $phuong_xa += $wardsTB->find('list')->where(['district_id' => $userAddress['district']])->toArray();
+        }
+
+        $this->set([
+            'userAddress' => $userAddress,
+            'khu_vuc' => $khu_vuc,
+            'tinh_thanhpho' => $tinh_thanhpho,
+            'quan_huyen' => $quan_huyen, 
+            'phuong_xa' => $phuong_xa
+        ]);
     }
 }

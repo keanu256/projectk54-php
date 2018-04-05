@@ -48,6 +48,7 @@ class AppController extends Controller
 
         Configure::load('appsettings');
         $session = $this->request->session();
+        $this->set(['apiVersion' => Configure::read('Api.version')]);
         if(Configure::read('Maintain') && empty($session->read('Auth.User.isSuperAdmin'))){
             return $this->redirect(['controller'=>'Maintenance','action'=>'maintenance']);
         }
