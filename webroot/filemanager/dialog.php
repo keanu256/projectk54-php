@@ -832,7 +832,7 @@ $files=$sorted;
 	}
 	?>
 
-	<li class="pull-right"><a class="btn-small" href="javascript:void('')" id="info"><i class="icon-question-sign"></i></a></li>
+	<!-- <li class="pull-right"><a class="btn-small" href="javascript:void('')" id="info"><i class="icon-question-sign"></i></a></li> -->
 	<?php if($show_language_selection){ ?>
 	<li class="pull-right"><a class="btn-small" href="javascript:void('')" id="change_lang_btn"><i class="icon-globe"></i></a></li>
 	<?php } ?>
