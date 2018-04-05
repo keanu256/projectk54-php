@@ -1,17 +1,4 @@
 <?php
-/**
- * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- * @link      https://cakephp.org CakePHP(tm) Project
- * @since     0.2.9
- * @license   https://opensource.org/licenses/mit-license.php MIT License
- */
 namespace App\Controller;
 
 use Cake\Controller\Controller;
@@ -22,22 +9,15 @@ use Cake\Datasource\ConnectionManager;
 use Cake\Utility\Xml;
 use Cake\Core\Exception\Exception;
 use App\Classes\PolygonHelper;
+use App\Classes\PolygonChecker;
 
 class BlockChainController extends Controller
 {
-    //Tên bảng cho phép truy vấn
-    public static $requestAllow = [
-        '1.0' => [
-            'post',
-            'users',
-            'demo',
-            'cities','districts','wards' 
-        ]        
-    ];
 
     public function dispatcher($ver,$table,$format){       
         $this->autoRender = false;
-        $checkResult = self::_checkAvailable($ver,$table);
+        $polyChecker = new PolygonChecker();
+        $checkResult = $polyChecker->checkAvailableForAPI($ver,$table);
         $data = $this->request->query();
         $response;
 
@@ -47,7 +27,7 @@ class BlockChainController extends Controller
         
         if($checkResult['code'] == 200){
             $response = [
-                'results' => self::_process($table,$data)
+                'results' => self::_process($table,$data,$ver)
             ];
         }else{
             $response = [
@@ -61,19 +41,16 @@ class BlockChainController extends Controller
         $this->response->body($bodyContent);      
     }
 
-    private function _process($table,$data){
+    private function _process($table,$data,$ver){
 
+        $polyChecker = new PolygonChecker();
+        $polyHelper = new PolygonHelper();
         $key = isset($data['key']) ? $data['key'] : null;
-        $result;
+        $result = null;  
+        $actionBehavior; 
 
-        $access_flag = self::_checkAccessKey($key);  
-
-        if($access_flag['code'] == 500){
-            $response = [
-                'code' => 500,
-                'msg' => $access_flag['msg']
-            ];
-
+        if(!$polyChecker->checkAccessKey($key)){
+            $response = ['code' => 403,'msg' => __('METHOD_MISSING_OR_INVALID_KEY')];
             return $response;
         }
 
@@ -82,11 +59,13 @@ class BlockChainController extends Controller
             'msg' => 'METHOD_NOT_ALLOW'
         ];
 
-        if($this->request->is(['get'])){
+        if($this->request->is(['get'])){   
+            $actionBehavior = "get data";     
             $result = self::_getdata($table,$data);
         }
 
         if($this->request->is(['post'])){
+            $actionBehavior = "insert data"; 
             $result = self::_insertdata($table,$data);
         }
 
@@ -99,8 +78,11 @@ class BlockChainController extends Controller
         }
 
         if($this->request->is(['delete'])){
-
+            $actionBehavior = "delete data"; 
         }
+
+        //Lưu trữ truy vấn API
+        $polyHelper->logActionAPI($key,$table,$actionBehavior,$data,$ver);
 
         switch($result['code']){
             case 200: 
@@ -136,88 +118,28 @@ class BlockChainController extends Controller
         return $bodyContent;
     } 
 
-    private function _checkAccessKey($key){
-        $polyHelper = new PolygonHelper();
-        if(!$polyHelper->checkAccessKey($key)){
-            return ['code'=> 403, 'msg' => __('METHOD_FORBIDDEN')];
-        }
-    }
-    
-    private function _checkAvailable($v,$table){
-        Configure::load('appsettings');
-        if($this->request->is('ssl') && Configure::read('Debug') == false){
-            $response = [
-                'code' => 451,
-                'msg' => __('METHOD_UNAVAILABLE_LEGAL')
-            ];
-            return $response;
-        }
+    private function _buildReponse($result){
 
-        if(Configure::read('Maintain')){      
-            $response = [
-                'code' => 503,
-                'msg' => __('METHOD_UNAVAILABLE')
-            ];
-            return $response;
-        }  
-
-        if(Configure::read('Api.version') != $v){
-            $response = [
-                'code' => 306,
-                'msg' => __('METHOD_OLD_VERSION')
-            ];
-            return $response;
-        }
-
-        if(!in_array(strtolower($table),self::$requestAllow[$v])){
-            $response = [
-                'code' => 400,
-                'msg' => __('METHOD_BAD_REQUEST')
-            ];
-            return $response;
-        } 
-
-        return ['code' => 200];
-    }
-
-    private function _insertdata($table,$data){
-        $result = [
-            'code' => 500,
-            'msg' => 'Failed',
-        ];
-
-        switch($table){
-            case 'users':
-                $result = ['code'=>'500','msg'=> __('METHOD_NOT_ALLOW')];
-                break;
-            case 'posts':
-                $result = self::_insertPost($data);
-                break;
-        } 
-
-        return $result;
-    }
-
-    private function _getdata($table,$data){
-        $response = [
-            'code' => 500,
-            'msg' => __('METHOD_BAD_REQUEST')
-        ];
-
-        $result = TableRegistry::get(ucfirst($table))->getData($data);
+        $response = ['code' => 500,'msg' => __('METHOD_BAD_REQUEST')];
 
         if(!empty($result)){
-            $response = [
-                'code' => 200,
-                'msg' => __('METHOD_SUCCESS'),
+            $response = ['code' => 200,'msg' => __('METHOD_SUCCESS'),
                 'data' => $result
             ];
         }else{
-            $response = [
-                'code' => 404,
-                'msg' => __('METHOD_NOT_FOUND')
-            ];
-        }         
+            $response = ['code' => 404,'msg' => __('METHOD_NOT_FOUND')];
+        }  
+
         return $response;
+    }
+
+    private function _insertdata($table,$data){
+        $result = TableRegistry::get(ucfirst($table))->insertData($data);
+        return $this->_buildReponse($result);
+    }
+
+    private function _getdata($table,$data){
+        $result = TableRegistry::get(ucfirst($table))->getData($data);               
+        return $this->_buildReponse($result);
     }
 }

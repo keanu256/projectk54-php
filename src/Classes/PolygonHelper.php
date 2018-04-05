@@ -24,14 +24,7 @@ class PolygonHelper{
     public function readConfig($key,$file){
         Configure::load($file);  
         return Configure::read($key);
-    }
-
-    public function checkAccessKey($key){
-        if($key == null or empty($key)){
-            return false;
-        }
-        return true;
-    }
+    } 
 
     public function getCitiesName($zone = null){
         $citiesTB = TableRegistry::get('Cities');
@@ -68,5 +61,16 @@ class PolygonHelper{
         }
 
         return $rs;
+    }
+
+    public function logActionAPI($key,$target,$action,$data,$ver){
+        $table = TableRegistry::get('ApiRequestLog');
+        $entity = $table->newEntity();
+        $entity->api_key = $key;
+        $entity->target = $target;
+        $entity->action = $action;
+        $entity->data = json_encode($data);
+        $entity->version = $ver;
+        $table->logData($entity);
     }
 }
