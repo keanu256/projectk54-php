@@ -5,10 +5,14 @@ return [
             'post',
             'users',
             'demo',
-            'cities','districts','wards' 
+            'cities','districts','wards',
+            'hello'
         ]
     ],
     'groups' => [
-        
+        'cities' => [
+            'hello' => 'pppp',
+            'yasuo' => 'dd'
+        ]
     ]
 ];

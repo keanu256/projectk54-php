@@ -29,6 +29,10 @@ class BlockChainController extends Controller
             $response = [
                 'results' => self::_process($table,$data,$ver)
             ];
+        }else if($checkResult['code'] == 9999){
+            $response = [
+                'results' => self::_callFunction($checkResult['belong'],$data,$ver,$checkResult['function'])
+            ];
         }else{
             $response = [
                 'results' => $checkResult
@@ -60,8 +64,14 @@ class BlockChainController extends Controller
         ];
 
         if($this->request->is(['get'])){   
-            $actionBehavior = "get data";     
-            $result = self::_getdata($table,$data);
+            $actionBehavior = "get data";    
+            if(isset($data['q'])){          
+                $result = self::_searchdata($table,$data);
+                $actionBehavior = "search data";   
+                //$result = ['code'=> 200, 'data' => 'search'];
+            }else{
+                $result = self::_getdata($table,$data);
+            }            
         }
 
         if($this->request->is(['post'])){
@@ -142,4 +152,22 @@ class BlockChainController extends Controller
         $result = TableRegistry::get(ucfirst($table))->getData($data);               
         return $this->_buildReponse($result);
     }
+
+    private function _searchdata($table,$data){
+        $result = TableRegistry::get(ucfirst($table))->searchData($data);               
+        return $this->_buildReponse($result);
+    }
+
+    private function _callFunction($table,$data,$ver,$functionName){
+        $response = [
+            'code' => 200,
+            'data' => $data,
+            'table' => $table,
+            'ver' => $ver,
+            'functionName' => $functionName
+        ];         
+        return $response;
+    }
+
+    
 }

@@ -11,18 +11,18 @@ class PolygonHelper{
     }
 
     public function demo(){
-        Configure::load('appsettings');
+        Configure::load('appsettings','default',false);
         return Configure::read();
     }
 
     public function checkLogin($type){
-        Configure::load('loginconfig');
+        Configure::load('loginconfig','default',false);
         if(Configure::read($type)['Activation']) return true;
         return false;
     }
 
     public function readConfig($key,$file){
-        Configure::load($file);  
+        Configure::load($file,'default',false);  
         return Configure::read($key);
     } 
 

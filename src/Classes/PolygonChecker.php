@@ -49,6 +49,19 @@ class PolygonChecker extends PolygonHelper{
                 'msg' => __('METHOD_BAD_REQUEST')
             ];
             return $response;
+        }else{
+            $belongTable = $this->readConfig('groups','apisettings');
+
+            foreach ($belongTable as $key => $value) {
+                if(isset($value[strtolower($table)])){
+                    $response = [
+                        'code' => 9999,
+                        'belong' => $key,
+                        'function' => $value[strtolower($table)]
+                    ];                
+                    return $response;
+                }         
+            }
         } 
 
         return ['code' => 200];
