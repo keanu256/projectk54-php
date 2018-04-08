@@ -271,6 +271,11 @@ class PagesController extends AppController
         debug($data);
     }
 
+    public function video(){
+        $this->viewBuilder()->layout(false);
+        
+    }
+
     public function demo1(){
         $this->viewBuilder()->layout(false);
         $polyHelper = new PolygonHelper();
