@@ -271,9 +271,19 @@ class PagesController extends AppController
         debug($data);
     }
 
-    public function video(){
+    public function video($slug = null){
         $this->viewBuilder()->layout(false);
-        
+        $polyHelper = new PolygonHelper();
+        $this->set([
+            'demoVNtoString' => $polyHelper->vnToString($slug,true,true)
+        ]);
+    }
+
+    public function kanji($kanjiArray = null){
+        $this->viewBuilder()->layout(false);
+        $this->set([
+            'kanjiArray' => $kanjiArray
+        ]);
     }
 
     public function demo1(){

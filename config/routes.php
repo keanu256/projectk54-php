@@ -75,7 +75,8 @@ Router::scope('/', function (RouteBuilder $routes) {
     ->setPass(['version','node']);
     $routes->connect('/mce', ['controller' => 'Pages', 'action' => 'mce']);
     $routes->connect('/editor_preview', ['controller' => 'Pages', 'action' => 'editorPreview']);
-    
+    $routes->connect('/video/*', ['controller' => 'Pages', 'action' => 'video']);
+    $routes->connect('/kanji/*', ['controller' => 'Pages', 'action' => 'kanji']);
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */

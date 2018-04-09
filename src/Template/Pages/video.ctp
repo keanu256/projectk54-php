@@ -10,16 +10,16 @@
 <body>
     <style>
         .plyr__control--overlaid{
-            background: rgb(211, 217, 226);
+            background: rgba(211, 217, 226,0.2);
             border: 0;
-            border-radius: 50% / 10%;  
+            border-radius: 15px;  
             padding: 20px 35px;           
         }
         .plyr__control--overlaid:hover{
-            background: rgb(211, 217, 226);
+            background: inherit;
         }
-        .plyr__control--overlaid:before{
-            background: rgb(211, 217, 226);
+        /* .plyr__control--overlaid:before{
+            background: inherit;
             border-radius: 5% / 50%;
             bottom: 9%;
             content: "";
@@ -27,7 +27,7 @@
             position: absolute;
             right: -5%;
             top: 9%;  
-        }
+        } */
         .plyr__control--overlaid svg{
             height: 40px;
             width: 40px;
@@ -47,33 +47,19 @@
     <div style="width:600px; height:550px;">
         <video id="player" controls></video>
     </div>
-   
+    <?= $demoVNtoString ?>
     <?= $this->Html->script('/lib/jquery/jquery-3.3.1.min.js') ?>
     <?= $this->Html->script('/lib/plyr/plyr.js') ?>
     <script>
-        // const player = new Plyr('#player', {
-        //     settings : [
-        //         'captions', 'quality', 'speed', 'loop'
-        //     ],
-        //     loop: {
-        //         active: true
-        //     },
-        //     controls: [
-        //         'play-large', 
-        //         'play', 
-        //         'progress', 
-        //         'current-time', 
-        //         'mute', 
-        //         'volume', 
-        //         'captions', 
-        //         'settings', 
-        //         'pip', 
-        //         'airplay', 
-        //         'fullscreen'
-        //     ]
-        // });
-
-        const player = new Plyr('#player',{
+        var x = 0;
+        const player = new Plyr('#player', {
+            title: true,
+            settings : [
+                'captions', 'quality', 'speed', 'loop'
+            ],
+            loop: {
+                active: true
+            },
             controls: [
                 'play-large', // The large play button in the center
                 'restart', // Restart playback
@@ -92,7 +78,6 @@
                 'fullscreen', // Toggle fullscreen
             ]
         });
-        
 
         $(function() {  
             player.source = {
@@ -121,21 +106,6 @@
                     },
                 ],
             };
-
-            // player.source = {
-            //     type: 'audio',
-            //     title: 'Example title',
-            //     sources: [
-            //         {
-            //             src: '/filemanager/uploads/audio/1.mp3',
-            //             type: 'audio/mp3',
-            //         },
-            //         {
-            //             src: '/filemanager/uploads/audio/2.mp3',
-            //             type: 'audio/mp3',
-            //         },
-            //     ],
-            // };
         }); 
 
         $('.plyr').on('ready', function(event) {
@@ -146,7 +116,8 @@
 
             $(this).removeClass('plyr--init-hide-controls');
 
-        });      
+        });    
+
     </script>
 </body>
 </html>
