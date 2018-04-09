@@ -8,5 +8,7 @@
 
 /nbproject/*
 /webroot/files/*
+/webroot/filemanager/uploads/*
+/webroot/kanjivg/*
 /webroot/js/webview/googleanalytics.js
 /nbproject/private/
