@@ -53,6 +53,8 @@ File: Main Css File
 */
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
 @import url("https://fonts.googleapis.com/css?family=Rubik:300,400,500,700");
+@import url("https://fonts.googleapis.com/css?family=Jura|Arimo");
+
 /* ===========
    Menu
  =============*/
@@ -779,7 +781,7 @@ a:focus {
 }
 
 .container {
-  width: auto;
+  /* width: auto; */
 }
 
 .container-alt {
@@ -799,6 +801,8 @@ a:focus {
 .page-title {
   font-size: 18px;
   margin: 0;
+  font-family: Jura;
+  font-weight: bold;
 }
 
 .header-title {
@@ -2828,7 +2832,7 @@ code {
 }
 
 .modal-demo .close {
-  position: absolute;
+  position: relative;
   top: 15px;
   right: 25px;
   color: #e3eaef;
@@ -2843,11 +2847,12 @@ code {
 .custom-modal-title {
   padding: 15px 25px 15px 25px;
   line-height: 22px;
-  font-size: 18px;
-  background-color: #313a46;
+  font-size: 15px;
+  background-color: #02c0ce;
   color: #ffffff;
   text-align: left;
   margin: 0;
+  font-family: 'Arimo';
 }
 
 .custom-modal-text {

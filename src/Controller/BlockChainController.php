@@ -143,18 +143,18 @@ class BlockChainController extends Controller
         return $response;
     }
 
-    private function _insertdata($table,$data){
-        $result = TableRegistry::get(ucfirst($table))->insertData($data);
+    private function _insertdata($table,$data){ 
+        $result = TableRegistry::get(self::_processNameDB($table))->insertData($data);
         return $this->_buildReponse($result);
     }
 
     private function _getdata($table,$data){
-        $result = TableRegistry::get(ucfirst($table))->getData($data);               
+        $result = TableRegistry::get(self::_processNameDB($table))->getData($data);               
         return $this->_buildReponse($result);
     }
 
     private function _searchdata($table,$data){
-        $result = TableRegistry::get(ucfirst($table))->searchData($data);               
+        $result = TableRegistry::get(self::_processNameDB($table))->searchData($data);               
         return $this->_buildReponse($result);
     }
 
@@ -169,5 +169,16 @@ class BlockChainController extends Controller
         return $response;
     }
 
-    
+    private function _processNameDB($table){
+        if(strpos($table, '_') !== false) {
+            $table = explode('_', $table);
+            $tmp = "";
+            foreach ($table as $key => $value) {
+                $tmp .= ucfirst($value);
+            }
+            return $tmp;
+        }else{
+            return ucfirst($table);
+        }
+    }
 }

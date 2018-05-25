@@ -3,9 +3,13 @@
 ?>
 <style>
     span a:hover{
-    text-decoration: none !important;
-    color: -webkit-linear-gradient(#9f814a,#7e6234);
- }
+        text-decoration: none !important;
+        color: -webkit-linear-gradient(#9f814a,#7e6234);
+    }
+    .login span a{
+        color: white;
+    }
+
 </style>
 <header>
     <div id="header-top-wrap">
@@ -14,10 +18,9 @@
                 Nếu bạn có bất kỳ yêu cầu nào hãy cho chúng tôi biết
                 <a href="mailto:admin@polygonvietnam.com">admin@polygonvietnam.com</a>
             </p>
-    
             <p class="login">
                 Xin chào, 
-                <span style="color:#f1556c">
+                <span style="color:cyan">
                     <?= $this->Html->image('/homepage/badges/bronze_s.png',[
                             'height' => 9,
                             'width' => 9
@@ -25,9 +28,16 @@
                     <?= $session->read('Auth.User.fullname') ?>                       
                 </span>                   
                 <span>
-                    Quản lý tài khoản
+                    <?= $this->Html->link('<i class="fa fa-desktop" aria-hidden="true"></i> Trang quản lý',
+                        [
+                            'controller'=>'Dashboard',
+                            'action'=>'index'
+                        ],[
+                            'escape' => false
+                        ]
+                    ) ?> 
                 </span> 
-                <span>
+                <span class="user_logout">
                     <?= $this->Html->link('<i class="fa fa-power-off"></i> Thoát',
                         [
                             'controller'=>'Users',

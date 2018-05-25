@@ -6,6 +6,10 @@ use Cake\Network\Exception\ForbiddenException;
 use Cake\Network\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
 use Cake\Event\Event;
+use Cake\I18n\Time;
+use Cake\ORM\TableRegistry; 
+use App\Classes\PolygonChecker;
+use App\Classes\MobileDetect;
 
 /**
  * Static content controller
@@ -30,10 +34,43 @@ class DashboardController extends AuthController
         if($session->read('Auth.User.isadmin') == false){
             return $this->redirect(['controller'=>'Pages','action'=>'index']);       
         }
+
+        $action = $this->request->getParam('action');
+
+        $polyChecker = new PolygonChecker();
+        $license_check = $polyChecker->checkLicenseExpired();
+
+        if(isset($license_check['license']) && $license_check['license'] == false && $action != 'license'){
+            return $this->redirect(['controller'=>'Dashboard','action'=>'license']);      
+        }
+
+        $this->set(array_merge([],$license_check));
+    }
+
+    public function initialize(){
+        parent::initialize();
+        $this->viewBuilder()->layout('dashboard');
     }
 
     public function index(){
-        $this->viewBuilder()->layout('dashboard');
+        $session = $this->request->session();
 
+    }
+
+    public function license(){
+
+        $session = $this->request->session();
+        $licensesTB = TableRegistry::get('Licenses');
+        $mobileDetect = new MobileDetect();
+
+        $licenses =  $licensesTB->find()
+                        ->where(['user_id' => $session->read('Auth.User.id')])
+                        ->contain(['licenseName'])
+                        ->toArray();
+
+        $this->set([
+            'licenses' => $licenses,
+            'isMobile' => $mobileDetect->isMobile()
+        ]);
     }
 }

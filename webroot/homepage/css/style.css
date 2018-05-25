@@ -27,7 +27,6 @@ ul,
 ol {
     list-style: none
 }
-
 header,
 nav,
 article,
@@ -2246,6 +2245,18 @@ header .westeros-separator {
     display: none
 }
 
+header{
+    position: fixed;
+    width: 100%;
+    z-index: 10000;
+    top: 0;
+}
+nav{
+    width: 100%;
+    position: fixed !important;
+    top:34px;
+    z-index: 10000;
+}
 #header-top-wrap {
     background-color: #1976D2;
 }
@@ -2281,6 +2292,11 @@ header .westeros-separator {
 
 #header-top p.contact {
     float: left
+}
+
+#header-top p.contact a{
+    text-decoration: none;
+    color: #BBDEFB;
 }
 
 #header-top .svg-arrow {
@@ -2682,7 +2698,7 @@ header .westeros-separator {
 
 #main-menu {
     height: 60px;
-    background-color: #24292d;
+    background-color: #2196F3;
     position: relative
 }
 
@@ -2710,7 +2726,7 @@ header .westeros-separator {
 }
 
 #main-menu>ul>li:hover {
-    background-color: #3a4045
+    background-color: #03A9F4
 }
 
 #main-menu>ul>li>a {
@@ -2721,7 +2737,7 @@ header .westeros-separator {
     font-weight: 400;
     padding: 0 35px;
     line-height: 60px;
-    text-transform: uppercase
+    text-transform: uppercase;
 }
 
 #main-menu>ul>li>a.submenu:after {
@@ -2753,38 +2769,6 @@ header .westeros-separator {
 #main-menu>ul li:hover .submenu:before {
     visibility: visible;
     opacity: 1
-}
-
-#main-menu>ul>li:nth-child(1) {
-    border-bottom-color: #039be5
-}
-
-#main-menu>ul>li:nth-child(2) {
-    border-bottom-color: #26c6da
-}
-
-#main-menu>ul>li:nth-child(3) {
-    border-bottom-color: #1de9b6
-}
-
-#main-menu>ul>li:nth-child(4) {
-    border-bottom-color: #ffd600
-}
-
-#main-menu>ul>li:nth-child(5) {
-    border-bottom-color: #ff9100
-}
-
-#main-menu>ul>li:nth-child(6) {
-    border-bottom-color: #e53935
-}
-
-#main-menu>ul>li:nth-child(7) {
-    border-bottom-color: #ff4081
-}
-
-#main-menu>ul>li:nth-child(8) {
-    border-bottom-color: #ba68c8
 }
 
 #main-menu>ul>li:last-child {
@@ -3118,10 +3102,11 @@ header .westeros-separator {
 
 #banner-wrap {
     background: url("../images/banner-bg.jpg") no-repeat center;
-    background-size: cover
+    background-size: cover;
 }
 
 #banner {
+    margin-top: 94px;
     min-height: 443px;
     padding-top: 70px;
     position: relative
@@ -3385,7 +3370,8 @@ header .westeros-separator {
 
 @media screen and (max-width: 460px) {
     #banner {
-        padding-top: 60px
+        padding-top: 60px;
+        margin-top: 84px;
     }
     #banner .main-promo h2 {
         font-size: 0.8125em;

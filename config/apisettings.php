@@ -6,6 +6,7 @@ return [
             'users',
             'demo',
             'cities','districts','wards',
+            'license_payments',
             'hello'
         ]
     ],

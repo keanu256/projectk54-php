@@ -15,9 +15,8 @@
         <?= $this->Html->css('/dashboard/assets/css/bootstrap.min.css') ?>
         <?= $this->Html->css('/dashboard/assets/css/icons.css') ?>
         <?= $this->Html->css('/dashboard/assets/css/style.css') ?>
-
         <?= $this->Html->script('/dashboard/assets/js/modernizr.min.js') ?>
-
+        <?= $this->Html->script('/dashboard/assets/js/jquery.min.js') ?>
     </head>
 
     <body>
@@ -316,8 +315,7 @@
         <!-- End Footer -->
 
 
-        <!-- jQuery  -->
-        <?= $this->Html->script('/dashboard/assets/js/jquery.min.js') ?>
+        <!-- jQuery  -->       
         <?= $this->Html->script('/dashboard/assets/js/popper.min.js') ?>
         <?= $this->Html->script('/dashboard/assets/js/bootstrap.min.js') ?>
         <?= $this->Html->script('/dashboard/assets/js/waves.js') ?>
