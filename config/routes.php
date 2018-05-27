@@ -65,6 +65,8 @@ Router::scope('/', function (RouteBuilder $routes) {
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
     $routes->connect('/', ['controller' => 'Pages', 'action' => 'index','home']);
+    $routes->connect('/pages', ['controller' => 'Pages', 'action' => 'index']);
+    $routes->connect('/captcha', ['controller' => 'Pages', 'action' => 'captcha']);
     $routes->connect('/login', ['controller' => 'Users', 'action' => 'login']);
     $routes->connect('/logout', ['controller' => 'Users', 'action' => 'logout']);
     $routes->connect('/fblogin', ['controller' => 'Users', 'action' => 'facebookLogin']);

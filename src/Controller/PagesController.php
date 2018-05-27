@@ -71,6 +71,62 @@ class PagesController extends AppController
         }
     }
 
+    public function captcha()
+    {
+        $this->autoRender = false;
+        $this->viewBuilder()->layout(false);
+
+        $response = $this->response->withType('image/png');
+
+        $query = $this->request->query();
+        $image_width = isset($query['width'])? $query['width']:  160;
+        $image_height = isset($query['height'])? $query['height']: 50;
+        $characters_on_image = 6;
+        $font = WWW_ROOT.'/font/monofont.ttf';
+
+        //The characters that can be used in the CAPTCHA code. Avoid confusing characters (l 1 and i for example)
+        $possible_letters = '23456789bcdfghjkmnpqrstvwxyz';
+        $random_dots = 20;
+        $random_lines = 20;
+
+        $code = '';
+        $i = 0;
+        while ($i < $characters_on_image) 
+        { 
+            $code .= substr($possible_letters, mt_rand(0, strlen($possible_letters)-1), 1);
+            $i++;
+        }
+        $font_size = $image_height * 0.75;
+        $image = @imagecreate($image_width, $image_height);
+
+
+        /*Setting the background, text and noise colours here */
+        #theme color: RGB(82,193,241);
+        $background_color = imagecolorallocate($image,241, 243, 247);
+        $text_color = imagecolorallocate($image,0,0,0);
+        $image_noise_color = imagecolorallocate($image,0,0,0);
+
+        /*This generates the dots randomly strings in background */
+        for( $i=0; $i<$random_dots; $i++ ) 
+        {
+            imagefilledellipse($image, mt_rand(0,$image_width),
+            mt_rand(0,$image_height), 2, 3, $image_noise_color);
+        }
+
+        /*This generates lines randomly strings in background of image */
+        for( $i=0; $i<$random_lines; $i++ ) 
+        {
+            imageline($image, mt_rand(0,$image_width), mt_rand(0,$image_height),
+            mt_rand(0,$image_width), mt_rand(0,$image_height), $image_noise_color);
+        }
+
+        $textbox = imagettfbbox($font_size, 0, $font, $code); 
+        $x = ($image_width - $textbox[4])/2;
+        $y = ($image_height - $textbox[5])/2;
+        imagettftext($image, $font_size, 0, $x, $y, $text_color, $font , $code);
+        imagepng($image);
+        return $response;
+    }
 
     public function index(){
         $this->viewBuilder()->layout('homepage');

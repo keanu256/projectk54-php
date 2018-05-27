@@ -39,7 +39,7 @@ class UsersController extends AuthController
     }
 
     public function login(){
-        $this->viewBuilder()->layout(false);  
+        $this->viewBuilder()->layout('homepage');  
         $this->Auth->logout();   
     }   
 

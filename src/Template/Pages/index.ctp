@@ -1,26 +1,12 @@
-<?= $this->Element('Homepage/banner_homepage') ?>	
-<?= $this->Element('Homepage/ads_homepage') ?>	
-<?= $this->Element('Homepage/institutional_homepage') ?>	
-<?= $this->Element('Homepage/billboard_homepage') ?>	
-
-<?= $this->Html->script('jquery-3.2.1.js') ?>
-<!-- <script>
-    $(function() {
-        try{
-            var socket = io.connect('http://localhost:6789', {
-                query: {
-                    user: 'democlient',
-                    page_url: window.location.pathname
-                }
-            })
-            
-            console.log(window.location.pathname);
-
-            socket.on("user_on_page", function(data) {
-                console.log(data.total);
-            })
-        }catch(e){
-            console.log(e);
-        }     
-    });
-</script> -->
+<?= $this->Element('Homepage/Slider/home_slider')?>
+<?= $this->Element('Homepage/Header/header')?>
+<?= $this->Element('Homepage/Features/about_us')?>
+<?= $this->Element('Homepage/Features/services')?>
+<?= $this->Element('Homepage/Features/3_steps')?>
+<?= $this->Element('Homepage/Features/portfolios')?>
+<?= $this->Element('Homepage/Features/api')?>
+<?= $this->Element('Homepage/Features/feedback')?>
+<?= $this->Element('Homepage/Features/figure')?>
+<?= $this->Element('Homepage/Features/fast_buy')?>
+<?= $this->Element('Homepage/Blog/blog')?>
+<?= $this->Element('Homepage/Sponsor/sponsor')?>	
