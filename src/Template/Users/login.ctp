@@ -97,7 +97,7 @@
                     <div class="form-row">
                         <div class="form-inline col-lg-6" id="captcha_div"></div>
                         <div class="form-inline col-lg-6 mt-3 mt-md-0">
-                            <input type="text" value="" class="form-control bg-light-5 border-0 rounded col-5" name="password" id="captcha_input_text" required="">
+                            <input type="text" value="" ata-msg-required="Hãy cho chúng tôi biết tên của bạn." class="form-control bg-light-5 border-0 rounded col-5" name="password" id="captcha_input_text" required="">
                             <button type="submit" class="btn btn-primary btn-rounded btn-v-3 btn-h-3 font-weight-bold text-right col-6 offset-1">ĐĂNG KÝ NGAY</button>
                         </div>
                     </div>
@@ -106,4 +106,18 @@
         </div>
     </div>
 </section>
+<section class="section">
+    <button type="button" onclick="bigdata()">Test Async</button>
+</section>
+<script>
+    function bigdata(){
+        $.ajax({
+            url: '<?= $this->Url->build(['controller'=>'Pages','action' => 'bigdata1']) ?>',
+            type: 'post',
+            success: function(res){
+                console.log(res);
+            }
+        })
+    }
+</script>
 

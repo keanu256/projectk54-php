@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="vn">
 	<head>
 
 		<!-- Basic -->
@@ -117,15 +117,15 @@
 				var input_width = $('#captcha_input_text').parent().width();
 				var base_link = '<?= $this->Url->build(['controller'=>'Pages','action'=>'captcha']) ?>';
 				var full_link = base_link + '?height=' + input_height + '&width=' + input_width;
-				var captcha_html = '<img src="' + full_link +'" id="captcha_img"\
+				var captcha_html = '<img src="' + full_link + '&time=' + Math.random() +'" id="captcha_img"\
 				 data-toggle="tooltip" data-placement="top" title="" \
 				 data-original-title="Nhấn vào để thay đổi">';
 				 
 				$('#captcha_div').append(captcha_html);
 				$('#captcha_img').tooltip();
 
-				$('#captcha_img').on('click',function(){
-					$(this).attr('src',full_link);
+				$('#captcha_img').on('click',function(){ 
+					$(this).attr('src',full_link + '&time=' + Math.random());
 				})
 			}
 		</script>

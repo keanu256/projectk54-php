@@ -22,6 +22,7 @@ use Robotusers\Excel\Registry;
 use Cake\ORM\TableRegistry; 
 use Cake\I18n\Time;
 use App\Classes\PolygonHelper;
+use App\Classes\AsyncBigData;
 
 /**
  * Static content controller
@@ -32,6 +33,21 @@ use App\Classes\PolygonHelper;
  */
 class PagesController extends AppController
 {
+
+
+
+    public function bigdata1(){
+        $this->autoRender = false;
+
+        if($this->request->is(['post','get'])){
+            set_time_limit (0);
+            $async = new AsyncBigData();
+            $async->start();
+            $response = ['code' => 200];
+            $this->response->type('json');
+            $this->response->body(json_encode($response));
+        }
+    }
 
     /**
      * Displays a view
