@@ -41,8 +41,12 @@ class PagesController extends AppController
 
         if($this->request->is(['post','get'])){
             set_time_limit (0);
-            $async = new AsyncBigData();
-            $async->start();
+            $bigdataTB = TableRegistry::get('Bigdata');
+            for ($i=0; $i < 10000; $i++) { 
+               $data = $bigdataTB->newEntity();
+               $data->name = 'Entity '.$i;
+               $bigdataTB->save($data);
+            }
             $response = ['code' => 200];
             $this->response->type('json');
             $this->response->body(json_encode($response));

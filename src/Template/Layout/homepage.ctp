@@ -46,7 +46,16 @@
 		<?= $this->Html->script('/homepage/vendor/modernizr/modernizr.min.js') ?>
 
 	</head>
-	<body class="one-page" data-spy="scroll" data-target=".header-nav-main nav" data-offset="150">
+	<body class="one-page loading-overlay-showing" data-spy="scroll" data-target=".header-nav-main nav" data-offset="150" data-loading-overlay>
+		
+		<div class="loading-overlay">
+			<div class="bounce-loader">
+				<div class="bounce1"></div>
+				<div class="bounce2"></div>
+				<div class="bounce3"></div>
+			</div>
+		</div>
+	
 		<div class="body">
 			<div role="main" class="main">
 				<?= $this->fetch('content') ?>
