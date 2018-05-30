@@ -125,7 +125,6 @@
 				var urlParams = new URLSearchParams(window.location.search);
 				if(urlParams.get('scrollTo') != null) console.log(urlParams.get('scrollTo'));
 				initCaptcha();
-
 				$('#btn_dangnhap').on('click touchend',function(){
 					var formData = $(this).closest('form');
 					$('#loading_waiting').show();
@@ -151,8 +150,9 @@
 							}else{
 								swal({
 									type: 'error',
-									title: res.code.toString(),
+									title: 'ERROR CODE: ' + res.code.toString(),
 									text: res.msg,
+									confirmButtonText: 'Xác nhận',
 									footer: '<a href="/faq/error/'+res.code.toString()+'">Tại sao tôi lại bị vấn đề này?</a>',
 								})
 							}
@@ -173,14 +173,16 @@
 							if (res.code == 200) {
 								swal({
 									type: 'success',
-									title: res.code.toString(),
-									text: res.msg
+									title: 'SUCCESS CODE: ' + res.code.toString(),
+									text: res.msg,
+									confirmButtonText: 'Xác nhận'
 								})
 							}else{
 								swal({
 									type: 'error',
-									title: res.code.toString(),
+									title: 'ERROR CODE: ' + res.code.toString(),
 									text: res.msg,
+									confirmButtonText: 'Xác nhận',
 									footer: '<a href="/faq/error/'+res.code.toString()+'">Tại sao tôi lại bị vấn đề này?</a>',
 								})
 							}
@@ -212,6 +214,34 @@
 
 				$('#captcha_img').on('click',function(){ 
 					$(this).attr('src',full_link + '&time=' + Math.random());
+				})
+			}
+
+			function activeAccount(){
+				$('#sendMailActiveAccount').find('.btn.btn-primary').prop('disabled', true);			
+				$.ajax({
+					url: '<?= $this->Url->build(['controller' => 'Users', 'action' => 'activeAccount']) ?>',
+					type: 'post',
+					data: { email: $('#sendMailActiveAccount').find('input').val()},
+					success: function(res){
+						$('#sendMailActiveAccount').find('.btn.btn-primary').prop('disabled', false);	
+						if (res.code == 200) {
+							swal({
+								type: 'success',
+								title: 'SUCCESS CODE: ' + res.code.toString(),
+								text: res.msg,
+								confirmButtonText: 'Xác nhận'
+							})
+						}else{
+							swal({
+								type: 'error',
+								title: 'ERROR CODE: ' + res.code.toString(),
+								text: res.msg,
+								confirmButtonText: 'Xác nhận',
+								footer: '<a href="/faq/error/'+res.code.toString()+'">Tại sao tôi lại bị vấn đề này?</a>',
+							})
+						}
+					}
 				})
 			}
 

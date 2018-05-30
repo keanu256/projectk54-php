@@ -50,12 +50,21 @@
                 </div>
                 <div class="header-column justify-content-end">
                     <div class="header-button d-none d-sm-flex border-right-0 border-left-0 pr-2 pr-lg-4">
-                        <a href="<?= $this->Url->build(['controller'=>'Users','action' => 'login'])?>" class="btn btn-outline btn-rounded btn-primary btn-4 btn-icon-effect-1">
-                            <span class="wrap">
-                                <span>ĐĂNG KÝ NGAY</span>
-                                <i class="fas fa-registered"></i>
-                            </span>
-                        </a>
+                        <?php if(!empty($this->request->session()->read('Auth.User.id'))): ?>
+                            <a href="#" class="btn btn-outline btn-rounded btn-primary btn-4 btn-icon-effect-1">
+                                <span class="wrap">
+                                    <span>Xin chào, <?= $this->request->session()->read('Auth.User.username')?></span>
+                                    <i class="fas fa-cogs"></i>
+                                </span>
+                            </a>
+                        <?php else: ?>
+                            <a href="<?= $this->Url->build(['controller'=>'Users','action' => 'login'])?>" class="btn btn-outline btn-rounded btn-primary btn-4 btn-icon-effect-1">
+                                <span class="wrap">
+                                    <span>ĐĂNG KÝ NGAY</span>
+                                    <i class="fas fa-registered"></i>
+                                </span>
+                            </a>
+                        <?php endif; ?>
                     </div>
                     <ul class="header-social-icons social-icons social-icons-transparent border-right-0 d-none d-xl-flex text-3 px-4">
                         <li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>

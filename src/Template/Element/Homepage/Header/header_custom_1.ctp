@@ -35,7 +35,7 @@
                 </div>
                 <div class="header-column justify-content-end">
                     <div class="header-button d-none d-sm-flex border-right-0 border-left-0 pr-2 pr-lg-4">
-                        <a href="<?= $this->Url->build(['controller'=>'Users','action' => 'login'])?>" class="btn btn-outline btn-rounded btn-primary btn-4 btn-icon-effect-1">
+                        <a href="#" class="btn btn-outline btn-rounded btn-primary btn-4 btn-icon-effect-1" data-toggle="modal" data-target="#sendMailActiveAccount">
                             <span class="wrap">
                                 <span>KÍCH HOẠT TÀI KHOẢN</span>
                                 <i class="fas fa-registered"></i>
@@ -64,3 +64,28 @@
         </div>
     </div>
 </header>
+<div class="modal fade" id="sendMailActiveAccount" tabindex="-1" role="dialog" aria-labelledby="exampleModal4Label" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog text-left" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Nhập EMail đã đăng ký</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+                <form class="contact-form form-style-2">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Nhập địa chỉ E-mail">
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" data-dismiss="modal">Đóng</button>
+                <button type="button" onclick="activeAccount()" class="btn btn-primary">Xác nhận</button>
+            </div>
+        </div>
+    </div>
+</div>

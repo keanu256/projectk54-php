@@ -35,7 +35,7 @@ class UsersController extends AuthController
             'facebooklogin', 
             'facebookLoginCallback',
             'polygonLogin',
-            'polygonRegister'
+            'polygonRegister', 'activeAccount'
         ]);
     }
 
@@ -248,7 +248,7 @@ class UsersController extends AuthController
         ])->orWhere(['email' => $data['username']])
         ->first();
 
-        if(!empty($user)){
+        if(!empty($user) && $user['verify'] == 1){
             if($hasher->check($data['pwd'],$user['password'])){
                 $this->Auth->setUser($user);
                 self::_logLoginHistory($user['id'],self::_getGeoLocation());
@@ -259,6 +259,11 @@ class UsersController extends AuthController
                     'referer' => '/'
                 ];
             }         
+        }else{
+            $response = [
+                'code' => 403,
+                'msg' => 'Tài khoản chưa kích hoạt!'
+            ];
         }
 
         $this->response->type('json');
@@ -331,6 +336,33 @@ class UsersController extends AuthController
                 ];
             }
         }
+
+        $this->response->type('json');
+        $this->response->body(json_encode($response,JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    }
+
+    public function activeAccount(){
+        $this->autoRender = false;
+
+        $response = [
+            'code' => 500,
+            'msg' => 'Thao tác thất bại'
+        ];
+
+        if($this->request->is(['post'])){
+            $data = $this->request->data();
+            $user_mail = $data['email'];
+
+            $email = new Email();
+            $email->to('taiphan0310@gmail.com')
+                ->subject('Kích hoạt tài khoản tại Polygon Việt Nam')
+                ->send('Link kich hoạt');
+            
+            $response = [
+                'code' => 200,
+                'msg' => 'Đã gửi! Vui lòng kiểm tra hộp thư nếu không tìm thấy thử lại sau 15 phút.'
+            ];   
+        }    
 
         $this->response->type('json');
         $this->response->body(json_encode($response,JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
