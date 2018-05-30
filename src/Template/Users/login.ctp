@@ -29,13 +29,13 @@
                         <div class="form-row">
                             <div class="form-group col mb-2">
                                 <label class="text-color-light-2" for="shopLoginSignInEmail">TÀI KHOẢN / E-MAIL</label>
-                                <input type="email" value="" maxlength="100" class="form-control bg-light border-0 rounded text-1" name="email" id="shopLoginSignInEmail" required="">
+                                <input type="text" value="" maxlength="100" class="form-control bg-light border-0 rounded text-1" name="username" required="">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col">
                                 <label class="text-color-light-2" for="shopLoginSignInPassword">MẬT KHẨU</label>
-                                <input type="password" value="" class="form-control bg-light border-0 rounded text-1" name="password" id="shopLoginSignInPassword" required="">
+                                <input type="password" value="" class="form-control bg-light border-0 rounded text-1" name="pwd" required="">
                             </div>
                         </div>
                         <div class="form-row mb-3">
@@ -53,7 +53,7 @@
                         </div>
                         <div class="row align-items-center">
                             <div class="col text-right">
-                                <button type="submit" class="btn btn-dark btn-rounded btn-v-3 btn-h-3 font-weight-bold">ĐĂNG NHẬP</button>
+                                <button type="button" id="btn_dangnhap" class="btn btn-dark btn-rounded btn-v-3 btn-h-3 font-weight-bold">ĐĂNG NHẬP</button>
                             </div>
                         </div>
                     </form>
@@ -65,40 +65,40 @@
                 <p class="lead mb-4">Tài khoản dùng chung cho toàn bộ dịch vụ & ứng dụng trên hệ thống <strong>Polygon Việt Nam</strong>.</p>
                 <form id="shopLoginRegister" action="#" method="post">
                     <div class="form-row">
-                        <div class="form-group col-lg-6">
+                        <div class="form-group col-lg-6 required">
                             <label class="text-color-dark" for="shopLoginRegisterName">HỌ TÊN:</label>
-                            <input type="text" value="" class="form-control bg-light-5 border-0 rounded" name="name" id="shopLoginRegisterName" required="">
+                            <input type="text" value="" class="form-control bg-light-5 border-0 rounded" name="name" required="">
                         </div>
-                        <div class="form-group col-lg-6">
+                        <div class="form-group col-lg-6 required">
                             <label class="text-color-dark" for="shopLoginRegisterEmail">ĐỊA CHỈ E-MAIL:</label>
-                            <input type="email" value="" class="form-control bg-light-5 border-0 rounded" name="email" id="shopLoginRegisterEmail" required="">
+                            <input type="email" value="" class="form-control bg-light-5 border-0 rounded" name="email" required="">
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-lg-6">
+                        <div class="form-group col-lg-6 required">
                             <label class="text-color-dark" for="shopLoginRegisterUsername">TÀI KHOẢN:</label>
-                            <input type="text" value="" class="form-control bg-light-5 border-0 rounded" name="username" id="shopLoginRegisterUsername" required="">
+                            <input type="text" value="" class="form-control bg-light-5 border-0 rounded" name="username" required="">
                         </div>
-                        <div class="form-group col-lg-6">
+                        <div class="form-group col-lg-6 ">
                             <label class="text-color-dark" for="shopLoginRegisterPhone">ĐIỆN THOẠI:</label>
-                            <input type="email" value="" class="form-control bg-light-5 border-0 rounded" name="phone" id="shopLoginRegisterPhone" required="">
+                            <input type="email" value="" class="form-control bg-light-5 border-0 rounded" name="phone" required="">
                         </div>
                     </div>
                     <div class="form-row mb-4">
-                        <div class="form-group col-lg-6">
+                        <div class="form-group col-lg-6 required">
                             <label class="text-color-dark" for="shopLoginRegisterPassword">MẬT KHẨU:</label>
-                            <input type="password" value="" class="form-control bg-light-5 border-0 rounded" name="username" id="shopLoginRegisterPassword" required="">
+                            <input type="password" value="" class="form-control bg-light-5 border-0 rounded" name="repwd1" required="">
                         </div>
-                        <div class="form-group col-lg-6">
+                        <div class="form-group col-lg-6 required">
                             <label class="text-color-dark" for="shopLoginRegisterPassword2">NHẬP LẠI MẬT KHẨU:</label>
-                            <input type="password" value="" class="form-control bg-light-5 border-0 rounded" name="password" id="shopLoginRegisterPassword2" required="">
+                            <input type="password" value="" class="form-control bg-light-5 border-0 rounded" name="repwd2" required="">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-inline col-lg-6" id="captcha_div"></div>
                         <div class="form-inline col-lg-6 mt-3 mt-md-0">
-                            <input type="text" value="" ata-msg-required="Hãy cho chúng tôi biết tên của bạn." class="form-control bg-light-5 border-0 rounded col-5" name="password" id="captcha_input_text" required="">
-                            <button type="submit" class="btn btn-primary btn-rounded btn-v-3 btn-h-3 font-weight-bold text-right col-6 offset-1">ĐĂNG KÝ NGAY</button>
+                            <input type="text" value="" class="form-control bg-light-5 border-0 rounded col-5" name="captcha_code" id="captcha_input_text" required="">
+                            <button type="button" class="btn btn-primary btn-rounded btn-v-3 btn-h-3 font-weight-bold text-right col-6 offset-1" id="btn_dangky">ĐĂNG KÝ NGAY</button>
                         </div>
                     </div>
                 </form>
@@ -106,18 +106,5 @@
         </div>
     </div>
 </section>
-<section class="section">
-    <button type="button" onclick="bigdata()">Test Async</button>
-</section>
-<script>
-    function bigdata(){
-        $.ajax({
-            url: '<?= $this->Url->build(['controller'=>'Pages','action' => 'bigdata1']) ?>',
-            type: 'post',
-            success: function(res){
-                console.log(res);
-            }
-        })
-    }
-</script>
+
 

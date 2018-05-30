@@ -55,6 +55,14 @@
 				<div class="bounce3"></div>
 			</div>
 		</div>
+
+		<div class="pl-overlay" id="loading_waiting" style="display:none">
+			<div class="bounce-loader">
+				<div class="bounce1"></div>
+				<div class="bounce2"></div>
+				<div class="bounce3"></div>
+			</div>
+		</div
 	
 		<div class="body">
 			<div role="main" class="main">
@@ -62,6 +70,8 @@
 				<?= $this->Element('Homepage/Footer/footer')?>
 			</div>
 		</div>
+
+		
 
 		<!-- Vendor -->
 		<?= $this->Html->script('/homepage/vendor/jquery/jquery.min.js') ?>
@@ -79,6 +89,7 @@
 		<?= $this->Html->script('/homepage/vendor/magnific-popup/jquery.magnific-popup.min.js') ?>
 		<?= $this->Html->script('/homepage/vendor/vide/vide.min.js') ?>
 		<?= $this->Html->script('/homepage/vendor/vivus/vivus.min.js') ?>
+		<?= $this->Html->script('/lib/sweetalert2/sweetalert2.all.js') ?>
 		
 		<!-- Theme Base, Components and Settings -->
 		<?= $this->Html->script('/homepage/js/theme.js') ?>
@@ -112,8 +123,74 @@
 
 			$(function(){
 				var urlParams = new URLSearchParams(window.location.search);
-				console.log(urlParams.get('scrollTo'));
+				if(urlParams.get('scrollTo') != null) console.log(urlParams.get('scrollTo'));
 				initCaptcha();
+
+				$('#btn_dangnhap').on('click touchend',function(){
+					var formData = $(this).closest('form');
+					$('#loading_waiting').show();
+					$.ajax({
+						url: "<?php echo $this->Url->build(['controller'=>'Users','action'=>'polygonLogin']) ?>",
+						data: formData.serialize(),
+						type: 'post',
+						success: function(res){
+							$('#loading_waiting').hide();
+							if (res.code == 200) {
+								swal({
+									title: 'Đăng nhập thành công!',
+									text: 'Tự động chuyển hướng sau 3 giây.',
+									timer: 3000,
+									onOpen: () => {
+										swal.showLoading()
+									}
+									}).then((result) => {
+									if (result.dismiss === swal.DismissReason.timer) {
+										window.location.href = res.referer
+									}
+								})
+							}else{
+								swal({
+									type: 'error',
+									title: res.code.toString(),
+									text: res.msg,
+									footer: '<a href="/faq/error/'+res.code.toString()+'">Tại sao tôi lại bị vấn đề này?</a>',
+								})
+							}
+						}
+					});				
+				})
+
+				$('#btn_dangky').on('click touchend',function(){
+					var formData = $(this).closest('form');
+					$('#loading_waiting').show();
+					$.ajax({
+						url: "<?php echo $this->Url->build(['controller'=>'Users','action'=>'polygonRegister']) ?>",
+						data: formData.serialize(),
+						type: 'post',
+						success: function(res){
+							$('#loading_waiting').hide();
+							$('#captcha_img').trigger('click');
+							if (res.code == 200) {
+								swal({
+									type: 'success',
+									title: res.code.toString(),
+									text: res.msg
+								})
+							}else{
+								swal({
+									type: 'error',
+									title: res.code.toString(),
+									text: res.msg,
+									footer: '<a href="/faq/error/'+res.code.toString()+'">Tại sao tôi lại bị vấn đề này?</a>',
+								})
+							}
+						},
+						error: function(){
+							$('#captcha_img').trigger('click');
+						}
+					});
+				})
+
 			})
 
 			function backToHomePage(){
@@ -137,6 +214,7 @@
 					$(this).attr('src',full_link + '&time=' + Math.random());
 				})
 			}
+
 		</script>
 	</body>
 </html>

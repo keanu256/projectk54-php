@@ -2017,6 +2017,19 @@ ul.comments .comment-block,
 	cursor: pointer;
 }
 
-/* .steps .item.active .item-title{
-	color: #23b0ed;
-} */
+.pl-overlay{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(24, 20, 20, 0.678);
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	z-index: 100000;
+	padding: 5px;
+}
+
+.form-group.required label:after { 
+	content:" *";
+	color:red;
+ }

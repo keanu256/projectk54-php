@@ -34,7 +34,8 @@ class UsersController extends AuthController
             'logout', 
             'facebooklogin', 
             'facebookLoginCallback',
-            'polygonLogin'
+            'polygonLogin',
+            'polygonRegister'
         ]);
     }
 
@@ -244,7 +245,8 @@ class UsersController extends AuthController
         $user = $userTB->find()->where([
             'username' => $data['username'],
             'flag' => 1
-        ])->first();
+        ])->orWhere(['email' => $data['username']])
+        ->first();
 
         if(!empty($user)){
             if($hasher->check($data['pwd'],$user['password'])){
@@ -257,6 +259,77 @@ class UsersController extends AuthController
                     'referer' => '/'
                 ];
             }         
+        }
+
+        $this->response->type('json');
+        $this->response->body(json_encode($response,JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    }
+
+    public function polygonRegister(){
+        $this->autoRender = false;
+        $data = $this->request->data();
+        $session = $this->request->session();
+        $hasher = new DefaultPasswordHasher();
+        $flag_check = false;
+
+        $response = [
+            'code' => 500,
+            'msg' => 'Thao tác thất bại'
+        ];
+
+        if($session->read('captcha_code') !== $data['captcha_code']){
+            $response = [
+                'code' => 701,
+                'msg' => 'Nhập sai captcha!'
+            ];
+            $flag_check = true;
+        }
+
+        if(!$flag_check && (empty($data['name']) || empty('email') || empty('username') || empty('repwd1') || empty('repwd2'))){
+            $response = [
+                'code' => 702,
+                'msg' => 'Không được bỏ trống!'
+            ];
+            $flag_check = true;
+        }
+
+        if(!$flag_check && ($data['repwd1'] != $data['repwd2'])){
+            $response = [
+                'code' => 703,
+                'msg' => 'Mật khẩu không giống nhau!'
+            ];
+            $flag_check = true;
+        }
+        
+        $userTB = TableRegistry::get('users');
+        $user = $userTB->find()->where([
+            'username' => $data['username'],
+            'flag' => 1
+        ])->orWhere(['email' => $data['email']])
+        ->first();
+
+        if(!$flag_check && !empty($user)){
+            $response = [
+                'code' => 704,
+                'msg' => 'Tài khoản hoặc Email đã được sử dụng!'
+            ];
+            $flag_check = true;
+        }
+        
+        if(!$flag_check && empty($user) ){
+            $user = $userTB->newEntity();
+            $user->username = $data['username'];
+            $user->email = $data['email'];
+            $user->password = $hasher->hash($data['repwd1']);
+            $user->phone = $data['phone'];
+            $user->fullname = $data['name'];
+
+            if($userTB->save($user)){
+                $response = [
+                    'code' => 200,
+                    'msg' => 'Tạo tài khoản thành công!'
+                ];
+            }
         }
 
         $this->response->type('json');

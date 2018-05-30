@@ -95,6 +95,7 @@ class PagesController extends AppController
     {
         $this->autoRender = false;
         $this->viewBuilder()->layout(false);
+        $session = $this->request->session();
 
         $response = $this->response->withType('image/png');
 
@@ -119,7 +120,7 @@ class PagesController extends AppController
         $font_size = $image_height * 0.75;
         $image = @imagecreate($image_width, $image_height);
 
-
+        $session->write('captcha_code', $code);
         /*Setting the background, text and noise colours here */
         #theme color: RGB(82,193,241);
         $background_color = imagecolorallocate($image,241, 243, 247);

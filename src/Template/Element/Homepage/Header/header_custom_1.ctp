@@ -37,7 +37,7 @@
                     <div class="header-button d-none d-sm-flex border-right-0 border-left-0 pr-2 pr-lg-4">
                         <a href="<?= $this->Url->build(['controller'=>'Users','action' => 'login'])?>" class="btn btn-outline btn-rounded btn-primary btn-4 btn-icon-effect-1">
                             <span class="wrap">
-                                <span>ĐĂNG KÝ NGAY</span>
+                                <span>KÍCH HOẠT TÀI KHOẢN</span>
                                 <i class="fas fa-registered"></i>
                             </span>
                         </a>
