@@ -15,180 +15,178 @@
         </div>
     </div>
     <div class="container-fluid">
-        <div class="row justify-content-center appear-animation animated appear-animation-visible" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="600">
+        <div class="row justify-content-center appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="600">
             <div class="col-10 col-sm-8 col-md-12 overflow-hidden p-0">
-                <div class="owl-carousel carousel-center-active-items carousel-center-active-items-style-2 stage-py-1 dots-style-3 pb-4 mb-0 owl-theme owl-loaded owl-drag owl-carousel-init" data-plugin-carousel="" data-plugin-options="{'autoplay': true, 'autoplayHoverPause': true, 'dots': false, 'nav': false, 'loop': true, 'margin': 40, 'responsive': { '0': {'items': 1}, '576': {'items': 1}, '768': {'items': 3}, '992': {'items': 3}, '1200': {'items': 5}}}">	
-                <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-3631px, 0px, 0px); transition: 0.25s; width: 8819px;"><div class="owl-item cloned" style="width: 478.718px; margin-right: 40px;"><div class="hover-effect-3">
-                    <div class="card rounded p-0 overflow-hidden bg-transparent border-0">
+                <div class="owl-carousel carousel-center-active-items carousel-center-active-items-style-2 stage-py-1 dots-style-3 pb-4 mb-0" data-plugin-carousel data-plugin-options="{'autoplay': true, 'autoplayHoverPause': true, 'dots': false, 'nav': false, 'loop': true, 'margin': 40, 'responsive': { '0': {'items': 1}, '576': {'items': 1}, '768': {'items': 3}, '992': {'items': 3}, '1200': {'items': 5}}}">
+                    <div class="hover-effect-3">
+                        <div class="card rounded p-0 overflow-hidden bg-transparent border-0">
                             <div class="card-body p-0">
-                                <div class="image-frame">
-                                    <a href="#" class="sw-view-site" data-sw-color="#fe724f">
+                                <div class="image-frame image-frame-style-1 image-frame-effect-1">
+                                    <div class="image-frame-wrapper">
                                         <img src="/homepage/img/previews/variation-3.jpg" class="img-fluid" alt="">
-                                    </a>
+                                        <div class="image-frame-inner-border"></div>
+                                        <div class="image-frame-action image-frame-action-effect-1 image-frame-action-sm">
+                                            <a href="#">
+                                                <div class="image-frame-action-icon">
+                                                    <i class="lnr lnr-magnifier text-color-light"></i>
+                                                </div>
+                                            </a>
+                                            <a href="#">
+                                                <div class="image-frame-action-icon">
+                                                    <i class="lnr lnr-link text-color-light"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div></div><div class="owl-item remove-blur cloned" style="width: 478.718px; margin-right: 40px;"><div class="hover-effect-3">
+                    </div>
+                    <div class="hover-effect-3">
                         <div class="card rounded p-0 overflow-hidden bg-transparent border-0">
                             <div class="card-body p-0">
-                                <div class="image-frame">
-                                    <a href="#" class="sw-view-site" data-sw-color="#ff3030">
-                                        <img src="/homepage/img/previews/variation-4.jpg" class="img-fluid" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div></div><div class="owl-item cloned" style="width: 478.718px; margin-right: 40px;"><div class="hover-effect-3">
-                        <div class="card rounded p-0 overflow-hidden bg-transparent border-0">
-                            <div class="card-body p-0">
-                                <div class="image-frame">
-                                    <a href="#" class="sw-view-site" data-sw-color="#c29f75">
-                                        <img src="/homepage/img/previews/variation-5.jpg" class="img-fluid" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div></div><div class="owl-item cloned" style="width: 478.718px; margin-right: 40px;"><div class="hover-effect-3">
-                        <div class="card rounded p-0 overflow-hidden bg-transparent border-0">
-                            <div class="card-body p-0">
-                                <div class="image-frame">
-                                    <a href="#" class="sw-view-site" data-sw-color="#002451">
-                                        <img src="/homepage/img/previews/variation-6.jpg" class="img-fluid" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div></div><div class="owl-item cloned" style="width: 478.718px; margin-right: 40px;"><div class="hover-effect-3">
-                        <div class="card rounded p-0 overflow-hidden bg-transparent border-0">
-                            <div class="card-body p-0">
-                                <div class="image-frame">
-                                    <a href="#" class="sw-view-site" data-sw-color="#632ede">
-                                        <img src="/homepage/img/previews/variation-7.jpg" class="img-fluid" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div></div><div class="owl-item" style="width: 478.718px; margin-right: 40px;"><div class="hover-effect-3">
-                        <div class="card rounded p-0 overflow-hidden bg-transparent border-0">
-                            <div class="card-body p-0">
-                                <div class="image-frame">
-                                    <a href="#" class="sw-view-site" data-sw-color="#2389ee">
-                                        <img src="/homepage/img/previews/variation-1.jpg" class="img-fluid" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div></div><div class="owl-item" style="width: 478.718px; margin-right: 40px;"><div class="hover-effect-3">
-                        <div class="card rounded p-0 overflow-hidden bg-transparent border-0">
-                            <div class="card-body p-0">
-                                <div class="image-frame">
-                                    <a href="#" class="sw-view-site" data-sw-color="#3a9c85">
-                                        <img src="/homepage/img/previews/variation-2.jpg" class="img-fluid" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div></div><div class="owl-item active" style="width: 478.718px; margin-right: 40px;"><div class="hover-effect-3">
-                        <div class="card rounded p-0 overflow-hidden bg-transparent border-0">
-                            <div class="card-body p-0">
-                                <div class="image-frame">
-                                    <a href="#" class="sw-view-site" data-sw-color="#fe724f">
+                                <div class="image-frame image-frame-style-1 image-frame-effect-1">
+                                    <div class="image-frame-wrapper">
                                         <img src="/homepage/img/previews/variation-3.jpg" class="img-fluid" alt="">
-                                    </a>
+                                        <div class="image-frame-inner-border"></div>
+                                        <div class="image-frame-action image-frame-action-effect-1 image-frame-action-sm">
+                                            <a href="#">
+                                                <div class="image-frame-action-icon">
+                                                    <i class="lnr lnr-magnifier text-color-light"></i>
+                                                </div>
+                                            </a>
+                                            <a href="#">
+                                                <div class="image-frame-action-icon">
+                                                    <i class="lnr lnr-link text-color-light"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div></div><div class="owl-item remove-blur active" style="width: 478.718px; margin-right: 40px;"><div class="hover-effect-3">
+                    </div>
+                    <div class="hover-effect-3">
                         <div class="card rounded p-0 overflow-hidden bg-transparent border-0">
                             <div class="card-body p-0">
-                                <div class="image-frame">
-                                    <a href="#" class="sw-view-site" data-sw-color="#ff3030">
-                                        <img src="/homepage/img/previews/variation-4.jpg" class="img-fluid" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div></div><div class="owl-item remove-blur active current" style="width: 478.718px; margin-right: 40px;"><div class="hover-effect-3">
-                        <div class="card rounded p-0 overflow-hidden bg-transparent border-0">
-                            <div class="card-body p-0">
-                                <div class="image-frame">
-                                    <a href="#" class="sw-view-site" data-sw-color="#c29f75">
-                                        <img src="/homepage/img/previews/variation-5.jpg" class="img-fluid" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div></div><div class="owl-item active remove-blur" style="width: 478.718px; margin-right: 40px;"><div class="hover-effect-3">
-                        <div class="card rounded p-0 overflow-hidden bg-transparent border-0">
-                            <div class="card-body p-0">
-                                <div class="image-frame">
-                                    <a href="#" class="sw-view-site" data-sw-color="#002451">
-                                        <img src="/homepage/img/previews/variation-6.jpg" class="img-fluid" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div></div><div class="owl-item active" style="width: 478.718px; margin-right: 40px;"><div class="hover-effect-3">
-                        <div class="card rounded p-0 overflow-hidden bg-transparent border-0">
-                            <div class="card-body p-0">
-                                <div class="image-frame">
-                                    <a href="#" class="sw-view-site" data-sw-color="#632ede">
-                                        <img src="/homepage/img/previews/variation-7.jpg" class="img-fluid" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div></div><div class="owl-item cloned" style="width: 478.718px; margin-right: 40px;"><div class="hover-effect-3">
-                        <div class="card rounded p-0 overflow-hidden bg-transparent border-0">
-                            <div class="card-body p-0">
-                                <div class="image-frame">
-                                    <a href="#" class="sw-view-site" data-sw-color="#2389ee">
-                                        <img src="/homepage/img/previews/variation-1.jpg" class="img-fluid" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div></div><div class="owl-item remove-blur cloned" style="width: 478.718px; margin-right: 40px;"><div class="hover-effect-3">
-                        <div class="card rounded p-0 overflow-hidden bg-transparent border-0">
-                            <div class="card-body p-0">
-                                <div class="image-frame">
-                                    <a href="#" class="sw-view-site" data-sw-color="#3a9c85">
-                                        <img src="/homepage/img/previews/variation-2.jpg" class="img-fluid" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div></div><div class="owl-item cloned" style="width: 478.718px; margin-right: 40px;"><div class="hover-effect-3">
-                        <div class="card rounded p-0 overflow-hidden bg-transparent border-0">
-                            <div class="card-body p-0">
-                                <div class="image-frame">
-                                    <a href="#" class="sw-view-site" data-sw-color="#fe724f">
+                                <div class="image-frame image-frame-style-1 image-frame-effect-1">
+                                    <div class="image-frame-wrapper">
                                         <img src="/homepage/img/previews/variation-3.jpg" class="img-fluid" alt="">
-                                    </a>
+                                        <div class="image-frame-inner-border"></div>
+                                        <div class="image-frame-action image-frame-action-effect-1 image-frame-action-sm">
+                                            <a href="#">
+                                                <div class="image-frame-action-icon">
+                                                    <i class="lnr lnr-magnifier text-color-light"></i>
+                                                </div>
+                                            </a>
+                                            <a href="#">
+                                                <div class="image-frame-action-icon">
+                                                    <i class="lnr lnr-link text-color-light"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div></div><div class="owl-item remove-blur cloned" style="width: 478.718px; margin-right: 40px;"><div class="hover-effect-3">
+                    </div>
+                    <div class="hover-effect-3">
                         <div class="card rounded p-0 overflow-hidden bg-transparent border-0">
                             <div class="card-body p-0">
-                                <div class="image-frame">
-                                    <a href="#" class="sw-view-site" data-sw-color="#ff3030">
-                                        <img src="/homepage/img/previews/variation-4.jpg" class="img-fluid" alt="">
-                                    </a>
+                                <div class="image-frame image-frame-style-1 image-frame-effect-1">
+                                    <div class="image-frame-wrapper">
+                                        <img src="/homepage/img/previews/variation-3.jpg" class="img-fluid" alt="">
+                                        <div class="image-frame-inner-border"></div>
+                                        <div class="image-frame-action image-frame-action-effect-1 image-frame-action-sm">
+                                            <a href="#">
+                                                <div class="image-frame-action-icon">
+                                                    <i class="lnr lnr-magnifier text-color-light"></i>
+                                                </div>
+                                            </a>
+                                            <a href="#">
+                                                <div class="image-frame-action-icon">
+                                                    <i class="lnr lnr-link text-color-light"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div></div><div class="owl-item cloned" style="width: 478.718px; margin-right: 40px;"><div class="hover-effect-3">
+                    </div>
+                    <div class="hover-effect-3">
                         <div class="card rounded p-0 overflow-hidden bg-transparent border-0">
                             <div class="card-body p-0">
-                                <div class="image-frame">
-                                    <a href="#" class="sw-view-site" data-sw-color="#c29f75">
-                                        <img src="/homepage/img/previews/variation-5.jpg" class="img-fluid" alt="">
-                                    </a>
+                                <div class="image-frame image-frame-style-1 image-frame-effect-1">
+                                    <div class="image-frame-wrapper">
+                                        <img src="/homepage/img/previews/variation-3.jpg" class="img-fluid" alt="">
+                                        <div class="image-frame-inner-border"></div>
+                                        <div class="image-frame-action image-frame-action-effect-1 image-frame-action-sm">
+                                            <a href="#">
+                                                <div class="image-frame-action-icon">
+                                                    <i class="lnr lnr-magnifier text-color-light"></i>
+                                                </div>
+                                            </a>
+                                            <a href="#">
+                                                <div class="image-frame-action-icon">
+                                                    <i class="lnr lnr-link text-color-light"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"></button><button type="button" role="presentation" class="owl-next"></button></div><div class="owl-dots disabled"></div></div>
+                    </div>
+                    <div class="hover-effect-3">
+                        <div class="card rounded p-0 overflow-hidden bg-transparent border-0">
+                            <div class="card-body p-0">
+                                <div class="image-frame image-frame-style-1 image-frame-effect-1">
+                                    <div class="image-frame-wrapper">
+                                        <img src="/homepage/img/previews/variation-3.jpg" class="img-fluid" alt="">
+                                        <div class="image-frame-inner-border"></div>
+                                        <div class="image-frame-action image-frame-action-effect-1 image-frame-action-sm">
+                                            <a href="#">
+                                                <div class="image-frame-action-icon">
+                                                    <i class="lnr lnr-magnifier text-color-light"></i>
+                                                </div>
+                                            </a>
+                                            <a href="#">
+                                                <div class="image-frame-action-icon">
+                                                    <i class="lnr lnr-link text-color-light"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hover-effect-3">
+                        <div class="card rounded p-0 overflow-hidden bg-transparent border-0">
+                            <div class="card-body p-0">
+                                <div class="image-frame image-frame-style-1 image-frame-effect-1">
+                                    <div class="image-frame-wrapper">
+                                        <img src="/homepage/img/previews/variation-3.jpg" class="img-fluid" alt="">
+                                        <div class="image-frame-inner-border"></div>
+                                        <div class="image-frame-action image-frame-action-effect-1 image-frame-action-sm">
+                                            <a href="#">
+                                                <div class="image-frame-action-icon">
+                                                    <i class="lnr lnr-magnifier text-color-light"></i>
+                                                </div>
+                                            </a>
+                                            <a href="#">
+                                                <div class="image-frame-action-icon">
+                                                    <i class="lnr lnr-link text-color-light"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

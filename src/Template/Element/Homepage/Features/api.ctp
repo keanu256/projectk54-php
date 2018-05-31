@@ -1,7 +1,7 @@
 <section id="api" class="section"> 
     <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
-            <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+            <div class="col-md-6 col-lg-4 mb-4 mb-lg-0 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="300" data-plugin-options="{'accY' : -50}">
                 <div class="icon-box-animation-1">
                     <div class="icon-box icon-box-style-6">
                         <div class="icon-box-icon">
@@ -16,7 +16,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+            <div class="col-md-6 col-lg-4 mb-4 mb-lg-0 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="300" data-plugin-options="{'accY' : -50}">
                 <div class="icon-box-animation-1">
                     <div class="icon-box icon-box-style-6">
                         <div class="icon-box-icon">
@@ -31,7 +31,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
+            <div class="col-md-6 col-lg-4 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="300" data-plugin-options="{'accY' : -50}">
                 <div class="icon-box-animation-1">
                     <div class="icon-box icon-box-style-6">
                         <div class="icon-box-icon">
@@ -46,7 +46,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
+            <div class="col-md-6 col-lg-4 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="300" data-plugin-options="{'accY' : -50}">
                 <div class="icon-box-animation-1">
                     <div class="icon-box icon-box-style-6">
                         <div class="icon-box-icon">
@@ -61,7 +61,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
+            <div class="col-md-6 col-lg-4 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="300" data-plugin-options="{'accY' : -50}">
                 <div class="icon-box-animation-1">
                     <div class="icon-box icon-box-style-6">
                         <div class="icon-box-icon">
@@ -76,7 +76,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
+            <div class="col-md-6 col-lg-4 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="300" data-plugin-options="{'accY' : -50}">
                 <div class="icon-box-animation-1">
                     <div class="icon-box icon-box-style-6">
                         <div class="icon-box-icon">

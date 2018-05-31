@@ -2,16 +2,16 @@
     <li>
         <div class="dropdown-mega-content">
             <div class="row">
-                <div class="col-lg-3 dropdown-mega-sub-content-block overlay overlay-show overlay-color-primary d-none d-lg-block" data-plugin-image-background="" data-plugin-options="{'imageUrl': '/homepage/img/menu-bg-khoungdung.jpg'}" style="background-image: url(&quot;/homepage/img/menu-bg-khoungdung.jpg&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat;">
-                    <span class="top-sub-title text-color-light-2 d-block">THE MOST</span>
-                    <span class="text-color-light font-weight-bold d-block text-4 mb-2">KHO ỨNG DỤNG</span>
+                <div class="col-lg-3 dropdown-mega-sub-content-block overlay overlay-show overlay-color-primary d-none d-lg-block" data-plugin-image-background="" data-plugin-options="{'imageUrl': '/homepage/img/menu-bg-gioithieu.png'}" style="background-image: url(&quot;/homepage/img/menu-bg-gioithieu.png&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+                    <span class="top-sub-title text-color-light-2 d-block">POLYGON VIỆT NAM</span>
+                    <span class="text-color-light font-weight-bold d-block text-4 mb-2">GIỚI THIỆU CHUNG</span>
                     <p class="text-color-light-2">Cung cấp các công cụ giúp tối ưu công việc.</p>
                     <a class="btn btn-dark btn-rounded btn-v-3 btn-h-2 content-block-button font-weight-semibold" href="#">TÌM HIỂU</a>
                 </div>
                 <div class="col-lg-3 ml-auto">
                     <span class="dropdown-mega-sub-title">ỨNG DỤNG DESKTOP</span>
                     <ul class="dropdown-mega-sub-nav">
-                        <li><a class="dropdown-item" href="#api" data-hash data-hash-offset="70">Giới thiệu tổng quan</a></li>
+                        <li><a class="dropdown-item" href="#" data-hash data-hash-offset="70">Giới thiệu tổng quan</a></li>
                         <li><a class="dropdown-item" href="multi-purpose-10.html">Multi-Purpose 10</a></li>
                         <li><a class="dropdown-item" href="multi-purpose-11.html">Multi-Purpose 11</a></li>
                         <li><a class="dropdown-item" href="multi-purpose-12.html">Multi-Purpose 12</a></li>
@@ -31,7 +31,7 @@
                     </ul>
                     <span class="dropdown-mega-sub-title">API</span>
                     <ul class="dropdown-mega-sub-nav">
-                        <li><a class="dropdown-item" href="#api" data-hash data-hash-offset="70">Giới thiệu tổng quan</a></li>
+                        <li><a class="dropdown-item" href="#" data-hash data-hash-offset="70">Giới thiệu tổng quan</a></li>
                         <li><a class="dropdown-item" href="multi-purpose-10.html">Multi-Purpose 10</a></li>
                         <li><a class="dropdown-item" href="multi-purpose-11.html">Multi-Purpose 11</a></li>
                         <li><a class="dropdown-item" href="multi-purpose-12.html">Multi-Purpose 12</a></li>

@@ -1,11 +1,12 @@
+
 <footer id="footer" class="footer-hover-links-light pt-4 mt-0">
     <div class="container">
         <div class="footer-top-featured-boxes featured-boxes">
             <div class="row">
                 <div class="featured-box col-lg-4">
                     <a class="text-decoration-none" href="#">
-                        <img src="/homepage/img/icons/icon-1.svg" class="img-responsive appear-animation animated fadeInRightShorter appear-animation-visible" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="100" alt="Icon 1" style="animation-delay: 100ms;"> 
-                        <div class="d-inline-block appear-animation animated fadeInLeftShorter appear-animation-visible" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="150" style="animation-delay: 150ms;">
+                        <img src="/homepage/img/icons/icon-1.svg" class="img-responsive appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="100" alt="Icon 1" /> 
+                        <div class="d-inline-block appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="150">
                             <h2 class="text-2 pt-1 mb-0">THƯ VIỆN PHIM & HÌNH ẢNH</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur</p>
                         </div>
@@ -13,17 +14,17 @@
                 </div>
                 <div class="featured-box col-lg-4">
                     <a class="text-decoration-none" href="#">
-                        <img src="/homepage/img/icons/icon-2.svg" class="img-responsive appear-animation animated fadeInRightShorter appear-animation-visible" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="300" alt="Icon 2" style="animation-delay: 300ms;"> 
-                        <div class="d-inline-block appear-animation animated fadeInLeftShorter appear-animation-visible" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="350" style="animation-delay: 350ms;">
-                            <h2 class="text-2 pt-1 mb-0">ĐIỀU KHOẢN & CHÍNH SÁCH</h2>
+                        <img src="/homepage/img/icons/icon-2.svg" class="img-responsive appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="300" alt="Icon 2" /> 
+                        <div class="d-inline-block appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="350">
+                            <h2 class="text-2 pt-1 mb-0">CHÍNH SÁCH & ĐIỀU KHOẢN</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur</p>
                         </div>
                     </a>
                 </div>
                 <div class="featured-box col-lg-4">
                     <a class="text-decoration-none" href="#">
-                        <img src="/homepage/img/icons/icon-3.svg" class="img-responsive appear-animation animated fadeInRightShorter appear-animation-visible" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="500" alt="Icon 3" style="animation-delay: 500ms;"> 
-                        <div class="d-inline-block appear-animation animated fadeInLeftShorter appear-animation-visible" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="550" style="animation-delay: 550ms;">
+                        <img src="/homepage/img/icons/icon-3.svg" class="img-responsive appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="500" alt="Icon 3" /> 
+                        <div class="d-inline-block appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="550">
                             <h2 class="text-2 pt-1 mb-0">HỖ TRỢ TRỰC TUYẾN</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur</p>
                         </div>

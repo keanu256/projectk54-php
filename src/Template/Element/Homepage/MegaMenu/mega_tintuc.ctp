@@ -10,8 +10,19 @@
                 </div>
                 <div class="col-lg-3 ml-auto">
                     <span class="dropdown-mega-sub-title">ỨNG DỤNG DESKTOP</span>
+                    <div class="owl-carousel owl-theme dots-style-2 nav-style-2" data-plugin-options="{'items': 1, 'dots': true, 'nav': true, 'animateIn': 'fadeIn', 'animateOut': 'fadeOut'}">
+                        <div>
+                            <img src="/homepage/img/blog/posts/post-2-masonry.jpg" class="img-fluid" alt="">
+                        </div>
+                        <div>
+                            <img src="/homepage/img/blog/posts/post-2-masonry.jpg" class="img-fluid" alt="">
+                        </div>
+                        <div>
+                            <img src="/homepage/img/blog/posts/post-2-masonry.jpg" class="img-fluid" alt="">
+                        </div>
+                    </div>
                     <ul class="dropdown-mega-sub-nav">
-                        <li><a class="dropdown-item" href="#api" data-hash data-hash-offset="70">Giới thiệu tổng quan</a></li>
+                        <li><a class="dropdown-item" href="#" data-hash data-hash-offset="70">Giới thiệu tổng quan</a></li>
                         <li><a class="dropdown-item" href="multi-purpose-10.html">Multi-Purpose 10</a></li>
                         <li><a class="dropdown-item" href="multi-purpose-11.html">Multi-Purpose 11</a></li>
                         <li><a class="dropdown-item" href="multi-purpose-12.html">Multi-Purpose 12</a></li>
@@ -19,7 +30,7 @@
                     </ul>
                     <span class="dropdown-mega-sub-title">API</span>
                     <ul class="dropdown-mega-sub-nav">
-                        <li><a class="dropdown-item" href="#api" data-hash data-hash-offset="70">Giới thiệu tổng quan</a></li>
+                        <li><a class="dropdown-item" href="#" data-hash data-hash-offset="70">Giới thiệu tổng quan</a></li>
                         <li><a class="dropdown-item" href="multi-purpose-10.html">Multi-Purpose 10</a></li>
                         <li><a class="dropdown-item" href="multi-purpose-11.html">Multi-Purpose 11</a></li>
                         <li><a class="dropdown-item" href="multi-purpose-12.html">Multi-Purpose 12</a></li>

@@ -14,29 +14,47 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4 mb-5 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
-                <h3 class="font-weight-bold text-4 mb-2">Modern Designs</h3>
-                <p>Each design and demo were created using modern design techniques and updated design elements allowing you to build your new website much faster. </p>
+            <div class="col-md-6 col-lg-4 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="300" data-plugin-options="{'accY' : -50}">
+                <h3 class="font-weight-bold d-flex align-items-center text-2 pl-1 mb-2">
+                    <i class="lnr lnr-tablet text-color-primary mr-3"></i>
+                    RESPONSIVE DESIGN
+                </h3>
+                <p class="mb-md-5 pb-3 ml-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc.</p>
             </div>
-            <div class="col-md-4 mb-5 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400" style="animation-delay: 400ms;">
-                <h3 class="font-weight-bold text-4 mb-2">Fully Customizable</h3>
-                <p>EZY comes with a selection of headers, footer, and several content samples to show how easy it is to create a modern website. Not to mention the style switcher. </p>
+            <div class="col-md-6 col-lg-4 appear-animation" data-appear-animation="fadeInUpShorter" data-plugin-options="{'accY' : -50}">
+                <h3 class="font-weight-bold d-flex align-items-center text-2 pl-1 mb-2">
+                    <i class="lnr lnr-layers text-color-primary mr-3"></i>
+                    PARALLAX EFFECTS
+                </h3>
+                <p class="mb-md-5 pb-3 ml-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc.</p>
             </div>
-            <div class="col-md-4 mb-5 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="600" style="animation-delay: 600ms;">
-                <h3 class="font-weight-bold text-4 mb-2">Elements for Everything</h3>
-                <p>We created a group of elements / components using modern and only the best plugins available in the market, making your life easier. </p>
+            <div class="col-md-6 col-lg-4 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="300" data-plugin-options="{'accY' : -50}">
+                <h3 class="font-weight-bold d-flex align-items-center text-2 pl-1 mb-2">
+                    <i class="lnr lnr-magnifier text-color-primary mr-3"></i>
+                    SEO OPTIMIZED
+                </h3>
+                <p class="mb-md-5 pb-3 ml-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc.</p>
             </div>
-            <div class="col-md-4 mb-5 mb-md-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
-                <h3 class="font-weight-bold text-4 mb-2">SEO Optimization</h3>
-                <p>We use only the best practice in design and coding to make your website better for search engine systems, it’s much easier this way. </p>
+            <div class="col-md-6 col-lg-4 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="700" data-plugin-options="{'accY' : -50}">
+                <h3 class="font-weight-bold d-flex align-items-center text-2 pl-1 mb-2">
+                    <i class="lnr lnr-magic-wand text-color-primary mr-3"></i>
+                    FULLY CUSTOMIZABLE
+                </h3>
+                <p class="mb-md-5 pb-3 ml-5">Phasellus blandit massa enim. Nullam id varius nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
-            <div class="col-md-4 mb-5 mb-md-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400" style="animation-delay: 400ms;">
-                <h3 class="font-weight-bold text text-4 mb-2">High Performance</h3>
-                <p>The code is optimized to get the best performance to make your website faster in any device. No one wants to access a slow website, right? </p>
+            <div class="col-md-6 col-lg-4 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400" data-plugin-options="{'accY' : -50}">
+                <h3 class="font-weight-bold d-flex align-items-center text-2 pl-1 mb-2">
+                    <i class="lnr lnr-briefcase icon-pos-fix-1 text-color-primary mr-3"></i>
+                    PORTFOLIO LAYOUTS
+                </h3>
+                <p class="mb-md-5 pb-3 ml-5">Blandit massa enim. Nullam id varius nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
-            <div class="col-md-4 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="600" style="animation-delay: 600ms;">
-                <h3 class="font-weight-bold text-4 mb-2">Documentation</h3>
-                <p>EZY has a complete documentation with all details you need to create your website. Need help? Talk to us in our support system. </p>
+            <div class="col-md-6 col-lg-4 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="700" data-plugin-options="{'accY' : -50}">
+                <h3 class="font-weight-bold d-flex align-items-center text-2 pl-1 mb-2">
+                <i class="lnr lnr-code text-color-primary mr-3"></i>
+                    OPTIMIZED CODE
+                </h3>
+                <p class="mb-md-5 pb-3 ml-5">Phasellus blandit massa enim. Nullam id varius nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
         </div>
     </div>
