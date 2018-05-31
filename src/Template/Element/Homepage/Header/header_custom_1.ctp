@@ -4,7 +4,7 @@
             <div class="header-row">
                 <div class="header-column justify-content-start">
                     <div class="header-logo border-left-0 px-4">
-                        <a href="<?= $this->Url->build(['controller'=>'Pages','action'=>'index'])?>">
+                        <a href="<?= $this->Url->build(['controller'=>'Pages','action'=>'index','home'])?>">
                             <?= $this->Html->image('/homepage/img/logo-small.png',[
                                 "alt"=>"Polygon" ,
                                 "width"=>"117" ,
@@ -18,12 +18,15 @@
                             <nav class="collapse">
                                 <ul class="nav flex-column flex-lg-row" id="mainNav">
                                     <li class="dropdown">
-                                        <a href="#home" onclick="backToHomePage()" data-hash class="dropdown-item dropdown-toggle active">
+                                        <a href="#home" onclick="goToPage(0)" data-hash class="dropdown-item dropdown-toggle active">
                                             Về trang chủ
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#account" data-hash data-hash-offset="70" class="dropdown-item">Tài Khoản</a>
+                                        <a href="#" onclick="goToPage(1)" data-hash data-hash-offset="70" class="dropdown-item">Đăng ký</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" onclick="goToPage(2)" data-hash data-hash-offset="70" class="dropdown-item">Đăng nhập</a>
                                     </li>
                                     <li>
                                         <a href="#footer" data-hash data-hash-offset="70" class="dropdown-item">liên hệ</a>

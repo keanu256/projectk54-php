@@ -35,14 +35,17 @@
                         </a> -->
                         <!-- Image Logo -->
                         <a href="index.html" class="logo">
-                            <?= $this->Html->image('/dashboard/assets/images/logo_sm.png',[
+                            <?= $this->Html->image('/dashboard/assets/images/polygon.png',[
                                 'class' => 'logo-small',
                                 'height' => 26
                             ]); ?>
-                            <?= $this->Html->image('/dashboard/assets/images/logo.png',[
+                            <?= $this->Html->image('/dashboard/assets/images/polygon.png',[
                                 'class' => 'logo-large',
                                 'height' => 22
                             ]); ?>
+                            <span class="d-none d-sm-inline-block" style="top: 2px; position: relative;">
+                                Polygon Commercial Business
+                            </span>
                         </a>
 
                     </div>
@@ -272,7 +275,7 @@
                         <ul class="navigation-menu">
 
                             <li class="has-submenu">
-                                <a href="index.html"><i class="icon-speedometer"></i>Dashboard</a>
+                                <a href="<?= $this->Url->build(['controller'=>'Dashboard','action'=>'index']) ?>"><i class="icon-speedometer"></i></a>
                             </li>
 
                             <li class="has-submenu">

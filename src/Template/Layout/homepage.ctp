@@ -195,8 +195,18 @@
 
 			})
 
-			function backToHomePage(){
-				$(location).attr('href', '<?= $this->Url->build(['controller'=>'Pages','action'=>'index']) ?>')
+			function goToPage(number){
+				switch(number){
+					case 0 : 
+						$(location).attr('href', '<?= $this->Url->build(['controller'=>'Pages','action'=>'index']) ?>');
+						break;
+					case 1 : 
+						$(location).attr('href', '<?= $this->Url->build(['controller'=>'Pages','action'=>'register']) ?>');
+						break;
+					case 2 : 
+						$(location).attr('href', '<?= $this->Url->build(['controller'=>'Users','action'=>'login']) ?>');
+						break;
+				}		
 			}
 
 			function initCaptcha(){

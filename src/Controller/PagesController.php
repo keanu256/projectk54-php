@@ -24,6 +24,8 @@ use Cake\I18n\Time;
 use App\Classes\PolygonHelper;
 use App\Classes\AsyncBigData;
 
+use Cake\Http\Cookie\Cookie;
+
 /**
  * Static content controller
  *
@@ -404,4 +406,10 @@ class PagesController extends AppController
             'phuong_xa' => $phuong_xa
         ]);
     }
+
+
+    public function register(){
+        $this->viewBuilder()->layout('homepage');   
+        $this->set(['RegisterPageIndex' => true]);
+    }  
 }

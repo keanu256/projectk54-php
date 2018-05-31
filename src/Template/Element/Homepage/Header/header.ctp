@@ -4,7 +4,7 @@
             <div class="header-row">
                 <div class="header-column justify-content-start">
                     <div class="header-logo border-left-0 px-4">
-                        <a href="<?= $this->Url->build(['controller'=>'Pages','action'=>'index'])?>">
+                        <a href="<?= $this->Url->build(['controller'=>'Pages','action'=>'index','home'])?>">
                             <?= $this->Html->image('/homepage/img/logo-small.png',[
                                 "alt"=>"Polygon" ,
                                 "width"=>"117" ,
@@ -22,26 +22,28 @@
                                             Trang chủ
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="#aboutus" data-hash data-hash-offset="70" class="dropdown-item">Về chúng tôi</a>
+                                    <li class="dropdown dropdown-mega">
+                                        <a href="#aboutus" data-hash data-hash-offset="70" class="dropdown-item dropdown-toggle">Giới thiệu</a>
+                                        <?= $this->Element('Homepage/MegaMenu/mega_gioithieu')?>
                                     </li>
-                                    <li>
-                                        <a href="#services" data-hash data-hash-offset="70" class="dropdown-item">Dịch vụ</a>
+                                    <li class="dropdown dropdown-mega">
+                                        <a href="#services" data-hash data-hash-offset="70" class="dropdown-item dropdown-toggle">Dịch vụ</a>
+                                        <?= $this->Element('Homepage/MegaMenu/mega_dichvu')?>
                                     </li>
                                     <li>
                                         <a href="#portfolio" data-hash data-hash-offset="70" class="dropdown-item">Kho giao diện</a>
                                     </li>
-                                    <li>
-                                        <a href="#api" data-hash data-hash-offset="70" class="dropdown-item">API</a>
+                                    <li class="dropdown dropdown-mega">
+                                        <a href="#figure" data-hash data-hash-offset="70" class="dropdown-item dropdown-toggle">Kho ứng dụng</a>
+                                        <?= $this->Element('Homepage/MegaMenu/mega_khoungdung')?>
                                     </li>
-                                    <li>
-                                        <a href="#figure" data-hash data-hash-offset="70" class="dropdown-item">Kho ứng dụng</a>
+                                    <li class="dropdown dropdown-mega">
+                                        <a href="#blog" data-hash data-hash-offset="70" class="dropdown-item dropdown-toggle">Tin tức</a>
+                                        <?= $this->Element('Homepage/MegaMenu/mega_tintuc')?>
                                     </li>
-                                    <li>
-                                        <a href="#blog" data-hash data-hash-offset="70" class="dropdown-item">Tin tức</a>
-                                    </li>
-                                    <li>
-                                        <a href="#footer" data-hash data-hash-offset="70" class="dropdown-item">liên hệ</a>
+                                    <li class="dropdown dropdown-mega">
+                                        <a href="#footer" data-hash data-hash-offset="70" class="dropdown-item dropdown-toggle">liên hệ</a>
+                                        <?= $this->Element('Homepage/MegaMenu/mega_lienhe')?>
                                     </li>
                                 </ul>
                             </nav>
@@ -56,9 +58,9 @@
                                     <span>Xin chào, <?= $this->request->session()->read('Auth.User.username')?></span>
                                     <i class="fas fa-cogs"></i>
                                 </span>
-                            </a>
+                            </a>                        
                         <?php else: ?>
-                            <a href="<?= $this->Url->build(['controller'=>'Users','action' => 'login'])?>" class="btn btn-outline btn-rounded btn-primary btn-4 btn-icon-effect-1">
+                            <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'register'])?>" class="btn btn-outline btn-rounded btn-primary btn-4 btn-icon-effect-1">
                                 <span class="wrap">
                                     <span>ĐĂNG KÝ NGAY</span>
                                     <i class="fas fa-registered"></i>

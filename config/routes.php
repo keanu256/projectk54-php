@@ -68,6 +68,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/pages', ['controller' => 'Pages', 'action' => 'index']);
     $routes->connect('/captcha', ['controller' => 'Pages', 'action' => 'captcha']);
     $routes->connect('/login', ['controller' => 'Users', 'action' => 'login']);
+    $routes->connect('/register', ['controller' => 'Pages', 'action' => 'register']);
     $routes->connect('/logout', ['controller' => 'Users', 'action' => 'logout']);
     $routes->connect('/fblogin', ['controller' => 'Users', 'action' => 'facebookLogin']);
     $routes->connect('/maintenance', ['controller' => 'Maintenance', 'action' => 'maintenance']);

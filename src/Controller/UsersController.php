@@ -15,6 +15,7 @@ use Cake\Auth\DefaultPasswordHasher;
 use Cake\ORM\TableRegistry; 
 use Cake\Network\Http\Client;
 use App\Classes\PolygonHelper;
+use Cake\Http\Cookie\Cookie;
 
 $polyHelper = new PolygonHelper();
 
@@ -40,10 +41,10 @@ class UsersController extends AuthController
     }
 
     public function login(){
-        $this->viewBuilder()->layout('homepage');  
+        $this->viewBuilder()->layout('homepage'); 
         $this->Auth->logout();   
-    }   
-
+    }  
+    
     public function facebooklogin() {
         require_once ROOT . DS . 'vendor' .DS.'autoload.php';
         $this->request->session()->start();
@@ -232,7 +233,6 @@ class UsersController extends AuthController
     public function polygonLogin(){
         $this->autoRender = false;
         $data = $this->request->data();
-
         $hasher = new DefaultPasswordHasher();
 
         $response = [
@@ -246,13 +246,32 @@ class UsersController extends AuthController
             'username' => $data['username'],
             'flag' => 1
         ])->orWhere(['email' => $data['username']])
+        ->select(['id','password','email','username','verify'])
         ->first();
-
+             
         if(!empty($user) && $user['verify'] == 1){
+
             if($hasher->check($data['pwd'],$user['password'])){
                 $this->Auth->setUser($user);
                 self::_logLoginHistory($user['id'],self::_getGeoLocation());
-       
+                
+                if(!empty($data['rememberme'])){
+                    $prefix = 'Q2FrZQ==.';
+                    $user->pass = $user->password;
+                    $value = json_encode($user);
+                    $value = Security::encrypt($value, Security::salt());
+                    $value = $prefix.$value;
+                    $value = base64_encode($value);
+                    $value = urlencode($value);
+
+                    $this->response = $this->response->withCookie('rememberMe', [
+                        'value' => $value,
+                        'httpOnly' => false,
+                        'secure' => false,
+                        'expire' => strtotime('+1 year')
+                    ]);
+                }
+
                 $response = [
                     'code' => 200,
                     'msg' => 'Thành công',

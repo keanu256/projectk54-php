@@ -5,6 +5,7 @@ use Cake\Controller\Controller;
 use Cake\Core\Configure;
 use Cake\Event\Event;
 use Cake\ORM\TableRegistry; 
+use Cake\Utility\Security;
 
 class AuthController extends Controller
 {
@@ -13,7 +14,7 @@ class AuthController extends Controller
         parent::initialize();
 
         $this->loadComponent('RequestHandler');
-
+        $this->loadComponent('Cookie');
         $this->loadComponent('Auth', [
 			'loginAction' => [
 				'controller' => 'Users',
@@ -58,23 +59,39 @@ class AuthController extends Controller
         
         $this->Auth->allow(['forgetpassword', 'resetpassword']);    
 
-        
-        
+        if(!$this->Auth->user()){
+            if(!empty($_COOKIE["rememberMe"])){
+                $value = urldecode($_COOKIE["rememberMe"]);
+                
+                $prefix = 'Q2FrZQ==.';
+                $value = base64_decode($value);    
+                $value = substr($value, strlen($prefix));
+                $value = Security::decrypt($value, Security::salt());
+                $data = json_decode($value);   
+                $UsersTB = TableRegistry::get('Users');
+                $user = $UsersTB->find()
+                                ->orWhere(['email'=>$data->username])
+                                ->orWhere(['username'=>$data->username])
+                                ->toArray();            
 
-        // if (!$this->Auth->loggedIn() && $this->Cookie->read('rememberMe')) {
-    
-        //     // $user = $this->Users->find('first', array(
-        //     //     'conditions' => array(
-        //     //         'User.username' => $cookie['username'],
-        //     //         'User.password' => $cookie['password']
-        //     //     )
-        //     // ));
-            
+                if(!empty($user)){
 
-        //     // if ($user && !$this->Auth->login($user['User'])) {
-        //     //     $this->redirect('/logout'); // destroy session & cookie
-        //     // }
-        // }
+                    if($user[0]['flag'] == 9){
+                        $this->Cookie->delete('rememberMe');
+                        return $this->redirect(['controller'=>'Users','action'=>'login']);
+                    }
+
+                    $checkpass = ($data->pass === $user[0]['password']) ? true : false;
+
+                    if($checkpass){
+                        $this->Auth->setUser($user[0]->toArray());
+                        return $this->redirect($this->Auth->redirectUrl());
+                    }  
+                    //$this->Cookie->delete('rememberMe');
+                    return $this->redirect(['controller'=>'Users','action'=>'login']);           
+                }           
+            }
+        }
     }
 
     public function randomPassword() {
