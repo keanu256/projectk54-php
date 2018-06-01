@@ -1,10 +1,4 @@
-
-<?php 
-    $isPageIndex = strtolower($this->request->getParam('controller')) == 'pages' 
-                    && strtolower($this->request->getParam('action')) == 'index';
-?>
-
-<header id="header" class="header-with-borders header-with-borders-sticky" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyStartAtElement': '<?= $isPageIndex ? '#header': '#page-header' ?>'}">
+<header id="header" class="header-with-borders header-with-borders-sticky" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyStartAtElement': '#page-header'}">
     <div class="header-body">
         <div class="header-container">
             <div class="header-row">
@@ -24,28 +18,28 @@
                             <nav class="collapse">
                                 <ul class="nav flex-column flex-lg-row" id="mainNav">
                                     <li class="dropdown">
-                                        <a href="<?= $isPageIndex ? '#home': '#' ?>" <?= !$isPageIndex ? 'onclick="goToPage(0);"': '' ?> data-hash class="dropdown-item dropdown-toggle active">
+                                        <a href="#home" data-hash class="dropdown-item dropdown-toggle active">
                                             Trang chủ
                                         </a>
                                     </li>
                                     <li class="dropdown dropdown-mega">
-                                        <a href="<?= $isPageIndex ? '#aboutus': '#' ?>" <?= !$isPageIndex ? 'onclick="goToPage(3);"': '' ?> data-hash data-hash-offset="70" class="dropdown-item dropdown-toggle">Giới thiệu</a>
+                                        <a href="#aboutus" data-hash data-hash-offset="70" class="dropdown-item dropdown-toggle">Giới thiệu</a>
                                         <?= $this->Element('Homepage/MegaMenu/mega_gioithieu')?>
                                     </li>
                                     <li class="dropdown dropdown-mega">
-                                        <a href="<?= $isPageIndex ? '#services': '#' ?>" <?= !$isPageIndex ? 'onclick="goToPage(4);"': '' ?> data-hash data-hash-offset="70" class="dropdown-item dropdown-toggle">Dịch vụ</a>
+                                        <a href="#services" data-hash data-hash-offset="70" class="dropdown-item dropdown-toggle">Dịch vụ</a>
                                         <?= $this->Element('Homepage/MegaMenu/mega_dichvu')?>
                                     </li>
                                     <li class="dropdown dropdown-mega dropdown-mega-style-2" >
-                                        <a href="<?= $isPageIndex ? '#portfolio': '#' ?>" <?= !$isPageIndex ? 'onclick="goToPage(5);"': '' ?> data-hash data-hash-offset="70" class="dropdown-item dropdown-toggle">Kho giao diện</a>
+                                        <a href="#portfolio" data-hash data-hash-offset="70" class="dropdown-item dropdown-toggle">Kho giao diện</a>
                                         <?= $this->Element('Homepage/MegaMenu/mega_khogiaodien')?>
                                     </li>
                                     <li class="dropdown dropdown-mega">
-                                        <a href="<?= $isPageIndex ? '#figure': '#' ?>" <?= !$isPageIndex ? 'onclick="goToPage(6);"': '' ?> data-hash data-hash-offset="70" class="dropdown-item dropdown-toggle">Kho ứng dụng</a>
+                                        <a href="#figure" data-hash data-hash-offset="70" class="dropdown-item dropdown-toggle">Kho ứng dụng</a>
                                         <?= $this->Element('Homepage/MegaMenu/mega_khoungdung')?>
                                     </li>
                                     <li class="dropdown dropdown-mega">
-                                        <a href="<?= $isPageIndex ? '#blog': '#' ?>" <?= !$isPageIndex ? 'onclick="goToPage(7);"': '' ?> data-hash data-hash-offset="70" class="dropdown-item dropdown-toggle">Tin tức</a>
+                                        <a href="#blog" data-hash data-hash-offset="70" class="dropdown-item dropdown-toggle">Tin tức</a>
                                         <?= $this->Element('Homepage/MegaMenu/mega_tintuc')?>
                                     </li>
                                     <li class="dropdown dropdown-mega">

@@ -35,24 +35,17 @@ use Cake\Http\Cookie\Cookie;
  */
 class PagesController extends AppController
 {
+    public function initialize()
+    {
+        parent::initialize();
+        $blogsTB = TableRegistry::get('Blogs');
+        $blog['new'] = $blogsTB->find()->order(['created' => 'DESC'])->limit(5);
+        $blog['khuyenmai'] = $blogsTB->find()->where(['category_id' => 1])->order(['created' => 'DESC'])->limit(5);
+        $blog['topviewers'] = $blogsTB->find()->order(['viewers' => 'DESC'])->limit(5);
 
-
-
-    public function bigdata1(){
-        $this->autoRender = false;
-
-        if($this->request->is(['post','get'])){
-            set_time_limit (0);
-            $bigdataTB = TableRegistry::get('Bigdata');
-            for ($i=0; $i < 10000; $i++) { 
-               $data = $bigdataTB->newEntity();
-               $data->name = 'Entity '.$i;
-               $bigdataTB->save($data);
-            }
-            $response = ['code' => 200];
-            $this->response->type('json');
-            $this->response->body(json_encode($response));
-        }
+        $this->set([
+            'blogs' => $blog
+        ]);
     }
 
     /**

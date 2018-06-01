@@ -9,69 +9,65 @@
                     <a class="btn btn-dark btn-rounded btn-v-3 btn-h-2 content-block-button font-weight-semibold" href="#">TÌM HIỂU</a>
                 </div>
                 <div class="col-lg-3 ml-auto" style="border-right: none;">
-                    <span class="dropdown-mega-sub-title">ỨNG DỤNG DESKTOP</span>
+                    <span class="dropdown-mega-sub-title">TIN TỨC MỚI NHẤT</span>
                     <div class="owl-carousel owl-theme dots-style-2 nav-style-2 mt-3" data-plugin-options="{'items': 1, 'dots': true, 'nav': true, 'animateIn': 'fadeIn', 'animateOut': 'fadeOut'}">
-                        <div>
-                            <img src="/homepage/img/blog/posts/post-2-masonry.jpg" class="img-fluid" alt="">
-                        </div>
-                        <div>
-                            <img src="/homepage/img/blog/posts/post-2-masonry.jpg" class="img-fluid" alt="">
-                        </div>
-                        <div>
-                            <img src="/homepage/img/blog/posts/post-2-masonry.jpg" class="img-fluid" alt="">
-                        </div>
+                        <?php foreach ($blogs['new'] as $key => $value): ?>
+                            <div>
+                                <?= $this->Html->image('/filemanager/uploads/'.$value->preview,[
+                                    'class' => 'img-fluid',
+                                    'alt' => $value->title
+                                ])?>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
                     <ul class="dropdown-mega-sub-nav mt-3">
-                        <li><a class="dropdown-item scroll_on_hover ellipsis" href="portfolio-1.html"><i class="fas fa-genderless"></i>&nbsp; Hôm qua là ngày thứ sáu nên hôm nay là ngày thứ bảy. Ahihi đồ ngốc.</a></li>
-                        <li></li>
-                        <li><a class="dropdown-item" href="portfolio-2.html"><i class="fas fa-genderless"></i>&nbsp; Portfolio 2</a></li>
-                        <li><a class="dropdown-item" href="portfolio-2.html"><i class="fas fa-genderless"></i>&nbsp; Portfolio 2</a></li>
-                        <li><a class="dropdown-item" href="portfolio-2.html"><i class="fas fa-genderless"></i>&nbsp; Portfolio 2</a></li>
-                        <li><a class="dropdown-item" href="portfolio-2.html"><i class="fas fa-genderless"></i>&nbsp; Portfolio 2</a></li>  
+                        <?php foreach ($blogs['new'] as $key => $value): ?>
+                            <li>
+                                <a class="dropdown-item scroll_on_hover ellipsis" href="<?= $this->Url->build(['controller'=>'Blogs','action'=>'view',$value->id])?>"><i class="fas fa-genderless"></i>&nbsp; <?= $value->title ?></a>
+                            </li>
+                        <?php endforeach; ?>
                         <li><a class="dropdown-item" href="portfolio-2.html"><i class="fas fa-angle-double-right"></i>&nbsp; Xem thêm</a></li>  
                     </ul>
                 </div>
                 <div class="col-lg-3" style="border-right: none;">
-                    <span class="dropdown-mega-sub-title">ỨNG DỤNG TRÌNH DUYỆT</span>
+                    <span class="dropdown-mega-sub-title">SỰ KIỆN & KHUYẾN MÃI</span>
                     <div class="owl-carousel owl-theme dots-style-2 nav-style-2 mt-3" data-plugin-options="{'items': 1, 'dots': true, 'nav': true, 'animateIn': 'fadeIn', 'animateOut': 'fadeOut'}">
-                        <div>
-                            <img src="/homepage/img/blog/posts/post-2-masonry.jpg" class="img-fluid" alt="">
-                        </div>
-                        <div>
-                            <img src="/homepage/img/blog/posts/post-2-masonry.jpg" class="img-fluid" alt="">
-                        </div>
-                        <div>
-                            <img src="/homepage/img/blog/posts/post-2-masonry.jpg" class="img-fluid" alt="">
-                        </div>
+                        <?php foreach ($blogs['khuyenmai'] as $key => $value): ?>
+                            <div>
+                                <?= $this->Html->image('/filemanager/uploads/'.$value->preview,[
+                                    'class' => 'img-fluid',
+                                    'alt' => $value->title
+                                ])?>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
                     <ul class="dropdown-mega-sub-nav mt-3">
-                        <li><a class="dropdown-item" href="portfolio-1.html"><i class="fas fa-genderless"></i>&nbsp; Portfolio 1</a></li>
-                        <li><a class="dropdown-item" href="portfolio-2.html"><i class="fas fa-genderless"></i>&nbsp; Portfolio 2</a></li>
-                        <li><a class="dropdown-item" href="portfolio-2.html"><i class="fas fa-genderless"></i>&nbsp; Portfolio 2</a></li>
-                        <li><a class="dropdown-item" href="portfolio-2.html"><i class="fas fa-genderless"></i>&nbsp; Portfolio 2</a></li>
-                        <li><a class="dropdown-item" href="portfolio-2.html"><i class="fas fa-genderless"></i>&nbsp; Portfolio 2</a></li>    
+                        <?php foreach ($blogs['khuyenmai'] as $key => $value): ?>
+                            <li>
+                                <a class="dropdown-item scroll_on_hover ellipsis" href="<?= $this->Url->build(['controller'=>'Blogs','action'=>'view',$value->id])?>"><i class="fas fa-genderless"></i>&nbsp; <?= $value->title ?></a>
+                            </li>
+                        <?php endforeach; ?>   
                         <li><a class="dropdown-item" href="portfolio-2.html"><i class="fas fa-angle-double-right"></i>&nbsp; Xem thêm</a></li> 
                     </ul>
                 </div>
-                <div class="col-lg-3" style="border-right: none;">
-                    <span class="dropdown-mega-sub-title">ỨNG DỤNG MOBILE</span>
+                <div class="col-lg-3 mr-2" style="border-right: none;">
+                    <span class="dropdown-mega-sub-title">BÀI VIẾT XEM NHIỀU</span>
                     <div class="owl-carousel owl-theme dots-style-2 nav-style-2 mt-3" data-plugin-options="{'items': 1, 'dots': true, 'nav': true, 'animateIn': 'fadeIn', 'animateOut': 'fadeOut'}">
-                        <div>
-                            <img src="/homepage/img/blog/posts/post-2-masonry.jpg" class="img-fluid" alt="">
-                        </div>
-                        <div>
-                            <img src="/homepage/img/blog/posts/post-2-masonry.jpg" class="img-fluid" alt="">
-                        </div>
-                        <div>
-                            <img src="/homepage/img/blog/posts/post-2-masonry.jpg" class="img-fluid" alt="">
-                        </div>
+                        <?php foreach ($blogs['topviewers'] as $key => $value): ?>
+                            <div>
+                                <?= $this->Html->image('/filemanager/uploads/'.$value->preview,[
+                                    'class' => 'img-fluid',
+                                    'alt' => $value->title
+                                ])?>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
                     <ul class="dropdown-mega-sub-nav mt-3">
-                        <li><a class="dropdown-item" href="portfolio-1.html"><i class="fas fa-genderless"></i>&nbsp; Portfolio 1</a></li>
-                        <li><a class="dropdown-item" href="portfolio-2.html"><i class="fas fa-genderless"></i>&nbsp; Portfolio 2</a></li>
-                        <li><a class="dropdown-item" href="portfolio-2.html"><i class="fas fa-genderless"></i>&nbsp; Portfolio 2</a></li>
-                        <li><a class="dropdown-item" href="portfolio-2.html"><i class="fas fa-genderless"></i>&nbsp; Portfolio 2</a></li>
-                        <li><a class="dropdown-item" href="portfolio-2.html"><i class="fas fa-genderless"></i>&nbsp; Portfolio 2</a></li>    
+                        <?php foreach ($blogs['topviewers'] as $key => $value): ?>
+                            <li>
+                                <a class="dropdown-item scroll_on_hover ellipsis" href="<?= $this->Url->build(['controller'=>'Blogs','action'=>'view',$value->id])?>"><i class="fas fa-genderless"></i>&nbsp; <?= $value->title ?></a>
+                            </li>
+                        <?php endforeach; ?>    
                         <li><a class="dropdown-item" href="portfolio-2.html"><i class="fas fa-angle-double-right"></i>&nbsp; Xem thêm</a></li> 
                     </ul>
                 </div>

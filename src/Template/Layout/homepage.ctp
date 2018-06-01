@@ -90,7 +90,6 @@
 		<?= $this->Html->script('/homepage/vendor/vide/vide.min.js') ?>
 		<?= $this->Html->script('/homepage/vendor/vivus/vivus.min.js') ?>
 		<?= $this->Html->script('/lib/sweetalert2/sweetalert2.all.js') ?>
-		<?= $this->Html->script('/lib/HoverForMore/HoverForMore.js') ?>
 		
 		
 		<!-- Theme Base, Components and Settings -->
@@ -224,6 +223,21 @@
 						$(location).attr('href', '<?= $this->Url->build(['controller'=>'Pages','action'=>'register']) ?>');
 						break;
 					case 2 : 
+						$(location).attr('href', '<?= $this->Url->build(['controller'=>'Users','action'=>'login']) ?>');
+						break;
+					case 3 : 
+						$(location).attr('href', '<?= $this->Url->build(['controller'=>'Users','action'=>'login']) ?>');
+						break;
+					case 4 : 
+						$(location).attr('href', '<?= $this->Url->build(['controller'=>'Users','action'=>'login']) ?>');
+						break;
+					case 5 : 
+						$(location).attr('href', '<?= $this->Url->build(['controller'=>'Users','action'=>'login']) ?>');
+						break;
+					case 6 : 
+						$(location).attr('href', '<?= $this->Url->build(['controller'=>'Users','action'=>'login']) ?>');
+						break;
+					case 7 : 
 						$(location).attr('href', '<?= $this->Url->build(['controller'=>'Users','action'=>'login']) ?>');
 						break;
 				}		

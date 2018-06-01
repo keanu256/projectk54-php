@@ -11,68 +11,35 @@
             </div>
         </div>
         <div class="row mb-5">
-
+        <?php $blog_count_tmp = 0; ?>
+        <?php foreach ($blogs['new'] as $key => $value): ?>
+            <?php if($blog_count_tmp > 2) break; ?>
             <div class="col-md-4">
                 <article class="blog-post">
                     <header class="mb-2">
                         <div class="image-frame hover-effect-2">
-                            <a href="blog-single-post.html" class="d-block appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-duration="700ms">
-                                <?= $this->Html->image('/homepage/img/blog/posts/post-2-masonry.jpg',[                    "class"=>"img-fluid mb-3", 
+                            <a href="<?= $this->Url->build(['controller'=>'Blogs','action'=>'view',$value->id])?>" class="d-block appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-duration="700ms">
+                                <?= $this->Html->image('/filemanager/uploads/'.$value->preview,[
+                                    "class"=>"img-fluid mb-3", 
                                     "alt"=>""
                                 ]) ?>
                             </a>
                         </div>
                         <div class="appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="500" data-appear-animation-duration="700ms">
-                            <h3 class="font-weight-bold text-4 mb-0"><a href="blog-single-post.html" class="link-color-dark">Getting Ready</a></h3>
+                            <h3 class="font-weight-bold text-4 mb-0">
+                                <a href="<?= $this->Url->build(['controller'=>'Blogs','action'=>'view',$value->id])?>" class="link-color-dark">
+                                    <?= $value->title ?>
+                                </a>   
+                            </h3>
                             <i class="far fa-clock mt-1 text-color-primary"></i>
-                            <time class="font-tertiary text-1" datetime="2018-01-15">Jan 16, 2018</time>
+                            <time class="font-tertiary text-1" datetime="<?= $value->created ?>"><?= $value->created ?></time>
                         </div>
                     </header>
-                    <p class="appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="600" data-appear-animation-duration="700ms">Phasellus blandit massa enim. Nullam id varius nunc. Lorem ipsum dolor sit amet, consectetur adipiscing...</p>
+                    <p class="appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="600" data-appear-animation-duration="700ms"><?= $value->description ?></p>
                 </article>
             </div>
-
-            <div class="col-md-4">
-                <article class="blog-post">
-                    <header class="mb-2">
-                        <div class="image-frame hover-effect-2">
-                            <a href="blog-single-post.html" class="d-block appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-duration="700ms">
-                                <?= $this->Html->image('/homepage/img/blog/posts/post-2-masonry.jpg',[
-                                    "class"=>"img-fluid mb-3" ,
-                                    "alt"=>""
-                                ]) ?>
-                            </a>
-                        </div>
-                        <div class="appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="500" data-appear-animation-duration="700ms">
-                            <h3 class="font-weight-bold text-4 mb-0"><a href="blog-single-post.html" class="link-color-dark">Cool Hobbies</a></h3>
-                            <i class="far fa-clock mt-1 text-color-primary"></i>
-                            <time class="font-tertiary text-1" datetime="2018-01-14">Jan 15, 2018</time>
-                        </div>
-                    </header>
-                    <p class="appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="600" data-appear-animation-duration="700ms">Phasellus blandit massa enim. Nullam id varius nunc. Lorem ipsum dolor sit amet, consectetur adipiscing...</p>
-                </article>
-            </div>
-
-            <div class="col-md-4">
-                <article class="blog-post">
-                    <header class="mb-2">
-                        <div class="image-frame hover-effect-2">
-                            <a href="blog-single-post.html" class="d-block appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-duration="700ms">
-                                <?= $this->Html->image('/homepage/img/blog/posts/post-4-masonry.jpg',[
-                                    "class"=>"img-fluid mb-3" ,
-                                    "alt"=>""
-                                ]) ?>
-                            </a>
-                        </div>
-                        <div class="appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="500" data-appear-animation-duration="700ms">
-                            <h3 class="font-weight-bold text-4 mb-0"><a href="blog-single-post.html" class="link-color-dark">Work Machines</a></h3>
-                            <i class="far fa-clock mt-1 text-color-primary"></i>
-                            <time class="font-tertiary text-1" datetime="2018-01-13">Jan 14, 2018</time>
-                        </div>
-                    </header>
-                    <p class="appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="600" data-appear-animation-duration="700ms">Phasellus blandit massa enim. Nullam id varius nunc. Lorem ipsum dolor sit amet, consectetur adipiscing...</p>
-                </article>
-            </div>
+            <?php $blog_count_tmp++; ?>
+        <?php endforeach; ?>
         </div>
         <div class="row text-center">
             <div class="col">
