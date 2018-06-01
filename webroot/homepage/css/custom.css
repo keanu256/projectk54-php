@@ -2032,4 +2032,14 @@ ul.comments .comment-block,
 .form-group.required label:after { 
 	content:" *";
 	color:red;
- }
+}
+
+.ellipsis
+{
+    text-overflow: '';
+}
+
+.scroll_on_hover{
+	white-space: nowrap;
+    overflow: hidden;
+}

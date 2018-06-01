@@ -90,6 +90,8 @@
 		<?= $this->Html->script('/homepage/vendor/vide/vide.min.js') ?>
 		<?= $this->Html->script('/homepage/vendor/vivus/vivus.min.js') ?>
 		<?= $this->Html->script('/lib/sweetalert2/sweetalert2.all.js') ?>
+		<?= $this->Html->script('/lib/HoverForMore/HoverForMore.js') ?>
+		
 		
 		<!-- Theme Base, Components and Settings -->
 		<?= $this->Html->script('/homepage/js/theme.js') ?>
@@ -191,7 +193,25 @@
 							$('#captcha_img').trigger('click');
 						}
 					});
-				})
+				});
+
+				// for stuff that scrolls left on hover
+				$(".scroll_on_hover").mouseover(function() {
+					$(this).removeClass("ellipsis");
+					var maxscroll = $(this).width();
+					var speed = maxscroll * 15;
+					$(this).animate({
+						scrollLeft: maxscroll
+					}, speed, "linear");
+				});
+
+				$(".scroll_on_hover").mouseout(function() {
+					$(this).stop();
+					$(this).addClass("ellipsis");
+					$(this).animate({
+						scrollLeft: 0
+					}, 'slow');
+				});
 
 			})
 
