@@ -10,6 +10,7 @@ use Cake\Validation\Validator;
  * Blogs Model
  *
  * @property \App\Model\Table\CategoriesTable|\Cake\ORM\Association\BelongsTo $Categories
+ * @property |\Cake\ORM\Association\HasMany $Comments
  *
  * @method \App\Model\Entity\Blog get($primaryKey, $options = [])
  * @method \App\Model\Entity\Blog newEntity($data = null, array $options = [])
@@ -42,6 +43,9 @@ class BlogsTable extends Table
 
         $this->belongsTo('Categories', [
             'foreignKey' => 'category_id'
+        ]);
+        $this->hasMany('Comments', [
+            'foreignKey' => 'blog_id'
         ]);
     }
 

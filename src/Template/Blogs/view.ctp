@@ -93,18 +93,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-header accordion-header" role="tab" id="sidebarInstagram">
-                        <h3 class="text-3 mb-0">
-                            <a href="#" data-toggle="collapse" data-target="#toggleSidebarInstagram" aria-expanded="false" aria-controls="toggleSidebarInstagram">FROM INSTAGRAM</a>
-                        </h3>
-                    </div>
-                    <div id="toggleSidebarInstagram" class="accordion-body collapse show" role="tabpanel" aria-labelledby="sidebarInstagram">
-                        <div class="card-body">
-                            <div id="instafeedNoMargins"></div>
-                        </div>
-                    </div>
-                </div>
             </div>
         
             <div class="card bg-primary border-0 rounded">

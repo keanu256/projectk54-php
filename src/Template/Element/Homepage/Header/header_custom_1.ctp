@@ -1,4 +1,4 @@
-<header id="header" class="header-effect-shrink" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyStartAt': 120}" style="min-height: 141px;">
+<header id="header" class="header-with-borders header-with-borders-sticky" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyStartAtElement': '#page-header' }">
     <div class="header-body">
         <div class="header-container">
             <div class="header-row">

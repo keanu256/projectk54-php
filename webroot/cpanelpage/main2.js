@@ -2,7 +2,7 @@ $(document).on('click', '#pcodeBtn', function() {
 
 
     $.ajax({
-        url: '/cpanel/loginmaintain',
+        url: '/polygonpanel/loginmaintain',
         method: 'post',
         data: { passcode: $('#pcode').val(), username: $('#puser').val() },
         success: function(res) {
@@ -11,7 +11,7 @@ $(document).on('click', '#pcodeBtn', function() {
                 $('#div-a').hide();
                 $('#div-b').show();
                 setTimeout(function() {
-                    window.location.href = "/cpanel";
+                    window.location.href = "/polygonpanel";
                 }, 3000);
             } else {
                 var html = '<div class="alert alert-danger alert-dismissable">';

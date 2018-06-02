@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vn">
+<html lang="vi">
 	<head>
 
 		<!-- Basic -->
@@ -124,7 +124,11 @@
 
 			$(function(){
 				var urlParams = new URLSearchParams(window.location.search);
-				if(urlParams.get('scrollTo') != null) console.log(urlParams.get('scrollTo'));
+				if(urlParams.get('scrollTo') != null){
+					$('html, body').animate({
+						scrollTop: ($('#'+urlParams.get('scrollTo')).offset().top - 150)
+					},1000);
+				} 
 				initCaptcha();
 				$('#btn_dangnhap').on('click touchend',function(){
 					var formData = $(this).closest('form');
@@ -226,19 +230,19 @@
 						$(location).attr('href', '<?= $this->Url->build(['controller'=>'Users','action'=>'login']) ?>');
 						break;
 					case 3 : 
-						$(location).attr('href', '<?= $this->Url->build(['controller'=>'Users','action'=>'login']) ?>');
+						$(location).attr('href', '<?= $this->Url->build(['controller'=>'Introduce','action'=>'index']) ?>');
 						break;
 					case 4 : 
-						$(location).attr('href', '<?= $this->Url->build(['controller'=>'Users','action'=>'login']) ?>');
+						$(location).attr('href', '<?= $this->Url->build(['controller'=>'Services','action'=>'index']) ?>');
 						break;
 					case 5 : 
-						$(location).attr('href', '<?= $this->Url->build(['controller'=>'Users','action'=>'login']) ?>');
+						$(location).attr('href', '<?= $this->Url->build(['controller'=>'Themes','action'=>'index']) ?>');
 						break;
 					case 6 : 
-						$(location).attr('href', '<?= $this->Url->build(['controller'=>'Users','action'=>'login']) ?>');
+						$(location).attr('href', '<?= $this->Url->build(['controller'=>'Utilities','action'=>'index']) ?>');
 						break;
 					case 7 : 
-						$(location).attr('href', '<?= $this->Url->build(['controller'=>'Users','action'=>'login']) ?>');
+						$(location).attr('href', '<?= $this->Url->build(['controller'=>'Blogs','action'=>'index']) ?>');
 						break;
 				}		
 			}

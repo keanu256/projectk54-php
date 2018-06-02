@@ -36,7 +36,7 @@ class AdminController extends Controller
         }
 
         if($session->read('Auth.User.id') == null){
-            return $this->redirect(['prefix'=> false,'controller'=>'Dashboard','action'=>'index']);
+            return $this->redirect(['prefix'=> false,'controller'=>'Pages','action'=>'index','home']);
         }
 
         if($session->read('Auth.User.isSuperAdmin') != null){

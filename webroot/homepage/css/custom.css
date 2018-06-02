@@ -2034,12 +2034,39 @@ ul.comments .comment-block,
 	color:red;
 }
 
-.ellipsis
-{
+.ellipsis {
     text-overflow: '';
 }
 
 .scroll_on_hover{
 	white-space: nowrap;
     overflow: hidden;
+}
+
+.blog-pl-description{
+	min-height: 96px;
+	text-align: justify;
+}
+
+.blog-pl-title{
+	text-align: justify;
+	display: block;
+	min-height: 63px;
+}
+
+.policy-ol li,.policy-ol h6{
+	font-weight: bold;
+	color: #707070;
+}
+
+.policy-ol p{
+	font-weight: normal;
+}
+
+.pl-policy a{
+	color: #1194cc !important;
+}
+
+.pl-policy p,.pl-policy li{
+	text-align: justify;
 }

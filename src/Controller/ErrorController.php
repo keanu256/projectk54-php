@@ -15,6 +15,7 @@
 namespace App\Controller;
 
 use Cake\Event\Event;
+use Cake\ORM\TableRegistry; 
 
 /**
  * Error Handling Controller
@@ -31,6 +32,14 @@ class ErrorController extends AppController
     public function initialize()
     {
         $this->loadComponent('RequestHandler');
+        $blogsTB = TableRegistry::get('Blogs');
+        $blog['new'] = $blogsTB->find()->order(['created' => 'DESC'])->limit(5);
+        $blog['khuyenmai'] = $blogsTB->find()->where(['category_id' => 1])->order(['created' => 'DESC'])->limit(5);
+        $blog['topviewers'] = $blogsTB->find()->order(['viewers' => 'DESC'])->limit(5);
+
+        $this->set([
+            'blogs' => $blog
+        ]);
     }
 
     /**

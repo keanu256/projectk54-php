@@ -13,11 +13,11 @@
                     </a>
                 </div>
                 <div class="featured-box col-lg-4">
-                    <a class="text-decoration-none" href="#">
+                    <a class="text-decoration-none" href="<?= $this->Url->build(['controller'=>'Pages','action'=>'policy']) ?>">
                         <img src="/homepage/img/icons/icon-2.svg" class="img-responsive appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="300" alt="Icon 2" /> 
                         <div class="d-inline-block appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="350">
                             <h2 class="text-2 pt-1 mb-0">CHÍNH SÁCH & ĐIỀU KHOẢN</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                            <p>Các quy định cơ bản của Polygon.</p>
                         </div>
                     </a>
                 </div>

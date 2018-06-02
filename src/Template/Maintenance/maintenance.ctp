@@ -1,50 +1,47 @@
 <?php 
-    $this->layout=false;
+    $this->layout = 'homepage';
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Polygon Viet Nam</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<link href="https://fonts.googleapis.com/css?family=Saira+Condensed" rel="stylesheet">
-        <?= $this->Html->css('/dashboard/assets/css/bootstrap.min.css') ?>
-        <?= $this->Html->css('/dashboard/assets/css/icons.css') ?>
-        <?= $this->Html->css('/dashboard/assets/css/style.css') ?>
-    </head>
-
-    <body style="font-family: 'Saira Condensed', sans-serif;">   
-        <div class="wrapper">
-            <div class="container-fluid">
-               
-                <div class="row">
-                    <div class="col-sm-6 offset-3">
-                        <div class="text-center mt-5">
-                        <svg id="Layer_1" class="svg-computer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 424.2 424.2">
-							<style>
-								.st0{fill:none;stroke:#02c0ce;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-							</style>
-							<g id="Layer_2">
-								<path class="st0" d="M339.7 289h-323c-2.8 0-5-2.2-5-5V55.5c0-2.8 2.2-5 5-5h323c2.8 0 5 2.2 5 5V284c0 2.7-2.2 5-5 5z"/>
-								<path class="st0" d="M26.1 64.9h304.6v189.6H26.1zM137.9 288.5l-3.2 33.5h92.6l-4.4-33M56.1 332.6h244.5l24.3 41.1H34.5zM340.7 373.7s-.6-29.8 35.9-30.2c36.5-.4 35.9 30.2 35.9 30.2h-71.8z"/>
-								<path class="st0" d="M114.2 82.8v153.3h147V82.8zM261.2 91.1h-147"/>
-								<path class="st0" d="M124.5 105.7h61.8v38.7h-61.8zM196.6 170.2H249v51.7h-52.4zM196.6 105.7H249M196.6 118.6H249M196.6 131.5H249M196.6 144.4H249M124.5 157.3H249M124.5 170.2h62.2M124.5 183.2h62.2M124.5 196.1h62.2M124.5 209h62.2M124.5 221.9h62.2"/>
-							</g>
-						</svg>
- 
-						<h4 class="text-danger" style="font-family: 'Saira Condensed', sans-serif;">Hệ thống đang bảo trì</h4>
-						<p class="text-muted">Website đang bảo dưỡng định kỳ. Vui lòng quay lại sau, cảm ơn!</p>
-                        </div>
-
-                    </div><!-- end col -->
+<header id="header" class="header-effect-shrink" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyStartAt': 120}">
+    <div class="header-body bg-dark-5">
+        <div class="header-container container">
+            <div class="header-row">
+                <div class="header-column justify-content-start">
+                    <div class="header-logo">
+                        <a href="<?= $this->Url->build(['controller'=>'Pages','action'=>'index','home'])?>">
+                            <?= $this->Html->image('/homepage/img/logo-small-white.png',[
+                                "alt"=>"Polygon" ,
+                                "width"=>"117" ,
+                                "height"=>"54" ,
+                                "data-change-src"=>"/homepage/img/logo-small-white.png"
+                            ]) ?>
+                        </a>
+                    </div>
                 </div>
-                <!-- end row -->
-
-            </div> <!-- end container -->
+            </div>
         </div>
-        <!-- end wrapper -->
+    </div>
+</header>
 
-    </body>
-</html>
+<div role="main" class="main bg-light-5">
+    <section class="section">
+        <img src="/homepage/img/others/lamp-holder.png" class="img-fluid lamp-style-2 position-absolute transform-center-x appear-animation" data-appear-animation="fadeIn" alt="" />
+        <div class="container">
+            <div class="row justify-content-center text-center py-5 mt-5 mb-3">
+                <div class="col-md-8 col-lg-6 pt-4 mt-5">
+                    <h1 class="font-weight-bold text-6 mb-5 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200"><strong class="d-block font-weight-bold text-17">BACK SOON!</strong>HỆ THỐNG ĐANG BẢO TRÌ</h1>
+                    <p class="mb-5 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">Hiện tại hệ thống đang bảo trì nhằm nâng cấp và cải thiện dịch vụ. Mọi hoạt động của quý khách sẽ bị hạn chế, rất mong quý khách thông cảm vì sự bất tiện này.</p>
+                    <ul class="social-icons social-icons-icon-dark d-inline-flex appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="600">
+                        <li class="social-icons-facebook">
+                            <a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li class="social-icons-twitter mx-2">
+                            <a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li class="social-icons-instagram">
+                            <a href="http://www.instagram.com/" target="_blank" title="Instragram"><i class="fab fa-instagram"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>

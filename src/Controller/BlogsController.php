@@ -31,12 +31,14 @@ class BlogsController extends AppController
      */
     public function index()
     {
+        $this->viewBuilder()->layout('homepage');
         $this->paginate = [
-            'contain' => ['Categories']
+            'contain' => ['Categories','Comments'],
+            'limit' => 15
         ];
-        $blogs = $this->paginate($this->Blogs);
+        $blogList = $this->paginate($this->Blogs);
 
-        $this->set(compact('blogs'));
+        $this->set(compact('blogList'));
     }
 
     /**

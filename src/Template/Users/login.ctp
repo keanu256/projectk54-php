@@ -1,5 +1,5 @@
 <?= $this->Element('Homepage/Header/header_custom_1')?>
-<section class="section page-header mb-0">
+<section class="section page-header mb-0" id="page-header">
     <div class="container">
         <div class="row">
             <div class="col-md-12">

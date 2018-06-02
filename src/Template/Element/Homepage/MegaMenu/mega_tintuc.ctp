@@ -26,7 +26,7 @@
                                 <a class="dropdown-item scroll_on_hover ellipsis" href="<?= $this->Url->build(['controller'=>'Blogs','action'=>'view',$value->id])?>"><i class="fas fa-genderless"></i>&nbsp; <?= $value->title ?></a>
                             </li>
                         <?php endforeach; ?>
-                        <li><a class="dropdown-item" href="portfolio-2.html"><i class="fas fa-angle-double-right"></i>&nbsp; Xem thêm</a></li>  
+                        <li><a class="dropdown-item" href="<?= $this->Url->build(['controller'=>'Blogs','action'=>'index'])?>"><i class="fas fa-angle-double-right"></i>&nbsp; Xem thêm</a></li>  
                     </ul>
                 </div>
                 <div class="col-lg-3" style="border-right: none;">

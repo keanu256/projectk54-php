@@ -1,5 +1,6 @@
 <?= $this->Element('Homepage/Header/header_custom_1')?>
-<section class="section page-header mb-0">
+<?php if($allowRegister): ?> 
+<section class="section page-header mb-0" id="page-header">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -66,5 +67,17 @@
         </div>
     </div>
 </section>
-
-
+<?php else: ?>
+<section class="section bg-light-5 " id="page-header">
+    <img src="/homepage/img/sorry-guy.png" class="pt-5 img-fluid lamp-style-2 position-absolute transform-center-x appear-animation" data-appear-animation="fadeIn" alt="" />
+    <div class="container pt-5"> 
+        <div class="row justify-content-center text-center py-5 mt-5 mb-3">
+            <div class="col-md-8 col-lg-6 pt-4 mt-5">
+                <h1 class="font-weight-bold text-6 mb-5 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200">CHỨC NĂNG TẠM ĐÓNG</h1>
+                <p class="mb-5 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi. Chúng tôi rất tiếc phải thông báo rằng yêu cầu của bạn đang tạm khóa, bạn có thể liên lạc với chúng tôi hoặc thử lại sau.</p>
+                <a href="<?= $this->Url->build(['controller'=>'Pages','action'=>'index','home']) ?>" class="btn btn-primary btn-rounded btn-v-3 btn-h-3 font-weight-bold appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="800"><i class="fas fa-angle-left mr-3 text-3"></i> QUAY VỀ TRANG CHỦ</a>
+            </div>
+        </div>
+    </div>
+</section>
+<?php endif; ?>

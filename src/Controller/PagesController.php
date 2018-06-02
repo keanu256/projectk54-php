@@ -402,7 +402,15 @@ class PagesController extends AppController
 
 
     public function register(){
-        $this->viewBuilder()->layout('homepage');   
-        $this->set(['RegisterPageIndex' => true]);
-    }  
+        $this->viewBuilder()->layout('homepage');  
+        Configure::load('appsettings'); 
+        $this->set([
+            'RegisterPageIndex' => true,
+            'allowRegister' => Configure::read('Register')
+        ]);
+    } 
+    
+    public function policy(){
+        $this->viewBuilder()->layout('homepage');  
+    }
 }
