@@ -2,7 +2,7 @@
     <li>
         <div class="dropdown-mega-content">
             <div class="row">
-                <div class="col-lg-3 dropdown-mega-sub-content-block overlay overlay-show overlay-color-primary d-none d-lg-block" data-plugin-image-background="" data-plugin-options="{'imageUrl': '/homepage/img/menu-bg-khoungdung.jpg'}" style="background-image: url(&quot;/homepage/img/menu-bg-khoungdung.jpg&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+                <div class="col-lg-3 dropdown-mega-sub-content-block overlay overlay-show overlay-color-primary d-none d-lg-block" data-plugin-image-background="" data-plugin-options="{'imageUrl': '/homepage/img/menu-bg-dichvu.png'}" style="background-image: url(&quot;/homepage/img/menu-bg-dichvu.png&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat;">
                     <span class="top-sub-title text-color-light-2 d-block">THE MOST</span>
                     <span class="text-color-light font-weight-bold d-block text-4 mb-2">KHO ỨNG DỤNG</span>
                     <p class="text-color-light-2">Cung cấp các công cụ giúp tối ưu công việc.</p>

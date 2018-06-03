@@ -221,7 +221,7 @@
 			function goToPage(number){
 				switch(number){
 					case 0 : 
-						$(location).attr('href', '<?= $this->Url->build(['controller'=>'Pages','action'=>'index']) ?>');
+						$(location).attr('href', '<?= $this->Url->build(['controller'=>'Pages','action'=>'index','home']) ?>');
 						break;
 					case 1 : 
 						$(location).attr('href', '<?= $this->Url->build(['controller'=>'Pages','action'=>'register']) ?>');

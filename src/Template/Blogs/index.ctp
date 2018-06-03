@@ -1,22 +1,29 @@
 <?php use Cake\i18n\Time; ?>
 <?= $this->Element('Homepage/Header/header')?>
-<section class="page-header mb-0" id="page-header">
+<section class="page-header mb-0 parallax appear-animation" id="page-header" data-plugin-parallax data-plugin-options="{'speed': 1.5}" data-image-src="/homepage/img/background-page-header.png" data-appear-animation="fadeIn" data-appear-animation-duration="1s">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-8 text-left">
-                <span class="tob-sub-title text-color-primary d-block">OUR BLOG</span>
-                <h1 class="font-weight-bold">Masonry - 3 Columns</h1>
+                <span class="tob-sub-title text-color-primary d-block">TIN TỨC</span>
+                <h1 class="font-weight-bold">Cổng thông tin Polygon</h1>
                 <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
-            <div class="col-md-4">
-                <ul class="breadcrumb justify-content-start justify-content-md-end">
-                    <li><a href="#">Home</a></li>
-                    <li class="active">Blog</li>
+        </div>
+    </div> 
+</section>
+<aside class="nav-secondary bg-light-4 mb-5">
+    <div class="container">
+        <div class="row py-2">
+            <div class="col">
+                <ul class="nav justify-content-end align-items-center">
+                    <li class="nav-item"><a class="nav-link font-weight-semibold <?= $type == 0 ? 'active' : '' ?>" href="<?= $this->Url->build(['controller'=>'Blogs','action'=>'index']) ?>">MỚI NHẤT</a></li>
+                    <li class="nav-item"><a class="nav-link font-weight-semibold <?= $type == 1 ? 'active' : '' ?>" href="<?= $this->Url->build(['controller'=>'Blogs','action'=>'index',1]) ?>">KHUYẾN MÃI & SỰ KIỆN</a></li>
+                    <li class="nav-item"><a class="nav-link font-weight-semibold <?= $type == 2 ? 'active' : '' ?>" href="<?= $this->Url->build(['controller'=>'Blogs','action'=>'index',2]) ?>">XEM NHIỀU</a></li>
                 </ul>
             </div>
         </div>
     </div>
-</section>
+</aside>
 <section class="section">
     <div class="container">
         <div class="row masonry-loader masonry-loader-showing portfolio-list portfolio-list-style-2" data-plugin-masonry data-plugin-options="{'itemSelector': '.isotope-item'}">
@@ -24,7 +31,7 @@
             <div class="col-sm-6 col-md-4 isotope-item mb-5 p-0">
                 <div class="portfolio-item">
                     <article class="blog-post">
-                        <span class="top-sub-title text-color-primary"><?= $value->created->nice('Asia/Ho_Chi_Minh','vi-VN') ?></span>
+                        <span class="top-sub-title text-color-primary"><i class="far fa-clock"></i> <?= $value->created->i18nFormat('dd MMM, YYYY - HH:mm:ss','Asia/Ho_Chi_Minh','vi-VN') ?></span>
                         <h2 class="font-weight-bold text-4 mb-3">
                             <a href="<?= $this->Url->build(['controller'=>'Blogs','action'=>'view',$value->id]) ?>" class="link-color-dark blog-pl-title"><?= $value->title ?></a>
                         </h2>									

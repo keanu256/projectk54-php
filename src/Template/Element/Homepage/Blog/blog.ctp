@@ -43,7 +43,7 @@
         </div>
         <div class="row text-center">
             <div class="col">
-                <a href="blog-cards-4-columns.html" class="btn btn-outline btn-primary btn-h-4 btn-v-3 font-weight-semibold text-0">XEM TẤT CẢ</a>
+                <a href="<?= $this->Url->build(['controller'=>'Blogs','action'=>'index'])?>" class="btn btn-outline btn-primary btn-h-4 btn-v-3 font-weight-semibold text-0">XEM TẤT CẢ</a>
             </div>
         </div>
     </div>

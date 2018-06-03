@@ -2070,3 +2070,7 @@ ul.comments .comment-block,
 .pl-policy p,.pl-policy li{
 	text-align: justify;
 }
+
+.view-more-text{
+	color: #4FC3F7 !important;
+}

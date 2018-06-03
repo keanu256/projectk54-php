@@ -22,7 +22,7 @@
                     </a>
                 </div>
                 <div class="featured-box col-lg-4">
-                    <a class="text-decoration-none" href="#">
+                    <a class="text-decoration-none" href="skype:huu.tai@primelabo.com.vn?chat">
                         <img src="/homepage/img/icons/icon-3.svg" class="img-responsive appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="500" alt="Icon 3" /> 
                         <div class="d-inline-block appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="550">
                             <h2 class="text-2 pt-1 mb-0">HỖ TRỢ TRỰC TUYẾN</h2>

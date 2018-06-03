@@ -29,16 +29,23 @@ class BlogsController extends AppController
      *
      * @return \Cake\Http\Response|void
      */
-    public function index()
+    public function index($type = 0)
     {
         $this->viewBuilder()->layout('homepage');
         $this->paginate = [
             'contain' => ['Categories','Comments'],
             'limit' => 15
         ];
-        $blogList = $this->paginate($this->Blogs);
 
-        $this->set(compact('blogList'));
+        $query = $this->Blogs->find()->order(['created' => 'DESC']);
+
+        if($type == 1) $query->where(['category_id' => 1]);
+        if($type == 2) $query->order(['viewers' => 'DESC']);
+        if($type > 2) $type = 0;
+
+        $blogList = $this->paginate($query);
+
+        $this->set(compact(['blogList','type']));
     }
 
     /**
