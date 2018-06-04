@@ -239,7 +239,7 @@
 						$(location).attr('href', '<?= $this->Url->build(['controller'=>'Themes','action'=>'index']) ?>');
 						break;
 					case 6 : 
-						$(location).attr('href', '<?= $this->Url->build(['controller'=>'Utilities','action'=>'index']) ?>');
+						$(location).attr('href', '<?= $this->Url->build(['controller'=>'Appstore','action'=>'index']) ?>');
 						break;
 					case 7 : 
 						$(location).attr('href', '<?= $this->Url->build(['controller'=>'Blogs','action'=>'index']) ?>');

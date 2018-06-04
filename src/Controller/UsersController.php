@@ -246,7 +246,6 @@ class UsersController extends AuthController
             'username' => $data['username'],
             'flag' => 1
         ])->orWhere(['email' => $data['username']])
-        ->select(['id','password','email','username','verify'])
         ->first();
              
         if(!empty($user) && $user['verify'] == 1){
@@ -372,15 +371,31 @@ class UsersController extends AuthController
             $data = $this->request->data();
             $user_mail = $data['email'];
 
-            $email = new Email();
-            $email->to('taiphan0310@gmail.com')
-                ->subject('Kích hoạt tài khoản tại Polygon Việt Nam')
-                ->send('Link kich hoạt');
-            
-            $response = [
-                'code' => 200,
-                'msg' => 'Đã gửi! Vui lòng kiểm tra hộp thư nếu không tìm thấy thử lại sau 15 phút.'
-            ];   
+            $user = $this->Users->find()->where(['email' => $user_mail])->first();
+
+            if(!empty($user)){
+                $code = self::_randomCode();
+                $user->activecode = $code;
+
+                $this->Users->save($user);
+
+                $email = new Email();
+                $email
+                    ->template('default', 'activeUser')
+                    ->emailFormat('html')
+                    ->viewVars(['code' => $code])
+                    ->to('taiphan0310@gmail.com')
+                    ->subject('Kích hoạt tài khoản tại Polygon Việt Nam')
+                    ->send('Link kich hoạt');
+                
+                $response = [
+                    'code' => 200,
+                    'msg' => 'Đã gửi! Vui lòng kiểm tra hộp thư nếu không tìm thấy thử lại sau 15 phút.'
+                ]; 
+            }else{
+                //$response['msg'] = 'Email không tồn tại';
+                $response['msg'] = $user_mail;
+            }            
         }    
 
         $this->response->type('json');
@@ -436,5 +451,14 @@ class UsersController extends AuthController
         $entity->is_spam = $data->suspicious_factors->is_spam;
         $entity->is_suspicious = $data->suspicious_factors->is_suspicious;
         return $entity;
+    }
+
+    private function _randomCode(){
+
+        $code = '';        
+        for ($i=0; $i < 6; $i++) { 
+            $code .= mt_rand(0,9); 
+        }
+        return $code;
     }
 }

@@ -6,7 +6,7 @@
                     <span class="top-sub-title text-color-light-2 d-block">THE MOST</span>
                     <span class="text-color-light font-weight-bold d-block text-4 mb-2">KHO ỨNG DỤNG</span>
                     <p class="text-color-light-2">Cung cấp các công cụ giúp tối ưu công việc.</p>
-                    <a class="btn btn-dark btn-rounded btn-v-3 btn-h-2 content-block-button font-weight-semibold" href="#">TÌM HIỂU</a>
+                    <a class="btn btn-dark btn-rounded btn-v-3 btn-h-2 content-block-button font-weight-semibold" href="<?= $this->Url->build(['controller' => 'Appstore','action' => 'index']) ?>">TÌM HIỂU</a>
                 </div>
                 <div class="col-lg-3 ml-auto">
                     <span class="dropdown-mega-sub-title">ỨNG DỤNG DESKTOP</span>

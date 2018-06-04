@@ -33,9 +33,9 @@ class ErrorController extends AppController
     {
         $this->loadComponent('RequestHandler');
         $blogsTB = TableRegistry::get('Blogs');
-        $blog['new'] = $blogsTB->find()->order(['created' => 'DESC'])->limit(5);
-        $blog['khuyenmai'] = $blogsTB->find()->where(['category_id' => 1])->order(['created' => 'DESC'])->limit(5);
-        $blog['topviewers'] = $blogsTB->find()->order(['viewers' => 'DESC'])->limit(5);
+        $blog['new'] = $blogsTB->find()->where(['type' => 1])->order(['created' => 'DESC'])->limit(5);
+        $blog['khuyenmai'] = $blogsTB->find()->where(['category_id' => 1,'type'=>1])->order(['created' => 'DESC'])->limit(5);
+        $blog['topviewers'] = $blogsTB->find()->where(['type' => 1])->order(['viewers' => 'DESC'])->limit(5);
 
         $this->set([
             'blogs' => $blog

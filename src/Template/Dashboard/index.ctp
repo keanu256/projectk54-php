@@ -50,57 +50,7 @@
                         <?= $this->Html->image('flaticon/svg-1/170-package.svg') ?>
                     </div>
                     <div class="func-title">
-                        <?= $this->Html->link('sản phẩm',['controller'=>'Dashboard','action'=>'index']) ?>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card-box">
-                    <div class="func-img">
-                        <?= $this->Html->image('flaticon/svg-1/087-package-2.svg') ?>
-                    </div>
-                    <div class="func-title">
-                        <?= $this->Html->link('Kho hàng',['controller'=>'Dashboard','action'=>'index']) ?>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card-box">
-                    <div class="func-img">
-                        <?= $this->Html->image('flaticon/svg-1/139-salesman.svg') ?>
-                    </div>
-                    <div class="func-title">
-                        <?= $this->Html->link('nhân viên',['controller'=>'Dashboard','action'=>'index']) ?>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card-box">
-                    <div class="func-img">
-                        <?= $this->Html->image('flaticon/svg-1/120-bill-1.svg') ?>
-                    </div>
-                    <div class="func-title">
-                        <?= $this->Html->link('đơn hàng',['controller'=>'Dashboard','action'=>'index']) ?>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card-box">
-                    <div class="func-img">
-                        <?= $this->Html->image('flaticon/svg-1/131-delivery-truck-2.svg') ?>
-                    </div>
-                    <div class="func-title">
-                        <?= $this->Html->link('nhà cung cấp',['controller'=>'Dashboard','action'=>'index']) ?>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card-box">
-                    <div class="func-img">
-                        <?= $this->Html->image('flaticon/svg-1/017-tickets.svg') ?>
-                    </div>
-                    <div class="func-title">
-                        <?= $this->Html->link('hội viên',['controller'=>'Dashboard','action'=>'index']) ?>
+                        <?= $this->Html->link('tạo cửa hàng',['controller'=>'Dashboard','action'=>'index']) ?>
                     </div>
                 </div>
             </div>

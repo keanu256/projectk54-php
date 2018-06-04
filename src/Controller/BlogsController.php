@@ -16,9 +16,9 @@ class BlogsController extends AppController
     {
         parent::initialize();
 
-        $blog['new'] = $this->Blogs->find()->order(['created' => 'DESC'])->limit(5);
-        $blog['khuyenmai'] = $this->Blogs->find()->where(['category_id' => 1])->order(['created' => 'DESC'])->limit(5);
-        $blog['topviewers'] = $this->Blogs->find()->order(['viewers' => 'DESC'])->limit(5);
+        $blog['new'] = $this->Blogs->find()->where(['type' => 1])->order(['created' => 'DESC'])->limit(5);
+        $blog['khuyenmai'] = $this->Blogs->find()->where(['category_id' => 1,'type'=>1])->order(['created' => 'DESC'])->limit(5);
+        $blog['topviewers'] = $this->Blogs->find()->where(['type' => 1])->order(['viewers' => 'DESC'])->limit(5);
 
         $this->set([
             'blogs' => $blog

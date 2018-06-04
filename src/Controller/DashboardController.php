@@ -32,7 +32,7 @@ class DashboardController extends AuthController
         $session = $this->request->session();
 
         if($session->read('Auth.User.isadmin') == false){
-            return $this->redirect(['controller'=>'Pages','action'=>'index']);       
+            return $this->redirect(['controller'=>'Pages','action'=>'index','home']);       
         }
 
         $action = $this->request->getParam('action');
@@ -54,6 +54,10 @@ class DashboardController extends AuthController
 
     public function index(){
         $session = $this->request->session();
+
+    }
+
+    public function shop($shopid = null){
 
     }
 

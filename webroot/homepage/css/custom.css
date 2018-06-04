@@ -2074,3 +2074,51 @@ ul.comments .comment-block,
 .view-more-text{
 	color: #4FC3F7 !important;
 }
+
+.service-box img{
+	display: block;
+	margin: 0 auto;
+	margin-top: 20px;
+	object-fit: contain;
+	height: 280px; 
+}
+
+.service-box{
+	margin: 0 15px;
+	padding: 0 15px;
+}
+
+.service-box h4{
+	color: white;
+	font-weight: normal;
+	padding: 0 10px;
+}
+
+.service-box p{
+	text-align: justify;
+	color: rgba(255, 255, 255, 0.5);
+	padding: 0 10px;
+}
+
+.service-box a{
+	display: block;
+	min-height: 80px;
+	line-height: 80px;
+	color: white;
+	padding-left: 30px;
+	font-size: 1.2em;
+}
+
+.mb-30{
+	margin-bottom: 30px;
+}
+
+.height-50{
+	height: 50px;
+	line-height: 50px;
+}
+
+.mb-mt-60{
+	margin-top: 60px;
+	margin-bottom: 30px;
+}
