@@ -2122,3 +2122,34 @@ ul.comments .comment-block,
 	margin-top: 60px;
 	margin-bottom: 30px;
 }
+
+.welcome-tab h3{
+	margin-bottom: 35px;
+}
+
+.welcome-tab h3:before{
+	content: ' ';
+	border-left: 5px solid #23b0ed;
+	padding-right: 15px;
+}
+
+.welcome-tab button{
+	border: 1.8325px solid #23b0ed;
+}
+
+.welcome-tab .form-group .textarea{
+	display: block;
+	width: 100%;
+	border: 1px solid rgb(222, 226, 230);
+	background-color: #FAFAFA;
+	text-align: justify;
+	padding: 10px;
+}
+
+.welcome-tab .form-group .textarea:focus{
+	outline: none;
+}
+
+.welcome-tab span a{
+	color: #23b0ed;
+}

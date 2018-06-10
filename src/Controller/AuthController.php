@@ -12,7 +12,23 @@ class AuthController extends Controller
     public function initialize()
     {
         parent::initialize();
+        Configure::load('appsettings');
+        
+        
+        $session = $this->request->session();
+        $UsersTB = TableRegistry::get('ApiKey');
+        $user_api_key = $UsersTB->find()->where(['user_id' => $session->read('Auth.User.id')])->first();
 
+        if(!empty($user_api_key)){
+            $this->set([
+                'user_api_key' => $user_api_key['api_key']
+            ]);
+        }
+
+        $this->set([
+            'apiVersion' => Configure::read('Api.version'),
+        ]);
+        
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Cookie');
         $this->loadComponent('Auth', [

@@ -1,7 +1,7 @@
 <?php
 return array (
   'Maintain' => false,
-  'Register' => false,
+  'Register' => true,
   'Payment' => false,
   'Api' => 
   array (

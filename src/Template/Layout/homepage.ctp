@@ -26,6 +26,7 @@
 		<?= $this->Html->css('/homepage/vendor/owl.carousel/assets/owl.carousel.min.css') ?>
 		<?= $this->Html->css('/homepage/vendor/owl.carousel/assets/owl.theme.default.min.css') ?>
 		<?= $this->Html->css('/homepage/vendor/magnific-popup/magnific-popup.min.css') ?>
+		<?= $this->Html->css('/lib/datetimepicker/jquery.datetimepicker.min.css') ?>
 
 		<!-- Theme CSS -->
 		<?= $this->Html->css('/homepage/css/theme.css') ?>
@@ -90,7 +91,8 @@
 		<?= $this->Html->script('/homepage/vendor/vide/vide.min.js') ?>
 		<?= $this->Html->script('/homepage/vendor/vivus/vivus.min.js') ?>
 		<?= $this->Html->script('/lib/sweetalert2/sweetalert2.all.js') ?>
-		
+		<?= $this->Html->script('/lib/datetimepicker/jquery.datetimepicker.full.min.js') ?>
+		<?= $this->Html->script('/lib/slimscroll/jquery.slimscroll.min.js') ?>
 		
 		<!-- Theme Base, Components and Settings -->
 		<?= $this->Html->script('/homepage/js/theme.js') ?>

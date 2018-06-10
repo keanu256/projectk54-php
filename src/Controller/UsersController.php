@@ -30,6 +30,14 @@ class UsersController extends AuthController
 {
     public function beforeFilter(Event $event) {
         parent::beforeFilter($event);
+        $blogsTB = TableRegistry::get('Blogs');
+        $blog['new'] = $blogsTB->find()->where(['type' => 1])->order(['created' => 'DESC'])->limit(5);
+        $blog['khuyenmai'] = $blogsTB->find()->where(['category_id' => 1,'type'=>1])->order(['created' => 'DESC'])->limit(5);
+        $blog['topviewers'] = $blogsTB->find()->where(['type' => 1])->order(['viewers' => 'DESC'])->limit(5);
+
+        $this->set([
+            'blogs' => $blog
+        ]);
 
         $this->Auth->allow([
             'logout', 
@@ -38,6 +46,13 @@ class UsersController extends AuthController
             'polygonLogin',
             'polygonRegister', 'activeAccount'
         ]);
+    }
+
+    public function isAuthorized($user) {
+        if(isset($user['username'])){
+            return true;
+        }
+        return false;
     }
 
     public function login(){
@@ -460,5 +475,57 @@ class UsersController extends AuthController
             $code .= mt_rand(0,9); 
         }
         return $code;
+    }
+
+    public function profile(){
+        $this->viewBuilder()->layout('homepage'); 
+        $session = $this->request->session();
+        $user = $this->Users->get(['id' => $session->read('Auth.User.id')]);
+
+        if(!$user->isready){
+            $this->redirect(['action' => 'welcome']);
+        }
+    }
+
+    public function welcome($step = 0){
+        $this->viewBuilder()->layout('homepage'); 
+        $polyHelper = new PolygonHelper();
+
+        $default_string = [0 => '-- Chưa chọn --'];
+
+        $khu_vuc = $default_string + [1 => 'Miền Bắc', 2 => 'Miền Trung', 3 => 'Miền Nam'];
+        $tinh_thanhpho = $default_string;
+        $quan_huyen = $default_string;
+        $phuong_xa = $default_string;
+
+        $citiesTB = TableRegistry::get('Cities');
+        $districtsTB = TableRegistry::get('Districts');
+        $wardsTB = TableRegistry::get('Wards');
+
+        $cities = $polyHelper->getCitiesName(1);
+
+        $userAddress = [
+            'street' => '350 Tân Sơn Nhì',
+            'zone' => 3,
+            'city' => 79,
+            'district' => 767,
+            'ward' => 27010
+        ];
+
+        $userAddress = null;
+
+        if($userAddress != null){
+            $tinh_thanhpho += $citiesTB->find('list')->where(['zone' => $userAddress['zone']])->toArray();
+            $quan_huyen += $districtsTB->find('list')->where(['city_id' => $userAddress['city']])->toArray();
+            $phuong_xa += $wardsTB->find('list')->where(['district_id' => $userAddress['district']])->toArray();
+        }
+
+        $this->set([
+            'userAddress' => $userAddress,
+            'khu_vuc' => $khu_vuc,
+            'tinh_thanhpho' => $tinh_thanhpho,
+            'quan_huyen' => $quan_huyen, 
+            'phuong_xa' => $phuong_xa
+        ]);
     }
 }

@@ -60,7 +60,7 @@
                 <div class="header-column justify-content-end">
                     <div class="header-button d-none d-sm-flex border-right-0 border-left-0 pr-2 pr-lg-4">
                         <?php if(!empty($this->request->session()->read('Auth.User.id'))): ?>
-                            <a href="#" class="btn btn-outline btn-rounded btn-primary btn-4 btn-icon-effect-1">
+                            <a href="<?= $this->Url->build(['controller'=>'Users','action'=>'profile'])?>" class="btn btn-outline btn-rounded btn-primary btn-4 btn-icon-effect-1">
                                 <span class="wrap">
                                     <span>Xin chào, <?= $this->request->session()->read('Auth.User.username')?></span>
                                     <i class="fas fa-cogs"></i>

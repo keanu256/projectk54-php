@@ -412,5 +412,6 @@ class PagesController extends AppController
     
     public function policy(){
         $this->viewBuilder()->layout('homepage');  
+        
     }
 }
