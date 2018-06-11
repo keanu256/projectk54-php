@@ -39,7 +39,7 @@
         </div>
     </div>
 </aside>
-<?= $this->Form->create(false,['url'=> ['controller'=>'Users','action' => 'welcome'],['id' => 'formWelcome']]) ?>
+<?= $this->Form->create(false,['url'=> ['controller'=>'Users','action' => 'welcome'],'id' => 'formWelcome']) ?>
 <section class="section container welcome-tab" id="first">
     <h3 class="ml-3">HÌNH ĐẠI DIỆN</h3>
     <div class="row ml-1 mr-1 mb-5">
@@ -439,14 +439,56 @@
             height: '300px'
         });
 
-        $('formWelcome').validate({
+        // add the rule here
+        $.validator.addMethod("gioitinh", function(value, element, arg){
+            return arg !== value;
+        }, "Hãy chọn giới tính");
+
+        $('#formWelcome').validate({
             rules: {
                 phone:{
                     required: true
                 },
                 cmnd: {
                     required: true
-                }   
+                },
+                cmnd_publish:{
+                    required: true
+                },
+                cmnd_place:{
+                    required: true
+                },
+                dob: {
+                    required: true
+                },
+                secret_question_ans:{
+                    required: true,
+                    minlength: 4
+                },
+                gioi_tinh:{
+                    gioitinh: '3',
+                }
+            },
+            messages:{
+                phone: {
+                    required: 'Vui lòng cung cấp số điện thoại'
+                },
+                cmnd: {
+                    required: 'Vui lòng cung cấp số CMND/Bằng lái/Passport'
+                },
+                cmnd_publish: {
+                    required: 'Vui lòng cung cấp ngày cấp'
+                }, 
+                cmnd_place:{
+                    required: 'Vui lòng cung cấp nơi cấp'
+                },
+                dob:{
+                    required: 'Vui lòng cung cấp ngày sinh'
+                },
+                secret_question_ans:{
+                    required: 'Vui lòng trả lời câu hỏi bí mật',
+                    minlength: 'Câu trả lời tối thiểu 4 ký tự'
+                },
             }
         });
         // $(document).on('change','select[name="payment_pack"]', function(obj){

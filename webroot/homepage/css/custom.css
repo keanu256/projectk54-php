@@ -2153,3 +2153,21 @@ ul.comments .comment-block,
 .welcome-tab span a{
 	color: #23b0ed;
 }
+
+.welcome-tab .has-error input,.welcome-tab .has-error select{
+	border: 1.5px solid red !important;
+	background-color: #ffedeb;
+}
+
+label.error:before{
+    background-image: url('..//img/error-ic002.gif');
+    content: " ";
+    width: 12px;
+    height: 12px;
+    float: left;
+    margin-right: 5px;
+    top: 4px;
+	background-repeat: no-repeat;
+	max-width: 100%;
+    position: relative;
+}
